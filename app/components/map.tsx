@@ -38,6 +38,7 @@ function Map() {
         projection: projection,
         center: getCenter(extent),
         zoom: 2,
+        minZoom: 1,
         maxZoom: 8,
       }),
     });
