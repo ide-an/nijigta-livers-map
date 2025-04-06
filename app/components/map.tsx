@@ -1,24 +1,44 @@
 "use client";
 
 import { View } from "ol";
-import TileLayer from "ol/layer/Tile";
-import { OSM } from "ol/source";
 import React, { useEffect } from "react";
 import { Map as OlMap } from "ol";
 import 'ol/ol.css';
+import ImageLayer from "ol/layer/Image";
+import Static from "ol/source/ImageStatic";
+import { Projection } from "ol/proj";
+import { getCenter } from "ol/extent";
 
 function Map() {
   useEffect(() => {
-    const osmLayer = new TileLayer({
-      source: new OSM(),
+
+    // create base map layer
+    const imaggeWidth = 6144;
+    const imageHeight = 9216;
+    const extent = [0, 0, imaggeWidth, imageHeight];
+    const projection = new Projection({
+      code: "static-image",
+      units: "pixels",
+      extent: extent,
+      axisOrientation: "esu",
+    });
+    const mapLayer = new ImageLayer({
+      source: new Static({
+        url: '/img/map.png',
+        projection: projection,
+        imageExtent: extent,
+      }),
     });
 
+    // create map
     const map = new OlMap({
       target: "map-container",
-      layers: [osmLayer],
+      layers: [mapLayer],
       view: new View({
-        center: [0, 0],
-        zoom: 0,
+        projection: projection,
+        center: getCenter(extent),
+        zoom: 2,
+        maxZoom: 8,
       }),
     });
 
