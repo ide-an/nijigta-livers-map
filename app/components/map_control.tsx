@@ -1,95 +1,102 @@
+"use client";
+
+import { BackwardIcon, ForwardIcon, PlayIcon } from "@heroicons/react/24/solid";
+import { ButtonGroup, IconButton, Select, Slider, Option, Switch, Button, Avatar, Typography } from "@material-tailwind/react";
+
 export default function MapControl() {
   return (
-  <div>
-      {/* 日付選択 */}
-      <label>日付:
-        <select>
-          <option value="1">Day 1(6/15)</option>
-          <option value="2">Day 2(6/16)</option>
-          <option value="3">Day 3(6/17)</option>
-          <option value="4">Day 4(6/18)</option>
-          <option value="5">Day 5(6/19)</option>
-          <option value="6">Day 6(6/20)</option>
-          <option value="7">Day 7(6/21)</option>
-          <option value="8">Day 8(6/22)</option>
-          <option value="9">Day 9(6/23)</option>
-          <option value="10">Day 10(6/24)</option>
-        </select>
-      </label>
+    <div className="flex flex-col gap-6 py-6 px-4">
+      <div className="flex flex-row gap-6 items-center">
+        <div >
+          {/* 日付選択 */}
+          <Select label="日付" value="1" size="sm">
+            <Option value="1">Day 1(6/15)</Option>
+            <Option value="2">Day 2(6/16)</Option>
+            <Option value="3">Day 3(6/17)</Option>
+            <Option value="4">Day 4(6/18)</Option>
+            <Option value="5">Day 5(6/19)</Option>
+            <Option value="6">Day 6(6/20)</Option>
+            <Option value="7">Day 7(6/21)</Option>
+            <Option value="8">Day 8(6/22)</Option>
+            <Option value="9">Day 9(6/23)</Option>
+            <Option value="10">Day 10(6/24)</Option>
+          </Select>
+        </div>
 
-
-      {/* 時刻表示 */}
-      <div>2024-06-14 19:23:45</div>
+        {/* 時刻表示 */}
+        <div >
+          <Typography variant="h3">6/14 19:23:45</Typography>
+        </div>
+      </div>
 
       {/* 再生・停止 */}
-      <div>
-        <input type="range" min="0" max="100" className="w-full" />
+      <Slider defaultValue={50} color="green" className="w-full" />
+      <div className="flex flex-row gap-6">
+        <ButtonGroup variant="outlined">
+          {/* TODO: 一番最初・最後に行くとわかりやすいアイコンにしたい。heroiconsにはない？*/}
+          <IconButton variant="outlined">
+            <BackwardIcon className="h-4 w-4" />
+          </IconButton>
+          <IconButton variant="outlined">
+            <PlayIcon className="h-4 w-4" />
+          </IconButton>
+          <IconButton variant="outlined">
+            <ForwardIcon className="h-4 w-4" />
+          </IconButton>
+        </ButtonGroup>
+        <Select label="再生速度" value="1x" size="sm">
+          <Option value="1x">1x</Option>
+          <Option value="60x">60x</Option>
+          <Option value="300x">300x</Option>
+        </Select>
       </div>
-      <div>
-        <button>先頭に戻る</button>
-        <button>再生/停止</button>
-        <button>最後に飛ぶ</button>
-        <label>再生速度:
-          <select>
-            <option>x1</option>
-            <option>x60</option>
-            <option>x300</option>
-          </select>
-        </label>
-      </div>
-
       {/* 表示オプション */}
-      <div>
-        <label>ルートを表示: <input type="checkbox" /></label>
-      </div>
+      <Switch label="ルートを表示" defaultChecked={true} color="green" />
 
       {/* ライバー選択 */}
-      <div>
-        <div><button>ライバー選択</button></div>
-        <div>
-          <span>[アイコン]</span>
-          <span>叶</span>
-          <span>手動補正済み</span>
+      <Button variant="outlined" >ライバー選択</Button>
+      <div className="flex flex-col gap-6">
+        <div className="flex items-center gap-4">
+          <Avatar src="/img/avatar/test.png" />
+          <div>
+            <Typography variant="h6">叶</Typography>
+            <Typography variant="small">手動補正済み</Typography>
+          </div>
         </div>
-        <div>
-          <span>[アイコン]</span>
-          <span>星川サラ</span>
-          <span>手動補正済み</span>
+        <div className="flex items-center gap-4">
+          <Avatar src="/img/avatar/test.png" />
+          <div>
+            <Typography variant="h6">叶</Typography>
+            <Typography variant="small">手動補正済み</Typography>
+          </div>
         </div>
-        <div>
-          <span>[アイコン]</span>
-          <span>月ノ美兎</span>
-          <span>!補正前</span>
+        <div className="flex items-center gap-4">
+          <Avatar src="/img/avatar/test.png" />
+          <div>
+            <Typography variant="h6">叶</Typography>
+            <Typography variant="small">手動補正済み</Typography>
+          </div>
         </div>
-        <div>
-          <span>[アイコン]</span>
-          <span>樋口楓</span>
-          <span>!補正前</span>
+        <div className="flex items-center gap-4">
+          <Avatar src="/img/avatar/test.png" />
+          <div>
+            <Typography variant="h6">叶</Typography>
+            <Typography variant="small">手動補正済み</Typography>
+          </div>
         </div>
-        <div>
-          <span>[アイコン]</span>
-          <span>える</span>
-          <span>!補正前</span>
+        <div className="flex items-center gap-4">
+          <Avatar src="/img/avatar/test.png" />
+          <div>
+            <Typography variant="h6">叶</Typography>
+            <Typography variant="small">手動補正済み</Typography>
+          </div>
         </div>
-        <div>
-          <span>[アイコン]</span>
-          <span>渋谷ハジメ</span>
-          <span>!補正前</span>
-        </div>
-        <div>
-          <span>[アイコン]</span>
-          <span>剣持刀也</span>
-          <span>!補正前</span>
-        </div>
-        <div>
-          <span>[アイコン]</span>
-          <span>伏見ガク</span>
-          <span>!補正前</span>
-        </div>
-        <div>
-          <span>[アイコン]</span>
-          <span>夕陽リリ</span>
-          <span>!補正前</span>
+        <div className="flex items-center gap-4">
+          <Avatar src="/img/avatar/test.png" />
+          <div>
+            <Typography variant="h6">叶</Typography>
+            <Typography variant="small">!補正前</Typography>
+          </div>
         </div>
       </div>
     </div>

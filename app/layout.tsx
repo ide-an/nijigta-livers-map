@@ -1,4 +1,6 @@
+"use client";
 import "./globals.css";
+import { ThemeProvider } from "@material-tailwind/react";
 
 export default function RootLayout({
   children,
@@ -6,10 +8,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <body>
-        {children}
-      </body>
-    </html>
+    <ThemeProvider>
+      <html lang="ja">
+        <body>
+          {children}
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }

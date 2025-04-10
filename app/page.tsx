@@ -7,7 +7,7 @@ export default function Page() {
       <div className="flex-grow">
         <Map />
       </div>
-      <div className="w-full h-64 md:w-64 md:h-full bg-gray-200 overflow-y-scroll">
+      <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-scroll">
         <MapControl />
       </div>
     </div>
