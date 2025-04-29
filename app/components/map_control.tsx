@@ -5,11 +5,13 @@ import { ButtonGroup, IconButton, Select, Slider, Option, Switch, Button, Avatar
 import livers from "../data/livers.json";
 
 export default function MapControl() {
-  // TODO: jsonから取得するようにする
+  // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
+  const toBorderColorClass = (liver: any) => {
+    return `border-${liver.id}-500`;
+  }
+
   return (
     <div className="flex flex-col gap-6 py-6 px-4 overflow-y-hidden md:max-h-screen">
-      { /* class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg border border-gray-900 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85]"*/}
-      { /* class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg border border-gray-900 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85]"*/ }
       <div className="flex flex-row gap-6 items-center">
         <div >
           {/* 日付選択 */}
@@ -65,15 +67,15 @@ export default function MapControl() {
         {
           livers.map((liver) => (
             <div key={liver.name} className="flex items-center gap-4">
-              <Avatar src={liver.imageUrl} />
+              <Avatar src={liver.imageUrl} className={`border-2 ${toBorderColorClass(liver)}`} />
               <div>
                 <Typography variant="h6">{liver.name}</Typography>
                 <div className="flex flex-wrap gap-2">
-                {
-                  liver.tags.map((tag, index) => (
-                    <Chip value={tag} key={liver.name+"_"+tag} size="sm"/>
-                  )
-                  )}
+                  {
+                    liver.tags.map((tag, index) => (
+                      <Chip value={tag} key={liver.name + "_" + tag} size="sm" />
+                    ))
+                  }
                 </div>
               </div>
             </div>
