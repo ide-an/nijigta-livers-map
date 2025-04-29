@@ -4,6 +4,15 @@ import { BackwardIcon, ForwardIcon, PlayIcon } from "@heroicons/react/24/solid";
 import { ButtonGroup, IconButton, Select, Slider, Option, Switch, Button, Avatar, Typography } from "@material-tailwind/react";
 
 export default function MapControl() {
+  // TODO: jsonから取得するようにする
+  const livers = [
+    { name: "叶", src: "/img/avatar/kanae.png", status: "手動補正済み" },
+    { name: "星川サラ", src: "/img/avatar/sara-hoshikawa.png", status: "手動補正済み" },
+    { name: "月ノ美兎", src: "/img/avatar/mito-tsukino.png", status: "手動補正済み" },
+    { name: "樋口楓", src: "/img/avatar/kaede-higuchi.png", status: "手動補正済み" },
+    { name: "える", src: "/img/avatar/elu.png", status: "手動補正済み" },
+    { name: "渋谷ハジメ", src: "/img/avatar/hajime-shibuya.png", status: "!補正前" },
+  ]
   return (
     <div className="flex flex-col gap-6 py-6 px-4">
       <div className="flex flex-row gap-6 items-center">
@@ -56,48 +65,17 @@ export default function MapControl() {
       {/* ライバー選択 */}
       <Button variant="outlined" >ライバー選択</Button>
       <div className="flex flex-col gap-6">
-        <div className="flex items-center gap-4">
-          <Avatar src="/img/avatar/test.png" />
-          <div>
-            <Typography variant="h6">叶</Typography>
-            <Typography variant="small">手動補正済み</Typography>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Avatar src="/img/avatar/test.png" />
-          <div>
-            <Typography variant="h6">叶</Typography>
-            <Typography variant="small">手動補正済み</Typography>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Avatar src="/img/avatar/test.png" />
-          <div>
-            <Typography variant="h6">叶</Typography>
-            <Typography variant="small">手動補正済み</Typography>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Avatar src="/img/avatar/test.png" />
-          <div>
-            <Typography variant="h6">叶</Typography>
-            <Typography variant="small">手動補正済み</Typography>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Avatar src="/img/avatar/test.png" />
-          <div>
-            <Typography variant="h6">叶</Typography>
-            <Typography variant="small">手動補正済み</Typography>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Avatar src="/img/avatar/test.png" />
-          <div>
-            <Typography variant="h6">叶</Typography>
-            <Typography variant="small">!補正前</Typography>
-          </div>
-        </div>
+        {
+          livers.map((liver) => (
+            <div key={liver.name} className="flex items-center gap-4">
+              <Avatar src={liver.src} />
+              <div>
+                <Typography variant="h6">{liver.name}</Typography>
+                <Typography variant="small">{liver.status}</Typography>   
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   );
