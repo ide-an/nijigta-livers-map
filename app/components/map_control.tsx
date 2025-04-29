@@ -65,7 +65,7 @@ export default function MapControl() {
         {
           livers.map((liver) => (
             <div key={liver.name} className="flex items-center gap-4">
-              <Avatar src={liver.imageUrl} />
+              <Avatar src={liver.imageUrl} className={`border border-${liver.id}-500`} />
               <div>
                 <Typography variant="h6">{liver.name}</Typography>
                 <div className="flex flex-wrap gap-2">
