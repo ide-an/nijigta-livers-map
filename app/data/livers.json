@@ -1,0 +1,1372 @@
+[
+  {
+    "id": "kuzuha",
+    "name": "葛葉",
+    "enName": "Kuzuha",
+    "imageUrl": "/img/avatar/kuzuha.png",
+    "tags": [
+      "DROPS",
+      "ギャング",
+      "ENIGMA",
+      "麻薬カルテル",
+      "タクシー",
+      "天空闘技場 デスマッチ参加者",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#ACA7BB"
+  },
+  {
+    "id": "salome-hyakumantenbara",
+    "name": "壱百満天原サロメ",
+    "enName": "Hyakumantenbara Salome",
+    "imageUrl": "/img/avatar/salome-hyakumantenbara.png",
+    "tags": [
+      "SALOME RAMEN",
+      "飲食店",
+      "天空闘技場 デスマッチ参加者",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#CD3796"
+  },
+  {
+    "id": "kanae",
+    "name": "叶",
+    "enName": "Kanae",
+    "imageUrl": "/img/avatar/kanae.png",
+    "tags": [
+      "主催",
+      "DROPS",
+      "ギャング",
+      "生徒会パン屋さん",
+      "飲食店"
+    ],
+    "color": "#ABD3D8"
+  },
+  {
+    "id": "mito-tsukino",
+    "name": "月ノ美兎",
+    "enName": "Tsukino Mito",
+    "imageUrl": "/img/avatar/mito-tsukino.png",
+    "tags": [
+      "CLUB HOZUKI",
+      "キャバクラ"
+    ],
+    "color": "#E43F3B"
+  },
+  {
+    "id": "toya-kenmochi",
+    "name": "剣持刀也",
+    "enName": "Kenmochi Toya",
+    "imageUrl": "/img/avatar/toya-kenmochi.png",
+    "tags": [
+      "天空闘技場 デスマッチ参加者"
+    ],
+    "color": "#A590AF"
+  },
+  {
+    "id": "sara-hoshikawa",
+    "name": "星川サラ",
+    "enName": "Hoshikawa Sara",
+    "imageUrl": "/img/avatar/sara-hoshikawa.png",
+    "tags": [
+      "主催",
+      "救急隊"
+    ],
+    "color": "#FAB80D"
+  },
+  {
+    "id": "minato-fuwa",
+    "name": "不破湊",
+    "enName": "Fuwa Minato",
+    "imageUrl": "/img/avatar/minato-fuwa.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#BF69F4"
+  },
+  {
+    "id": "luca-kaneshiro",
+    "name": "ルカ・カネシロ",
+    "enName": "Luca Kaneshiro",
+    "imageUrl": "/img/avatar/luca-kaneshiro.png",
+    "tags": [
+      "V!VONO",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ"
+    ],
+    "color": "#D4AF37"
+  },
+  {
+    "id": "shu-yamino",
+    "name": "闇ノシュウ",
+    "enName": "Shu Yamino",
+    "imageUrl": "/img/avatar/shu-yamino.png",
+    "tags": [
+      "警察",
+      "DROPS",
+      "ギャング",
+      "V!VONO",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "天空闘技場 デスマッチ参加者",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#A660A7"
+  },
+  {
+    "id": "lize-helesta",
+    "name": "リゼ・ヘルエスタ",
+    "enName": "Lize Helesta",
+    "imageUrl": "/img/avatar/lize-helesta.png",
+    "tags": [
+      "#にじさんじ逃走中"
+    ],
+    "color": "#42FFFF"
+  },
+  {
+    "id": "saku-sasaki",
+    "name": "笹木咲",
+    "enName": "Sasaki Saku",
+    "imageUrl": "/img/avatar/saku-sasaki.png",
+    "tags": [
+      "警察",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#EF9AAF"
+  },
+  {
+    "id": "kaede-higuchi",
+    "name": "樋口楓",
+    "enName": "Higuchi Kaede",
+    "imageUrl": "/img/avatar/kaede-higuchi.png",
+    "tags": [
+      "救急隊",
+      "生徒会パン屋さん",
+      "飲食店"
+    ],
+    "color": "#FBAF71"
+  },
+  {
+    "id": "kizuku-yashiro",
+    "name": "社築",
+    "enName": "Yashiro Kizuku",
+    "imageUrl": "/img/avatar/kizuku-yashiro.png",
+    "tags": [
+      "天空闘技場 デスマッチ参加者",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#B6C6F2"
+  },
+  {
+    "id": "ars-almal",
+    "name": "アルス・アルマル",
+    "enName": "Ars Almal",
+    "imageUrl": "/img/avatar/ars-almal.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#7FD6E2"
+  },
+  {
+    "id": "hayato-kagami",
+    "name": "加賀美ハヤト",
+    "enName": "Kagami Hayato",
+    "imageUrl": "/img/avatar/hayato-kagami.png",
+    "tags": [
+      "めんや 加賀美",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "天空闘技場 デスマッチ参加者",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#B9ADB9"
+  },
+  {
+    "id": "yuika-shiina",
+    "name": "椎名唯華",
+    "enName": "Shiina Yuika",
+    "imageUrl": "/img/avatar/yuika-shiina.png",
+    "tags": [
+      "cafe&kitchen DRAKE",
+      "うんちやさん",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ"
+    ],
+    "color": "#F1C8DE"
+  },
+  {
+    "id": "lauren-iroas",
+    "name": "ローレン・イロアス",
+    "enName": "Lauren Iroas",
+    "imageUrl": "/img/avatar/lauren-iroas.png",
+    "tags": [
+      "警察",
+      "DROPS",
+      "ギャング",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C10E49"
+  },
+  {
+    "id": "ibrahim",
+    "name": "イブラヒム",
+    "enName": "Ibrahim",
+    "imageUrl": "/img/avatar/ibrahim.png",
+    "tags": [
+      "メカニック",
+      "mec崖超え",
+      "DROPS",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#7CA1F0"
+  },
+  {
+    "id": "himawari-honma",
+    "name": "本間ひまわり",
+    "enName": "Honma Himawari",
+    "imageUrl": "/img/avatar/himawari-honma.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FBE340"
+  },
+  {
+    "id": "chima-machita",
+    "name": "町田ちま",
+    "enName": "Machita Chima",
+    "imageUrl": "/img/avatar/chima-machita.png",
+    "tags": [],
+    "color": "#80C8EF"
+  },
+  {
+    "id": "kokoro-amamiya",
+    "name": "天宮こころ",
+    "enName": "Amamiya Kokoro",
+    "imageUrl": "/img/avatar/kokoro-amamiya.png",
+    "tags": [
+      "メカニック",
+      "mec崖超え",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C5EDFF"
+  },
+  {
+    "id": "furen-e-lustario",
+    "name": "フレン・E・ルスタリオ",
+    "enName": "Furen E Lustario",
+    "imageUrl": "/img/avatar/furen-e-lustario.png",
+    "tags": [
+      "ENIGMA",
+      "麻薬カルテル",
+      "タクシー",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#EC1D2F"
+  },
+  {
+    "id": "akina-saegusa",
+    "name": "三枝明那",
+    "enName": "Saegusa Akina",
+    "imageUrl": "/img/avatar/akina-saegusa.png",
+    "tags": [
+      "救急隊",
+      "タクシー",
+      "生徒会パン屋さん",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F03C32"
+  },
+  {
+    "id": "haru-kaida",
+    "name": "甲斐田晴",
+    "enName": "Kaida Haru",
+    "imageUrl": "/img/avatar/haru-kaida.png",
+    "tags": [
+      "救急隊"
+    ],
+    "color": "#4DD7E3"
+  },
+  {
+    "id": "elu",
+    "name": "える",
+    "enName": "Elu",
+    "imageUrl": "/img/avatar/elu.png",
+    "tags": [
+      "CLUB HOZUKI",
+      "キャバクラ"
+    ],
+    "color": "#E2364F"
+  },
+  {
+    "id": "nui-sociere",
+    "name": "ニュイ・ソシエール",
+    "enName": "Nui Sociere",
+    "imageUrl": "/img/avatar/nui-sociere.png",
+    "tags": [
+      "タクシー"
+    ],
+    "color": "#D24E5F"
+  },
+  {
+    "id": "ratna-petit",
+    "name": "ラトナ・プティ",
+    "enName": "Ratna Petit",
+    "imageUrl": "/img/avatar/ratna-petit.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F36C21"
+  },
+  {
+    "id": "chigusa-nishizono",
+    "name": "西園チグサ",
+    "enName": "Nishizono Chigusa",
+    "imageUrl": "/img/avatar/chigusa-nishizono.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#3A8FB7"
+  },
+  {
+    "id": "debidebi-debiru",
+    "name": "でびでび・でびる",
+    "enName": "Debidebi Debiru",
+    "imageUrl": "/img/avatar/debidebi-debiru.png",
+    "tags": [
+      "うんちやさん",
+      "飲食店"
+    ],
+    "color": "#444C7D"
+  },
+  {
+    "id": "kana-sukoya",
+    "name": "健屋花那",
+    "enName": "Sukoya Kana",
+    "imageUrl": "/img/avatar/kana-sukoya.png",
+    "tags": [
+      "救急隊",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FF2FA2"
+  },
+  {
+    "id": "mikoto-rindou",
+    "name": "竜胆尊",
+    "enName": "Rindou Mikoto",
+    "imageUrl": "/img/avatar/mikoto-rindou.png",
+    "tags": [
+      "鬼灯組",
+      "ギャング",
+      "CLUB HOZUKI",
+      "キャバクラ"
+    ],
+    "color": "#745BFF"
+  },
+  {
+    "id": "sango-suo",
+    "name": "周央サンゴ",
+    "enName": "Suo Sango",
+    "imageUrl": "/img/avatar/sango-suo.png",
+    "tags": [
+      "生徒会パン屋さん",
+      "飲食店"
+    ],
+    "color": "#EF8468"
+  },
+  {
+    "id": "sister-claire",
+    "name": "シスター・クレア",
+    "enName": "Sister Claire",
+    "imageUrl": "/img/avatar/sister-claire.png",
+    "tags": [
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#DFC6A8"
+  },
+  {
+    "id": "rena-yorumi",
+    "name": "夜見れな",
+    "enName": "Yorumi Rena",
+    "imageUrl": "/img/avatar/rena-yorumi.png",
+    "tags": [
+      "めんや 加賀美",
+      "うんちやさん",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F7265A"
+  },
+  {
+    "id": "meloco-kyoran",
+    "name": "狂蘭 メロコ",
+    "enName": "Meloco Kyoran",
+    "imageUrl": "/img/avatar/meloco-kyoran.png",
+    "tags": [
+      "ENIGMA",
+      "麻薬カルテル",
+      "タクシー",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#A09BD8"
+  },
+  {
+    "id": "sonny-brisko",
+    "name": "サニー・ブリスコー",
+    "enName": "Sonny Brisko",
+    "imageUrl": "/img/avatar/sonny-brisko.png",
+    "tags": [],
+    "color": "#FFF321"
+  },
+  {
+    "id": "elira-pendora",
+    "name": "エリーラ ペンドラ",
+    "enName": "Elira Pendora",
+    "imageUrl": "/img/avatar/elira-pendora.png",
+    "tags": [],
+    "color": "#95C8D8"
+  },
+  {
+    "id": "makaino-ririmu",
+    "name": "魔界ノりりむ",
+    "enName": "Makaino Ririmu",
+    "imageUrl": "/img/avatar/makaino-ririmu.png",
+    "tags": [
+      "警察",
+      "天空闘技場 デスマッチ参加者",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#EF6F94"
+  },
+  {
+    "id": "chaika-hanabatake",
+    "name": "花畑チャイカ",
+    "enName": "Hanabatake Chaika",
+    "imageUrl": "/img/avatar/chaika-hanabatake.png",
+    "tags": [
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "天空闘技場 デスマッチ参加者",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#40CF84"
+  },
+  {
+    "id": "rion-takamiya",
+    "name": "鷹宮リオン",
+    "enName": "Takamiya Rion",
+    "imageUrl": "/img/avatar/rion-takamiya.png",
+    "tags": [
+      "警察",
+      "うんちやさん",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ"
+    ],
+    "color": "#CC3D7B"
+  },
+  {
+    "id": "hibari-watarai",
+    "name": "渡会雲雀",
+    "enName": "Watarai Hibari",
+    "imageUrl": "/img/avatar/hibari-watarai.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#192332"
+  },
+  {
+    "id": "meme-mashiro",
+    "name": "ましろ爻",
+    "enName": "Mashiro Meme",
+    "imageUrl": "/img/avatar/meme-mashiro.png",
+    "tags": [
+      "鬼灯組",
+      "ギャング",
+      "タクシー"
+    ],
+    "color": "#1E2232"
+  },
+  {
+    "id": "gwelu-os-gar",
+    "name": "グウェル・オス・ガール",
+    "enName": "Gwelu Os Gar",
+    "imageUrl": "/img/avatar/gwelu-os-gar.png",
+    "tags": [
+      "救急隊",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F04B2D"
+  },
+  {
+    "id": "rosemi-lovelock",
+    "name": "ロゼミ ラブロック",
+    "enName": "Rosemi Lovelock",
+    "imageUrl": "/img/avatar/rosemi-lovelock.png",
+    "tags": [],
+    "color": "#DC3753"
+  },
+  {
+    "id": "belmond-banderas",
+    "name": "ベルモンド・バンデラス",
+    "enName": "Belmond Banderas",
+    "imageUrl": "/img/avatar/belmond-banderas.png",
+    "tags": [
+      "Blue Union Gangsters(BUGs)",
+      "ギャング"
+    ],
+    "color": "#683D46"
+  },
+  {
+    "id": "leos-vincent",
+    "name": "レオス・ヴィンセント",
+    "enName": "Leos Vincent",
+    "imageUrl": "/img/avatar/leos-vincent.png",
+    "tags": [
+      "ENIGMA",
+      "麻薬カルテル",
+      "タクシー",
+      "生徒会パン屋さん",
+      "飲食店",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#234A87"
+  },
+  {
+    "id": "fuyuki-hakase",
+    "name": "葉加瀬冬雪",
+    "enName": "Hakase Fuyuki",
+    "imageUrl": "/img/avatar/fuyuki-hakase.png",
+    "tags": [
+      "めんや 加賀美",
+      "飲食店"
+    ],
+    "color": "#EEFFFF"
+  },
+  {
+    "id": "kei-nagao",
+    "name": "長尾景",
+    "enName": "Nagao Kei",
+    "imageUrl": "/img/avatar/kei-nagao.png",
+    "tags": [
+      "救急隊",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#625DA1"
+  },
+  {
+    "id": "ex-albio",
+    "name": "エクス・アルビオ",
+    "enName": "Ex Albio",
+    "imageUrl": "/img/avatar/ex-albio.png",
+    "tags": [
+      "警察",
+      "DROPS",
+      "ギャング",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "天空闘技場 デスマッチ参加者",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#5C9BBC"
+  },
+  {
+    "id": "maria-marionette",
+    "name": "マリア マリオネット",
+    "enName": "Maria Marionette",
+    "imageUrl": "/img/avatar/maria-marionette.png",
+    "tags": [
+      "救急隊",
+      "犬カフェ",
+      "飲食店",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#E55A9B"
+  },
+  {
+    "id": "lain-paterson",
+    "name": "レイン・パターソン",
+    "enName": "Lain Paterson",
+    "imageUrl": "/img/avatar/lain-paterson.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F74848"
+  },
+  {
+    "id": "kou-uzuki",
+    "name": "卯月コウ",
+    "enName": "Uzuki Kou",
+    "imageUrl": "/img/avatar/kou-uzuki.png",
+    "tags": [
+      "警察",
+      "鬼灯組",
+      "ギャング",
+      "記者",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F9E97A"
+  },
+  {
+    "id": "akira-shikinagi",
+    "name": "四季凪アキラ",
+    "enName": "Shikinagi Akira",
+    "imageUrl": "/img/avatar/akira-shikinagi.png",
+    "tags": [],
+    "color": "#235AAA"
+  },
+  {
+    "id": "levi-elipha",
+    "name": "レヴィ・エリファ",
+    "enName": "Levi Elipha",
+    "imageUrl": "/img/avatar/levi-elipha.png",
+    "tags": [
+      "警察",
+      "鬼灯組",
+      "ギャング",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FF5A00"
+  },
+  {
+    "id": "tojiro-genzuki",
+    "name": "弦月藤士郎",
+    "enName": "Genzuki Tojiro",
+    "imageUrl": "/img/avatar/tojiro-genzuki.png",
+    "tags": [
+      "救急隊",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#B43246"
+  },
+  {
+    "id": "kakeru-yumeoi",
+    "name": "夢追翔",
+    "enName": "Yumeoi Kakeru",
+    "imageUrl": "/img/avatar/kakeru-yumeoi.png",
+    "tags": [
+      "#にじさんじ逃走中"
+    ],
+    "color": "#AC324B"
+  },
+  {
+    "id": "riri-yuhi",
+    "name": "夕陽リリ",
+    "enName": "Yuhi Riri",
+    "imageUrl": "/img/avatar/riri-yuhi.png",
+    "tags": [
+      "メカニック",
+      "mec崖超え",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#BFFFFF"
+  },
+  {
+    "id": "dola",
+    "name": "ドーラ",
+    "enName": "Dola",
+    "imageUrl": "/img/avatar/dola.png",
+    "tags": [
+      "cafe&kitchen DRAKE",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#A83E4A"
+  },
+  {
+    "id": "gaku-fushimi",
+    "name": "伏見ガク",
+    "enName": "Fushimi Gaku",
+    "imageUrl": "/img/avatar/gaku-fushimi.png",
+    "tags": [
+      "cafe&kitchen DRAKE",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FFCB5B"
+  },
+  {
+    "id": "oliver-evans",
+    "name": "オリバー・エバンス",
+    "enName": "Oliver Evans",
+    "imageUrl": "/img/avatar/oliver-evans.png",
+    "tags": [
+      "Blue Union Gangsters(BUGs)",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#BCC37E"
+  },
+  {
+    "id": "kazaki-morinaka",
+    "name": "森中花咲",
+    "enName": "Morinaka Kazaki",
+    "imageUrl": "/img/avatar/kazaki-morinaka.png",
+    "tags": [
+      "救急隊",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C8F39A"
+  },
+  {
+    "id": "yang-nari",
+    "name": "ヤン・ナリ",
+    "enName": "Yang Nari",
+    "imageUrl": "/img/avatar/yang-nari.png",
+    "tags": [
+      "猫カフェ",
+      "飲食店"
+    ],
+    "color": "#FAD1D6"
+  },
+  {
+    "id": "masaru-suzuki",
+    "name": "鈴木勝",
+    "enName": "Suzuki Masaru",
+    "imageUrl": "/img/avatar/masaru-suzuki.png",
+    "tags": [
+      "V!VONO",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#7B788A"
+  },
+  {
+    "id": "sophia-valentine",
+    "name": "ソフィア・ヴァレンタイン",
+    "enName": "Sophia Valentine",
+    "imageUrl": "/img/avatar/sophia-valentine.png",
+    "tags": [
+      "警察"
+    ],
+    "color": "#C8C3DC"
+  },
+  {
+    "id": "mao-matsukai",
+    "name": "魔使マオ",
+    "enName": "Matsukai Mao",
+    "imageUrl": "/img/avatar/mao-matsukai.png",
+    "tags": [
+      "cafe&kitchen DRAKE",
+      "飲食店",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C93965"
+  },
+  {
+    "id": "hisui-kitakoji",
+    "name": "北小路ヒスイ",
+    "enName": "Kitakoji Hisui",
+    "imageUrl": "/img/avatar/hisui-kitakoji.png",
+    "tags": [
+      "記者",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#38B48B"
+  },
+  {
+    "id": "seraph-dazzlegarden",
+    "name": "セラフ・ダズルガーデン",
+    "enName": "Seraph Dazzlegarden",
+    "imageUrl": "/img/avatar/seraph-dazzlegarden.png",
+    "tags": [
+      "Blue Union Gangsters(BUGs)",
+      "ギャング",
+      "V!VONO",
+      "飲食店",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#DC3C41"
+  },
+  {
+    "id": "toru-koshimizu",
+    "name": "小清水透",
+    "enName": "Koshimizu Toru",
+    "imageUrl": "/img/avatar/toru-koshimizu.png",
+    "tags": [
+      "メカニック",
+      "mec崖超え",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#CDA5FF"
+  },
+  {
+    "id": "rou-koyanagi",
+    "name": "小柳ロウ",
+    "enName": "Koyanagi Rou",
+    "imageUrl": "/img/avatar/rou-koyanagi.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#5A5FAA"
+  },
+  {
+    "id": "shiba-kuroi",
+    "name": "黒井しば",
+    "enName": "Kuroi Shiba",
+    "imageUrl": "/img/avatar/shiba-kuroi.png",
+    "tags": [
+      "タクシー",
+      "天空闘技場 デスマッチ参加者"
+    ],
+    "color": "#585C82"
+  },
+  {
+    "id": "nei-ponto",
+    "name": "先斗寧",
+    "enName": "Ponto Nei",
+    "imageUrl": "/img/avatar/nei-ponto.png",
+    "tags": [
+      "#にじさんじ逃走中"
+    ],
+    "color": "#5A7DFF"
+  },
+  {
+    "id": "sho-hoshirube",
+    "name": "星導ショウ",
+    "enName": "Hoshirube Sho",
+    "imageUrl": "/img/avatar/sho-hoshirube.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#A58CDC"
+  },
+  {
+    "id": "ritsuki-sakura",
+    "name": "桜凛月",
+    "enName": "Sakura Ritsuki",
+    "imageUrl": "/img/avatar/ritsuki-sakura.png",
+    "tags": [
+      "救急隊",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C57FC7"
+  },
+  {
+    "id": "mana-hibachi",
+    "name": "緋八マナ",
+    "enName": "Hibachi Mana",
+    "imageUrl": "/img/avatar/mana-hibachi.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#64C8F0"
+  },
+  {
+    "id": "kanato-fura",
+    "name": "風楽奏斗",
+    "enName": "Fura Kanato",
+    "imageUrl": "/img/avatar/kanato-fura.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F0F0F5"
+  },
+  {
+    "id": "ruri-shioriha",
+    "name": "栞葉るり",
+    "enName": "Shioriha Ruri",
+    "imageUrl": "/img/avatar/ruri-shioriha.png",
+    "tags": [
+      "#にじさんじ逃走中"
+    ],
+    "color": "#2887FF"
+  },
+  {
+    "id": "shoichi-kanda",
+    "name": "神田笑一",
+    "enName": "Kanda Shoichi",
+    "imageUrl": "/img/avatar/shoichi-kanda.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F4D35B"
+  },
+  {
+    "id": "sou-hayase",
+    "name": "早瀬走",
+    "enName": "Hayase Sou",
+    "imageUrl": "/img/avatar/sou-hayase.png",
+    "tags": [
+      "鬼灯組",
+      "ギャング",
+      "CLUB HOZUKI",
+      "キャバクラ"
+    ],
+    "color": "#AA7BE8"
+  },
+  {
+    "id": "nozomi-ishigami",
+    "name": "石神のぞみ",
+    "enName": "Ishigami Nozomi",
+    "imageUrl": "/img/avatar/nozomi-ishigami.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#E6325F"
+  },
+  {
+    "id": "fumi",
+    "name": "フミ",
+    "enName": "Fumi",
+    "imageUrl": "/img/avatar/fumi.png",
+    "tags": [
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F4E49D"
+  },
+  {
+    "id": "kaisei",
+    "name": "魁星",
+    "enName": "Kaisei",
+    "imageUrl": "/img/avatar/kaisei.png",
+    "tags": [
+      "救急隊",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#0C6F72"
+  },
+  {
+    "id": "karuta-yamagami",
+    "name": "山神カルタ",
+    "enName": "Yamagami Karuta",
+    "imageUrl": "/img/avatar/karuta-yamagami.png",
+    "tags": [
+      "cafe&kitchen DRAKE",
+      "飲食店",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#384B5A"
+  },
+  {
+    "id": "luis-cammy",
+    "name": "ルイス・キャミー",
+    "enName": "Luis Cammy",
+    "imageUrl": "/img/avatar/luis-cammy.png",
+    "tags": [],
+    "color": "#E86A74"
+  },
+  {
+    "id": "akari-shishido",
+    "name": "獅子堂あかり",
+    "enName": "Shishido Akari",
+    "imageUrl": "/img/avatar/akari-shishido.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FFD728"
+  },
+  {
+    "id": "natsume-kurusu",
+    "name": "来栖夏芽",
+    "enName": "Kurusu Natsume",
+    "imageUrl": "/img/avatar/natsume-kurusu.png",
+    "tags": [
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#8AD1EF"
+  },
+  {
+    "id": "yotsuha-umise",
+    "name": "海妹四葉",
+    "enName": "Umise Yotsuha",
+    "imageUrl": "/img/avatar/yotsuha-umise.png",
+    "tags": [
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FFE632"
+  },
+  {
+    "id": "eli-conifer",
+    "name": "エリー・コニファー",
+    "enName": "Eli Conifer",
+    "imageUrl": "/img/avatar/eli-conifer.png",
+    "tags": [
+      "V!VONO",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#DAFFF9"
+  },
+  {
+    "id": "haruka-onomachi",
+    "name": "小野町春香",
+    "enName": "Onomachi Haruka",
+    "imageUrl": "/img/avatar/haruka-onomachi.png",
+    "tags": [
+      "救急隊",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FF336E"
+  },
+  {
+    "id": "rika-igarashi",
+    "name": "五十嵐梨花",
+    "enName": "Igarashi Rika",
+    "imageUrl": "/img/avatar/rika-igarashi.png",
+    "tags": [
+      "警察",
+      "鬼灯組",
+      "CLUB.3",
+      "ギャング",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FF8C3C"
+  },
+  {
+    "id": "ver-vermillion",
+    "name": "ヴェール ヴァーミリオン",
+    "enName": "Ver Vermillion",
+    "imageUrl": "/img/avatar/ver-vermillion.png",
+    "tags": [],
+    "color": "#D5345E"
+  },
+  {
+    "id": "ness-sakaki",
+    "name": "榊ネス",
+    "enName": "Sakaki Ness",
+    "imageUrl": "/img/avatar/ness-sakaki.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C2AAE6"
+  },
+  {
+    "id": "emma-august",
+    "name": "えま★おうがすと",
+    "enName": "Emma August",
+    "imageUrl": "/img/avatar/emma-august.png",
+    "tags": [
+      "V!VONO",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ"
+    ],
+    "color": "#B32F51"
+  },
+  {
+    "id": "kagetsu-murakumo",
+    "name": "叢雲カゲツ",
+    "enName": "Murakumo Kagetsu",
+    "imageUrl": "/img/avatar/kagetsu-murakumo.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#6EB487"
+  },
+  {
+    "id": "seffyna",
+    "name": "セフィナ",
+    "enName": "Seffyna",
+    "imageUrl": "/img/avatar/seffyna.png",
+    "tags": [
+      "救急隊",
+      "犬カフェ",
+      "飲食店",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C92235"
+  },
+  {
+    "id": "rai-inami",
+    "name": "伊波ライ",
+    "enName": "Inami Rai",
+    "imageUrl": "/img/avatar/rai-inami.png",
+    "tags": [
+      "メカニック",
+      "mec崖超え",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#DCFF50"
+  },
+  {
+    "id": "rito-usami",
+    "name": "宇佐美リト",
+    "enName": "Usami Rito",
+    "imageUrl": "/img/avatar/rito-usami.png",
+    "tags": [
+      "救急隊"
+    ],
+    "color": "#FAC31E"
+  },
+  {
+    "id": "meruto-kuramochi",
+    "name": "倉持めると",
+    "enName": "Kuramochi Meruto",
+    "imageUrl": "/img/avatar/meruto-kuramochi.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#EB4682"
+  },
+  {
+    "id": "vezalius-bandage",
+    "name": "ヴェザリウス バンデージ",
+    "enName": "Vezalius Bandage",
+    "imageUrl": "/img/avatar/vezalius-bandage.png",
+    "tags": [
+      "警察",
+      "救急隊",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C34196"
+  },
+  {
+    "id": "roco-kaburaki",
+    "name": "鏑木ろこ",
+    "enName": "Kaburaki Roco",
+    "imageUrl": "/img/avatar/roco-kaburaki.png",
+    "tags": [
+      "#にじさんじ逃走中"
+    ],
+    "color": "#198CAA"
+  },
+  {
+    "id": "wen-akagi",
+    "name": "赤城ウェン",
+    "enName": "Akagi Wen",
+    "imageUrl": "/img/avatar/wen-akagi.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FF8C9B"
+  },
+  {
+    "id": "min-suha",
+    "name": "ミン・スゥーハ",
+    "enName": "Min Suha",
+    "imageUrl": "/img/avatar/min-suha.png",
+    "tags": [
+      "救急隊",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#5AC8FF"
+  },
+  {
+    "id": "hajime-shibuya",
+    "name": "渋谷ハジメ",
+    "enName": "Shibuya Hajime",
+    "imageUrl": "/img/avatar/hajime-shibuya.png",
+    "tags": [
+      "メカニック",
+      "mec崖超え",
+      "タクシー",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#D7FAD7"
+  },
+  {
+    "id": "yusei-kitami",
+    "name": "北見遊征",
+    "enName": "Kitami Yusei",
+    "imageUrl": "/img/avatar/yusei-kitami.png",
+    "tags": [
+      "警察",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FF6E1E"
+  },
+  {
+    "id": "kyoko-todoroki",
+    "name": "轟京子",
+    "enName": "Todoroki Kyoko",
+    "imageUrl": "/img/avatar/kyoko-todoroki.png",
+    "tags": [],
+    "color": "#F8A69A"
+  },
+  {
+    "id": "milan-kestrel",
+    "name": "ミラン・ケストレル",
+    "enName": "Milan Kestrel",
+    "imageUrl": "/img/avatar/milan-kestrel.png",
+    "tags": [
+      "CLUB.3",
+      "ギャング",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#2C35BD"
+  },
+  {
+    "id": "muyu-amagase",
+    "name": "天ヶ瀬むゆ",
+    "enName": "Amagase Muyu",
+    "imageUrl": "/img/avatar/muyu-amagase.png",
+    "tags": [],
+    "color": "#FA5578"
+  },
+  {
+    "id": "rine-yaguruma",
+    "name": "矢車りね",
+    "enName": "Yaguruma Rine",
+    "imageUrl": "/img/avatar/rine-yaguruma.png",
+    "tags": [
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FEECD8"
+  },
+  {
+    "id": "lee-roha",
+    "name": "イ・ロハ",
+    "enName": "Lee Roha",
+    "imageUrl": "/img/avatar/lee-roha.png",
+    "tags": [
+      "メカニック",
+      "mec崖超え",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#EC399B"
+  },
+  {
+    "id": "ha-yun",
+    "name": "ハ・ユン",
+    "enName": "Ha Yun",
+    "imageUrl": "/img/avatar/ha-yun.png",
+    "tags": [
+      "警察"
+    ],
+    "color": "#B14D4D"
+  },
+  {
+    "id": "toto-tachitsute",
+    "name": "立伝都々",
+    "enName": "Tachitsute Toto",
+    "imageUrl": "/img/avatar/toto-tachitsute.png",
+    "tags": [
+      "V!VONO",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#C31E5A"
+  },
+  {
+    "id": "klara-charmwood",
+    "name": "クララ チャームウッド",
+    "enName": "Klara Charmwood",
+    "imageUrl": "/img/avatar/klara-charmwood.png",
+    "tags": [
+      "警察",
+      "V!VONO",
+      "飲食店",
+      "CLUB HOZUKI",
+      "キャバクラ",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#DFCDBF"
+  },
+  {
+    "id": "na-sera",
+    "name": "ナ・セラ",
+    "enName": "Na Sera",
+    "imageUrl": "/img/avatar/na-sera.png",
+    "tags": [
+      "Blue Union Gangsters(BUGs)",
+      "ギャング",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#FEECF3"
+  },
+  {
+    "id": "oh-jiyu",
+    "name": "オ・ジユ",
+    "enName": "Oh Jiyu",
+    "imageUrl": "/img/avatar/oh-jiyu.png",
+    "tags": [
+      "救急隊",
+      "バーガー屋",
+      "飲食店",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#F1F4F4"
+  },
+  {
+    "id": "ryu-hari",
+    "name": "リュ・ハリ",
+    "enName": "Ryu Hari",
+    "imageUrl": "/img/avatar/ryu-hari.png",
+    "tags": [
+      "猫カフェ",
+      "飲食店",
+      "#にじさんじ逃走中"
+    ],
+    "color": "#96CEEB"
+  },
+  {
+    "id": "hex-haywire",
+    "name": "ヘックス ヘイワイヤー",
+    "enName": "Hex Haywire",
+    "imageUrl": "/img/avatar/hex-haywire.png",
+    "tags": [],
+    "color": "#007199"
+  }
+]

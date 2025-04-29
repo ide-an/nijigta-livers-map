@@ -1,20 +1,15 @@
 "use client";
 
 import { BackwardIcon, ForwardIcon, PlayIcon } from "@heroicons/react/24/solid";
-import { ButtonGroup, IconButton, Select, Slider, Option, Switch, Button, Avatar, Typography } from "@material-tailwind/react";
+import { ButtonGroup, IconButton, Select, Slider, Option, Switch, Button, Avatar, Typography, Chip } from "@material-tailwind/react";
+import livers from "../data/livers.json";
 
 export default function MapControl() {
   // TODO: jsonから取得するようにする
-  const livers = [
-    { name: "叶", src: "/img/avatar/kanae.png", status: "手動補正済み" },
-    { name: "星川サラ", src: "/img/avatar/sara-hoshikawa.png", status: "手動補正済み" },
-    { name: "月ノ美兎", src: "/img/avatar/mito-tsukino.png", status: "手動補正済み" },
-    { name: "樋口楓", src: "/img/avatar/kaede-higuchi.png", status: "手動補正済み" },
-    { name: "える", src: "/img/avatar/elu.png", status: "手動補正済み" },
-    { name: "渋谷ハジメ", src: "/img/avatar/hajime-shibuya.png", status: "!補正前" },
-  ]
   return (
-    <div className="flex flex-col gap-6 py-6 px-4">
+    <div className="flex flex-col gap-6 py-6 px-4 overflow-y-hidden md:max-h-screen">
+      { /* class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg border border-gray-900 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85]"*/}
+      { /* class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg border border-gray-900 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85]"*/ }
       <div className="flex flex-row gap-6 items-center">
         <div >
           {/* 日付選択 */}
@@ -63,15 +58,23 @@ export default function MapControl() {
       <Switch label="ルートを表示" defaultChecked={true} color="green" />
 
       {/* ライバー選択 */}
-      <Button variant="outlined" >ライバー選択</Button>
-      <div className="flex flex-col gap-6">
+      <div className="w-full">
+        <Button variant="outlined" fullWidth>ライバー選択</Button>
+      </div>
+      <div className="flex flex-col gap-6 overflow-y-auto">
         {
           livers.map((liver) => (
             <div key={liver.name} className="flex items-center gap-4">
-              <Avatar src={liver.src} />
+              <Avatar src={liver.imageUrl} />
               <div>
                 <Typography variant="h6">{liver.name}</Typography>
-                <Typography variant="small">{liver.status}</Typography>   
+                <div className="flex flex-wrap gap-2">
+                {
+                  liver.tags.map((tag, index) => (
+                    <Chip value={tag} key={liver.name+"_"+tag} size="sm"/>
+                  )
+                  )}
+                </div>
               </div>
             </div>
           ))
