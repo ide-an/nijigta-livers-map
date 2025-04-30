@@ -1,10 +1,35 @@
 "use client";
 
-import { BackwardIcon, ForwardIcon, PlayIcon } from "@heroicons/react/24/solid";
+import { BackwardIcon, ForwardIcon, PlayIcon, PauseIcon } from "@heroicons/react/24/solid";
 import { ButtonGroup, IconButton, Select, Slider, Option, Switch, Button, Avatar, Typography, Chip } from "@material-tailwind/react";
-import livers from "../data/livers.json";
+import { Liver } from "../data/liver";
 
-export default function MapControl() {
+export default function MapControl({
+  selectedLivers,
+  gtaDay,
+  gtaTime,
+  gtaTimeMin,
+  gtaTimeMax,
+  isPlaying,
+  showRoute,
+  onSelectedLiversChange,
+  onGtaDayChange,
+  onGtaTimeChange,
+  onShowRouteChange,
+}: {
+  selectedLivers: Liver[],
+  gtaDay: number, // 1 - 10
+  gtaTime: number, // unix timestamp
+  gtaTimeMin: number, // unix timestamp
+  gtaTimeMax: number, // unix timestamp
+  isPlaying: boolean,
+  showRoute: boolean,
+  onSelectedLiversChange: (livers: Liver[]) => void,
+  onGtaDayChange: (day: number) => void,
+  onGtaTimeChange: (time: number) => void,
+  onIsPlayingChange: (isPlaying: boolean) => void,
+  onShowRouteChange: (show: boolean) => void,
+}) {
   // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
   const toBorderColorClass = (liver: any) => {
     return `border-${liver.id}-500`;
@@ -15,7 +40,7 @@ export default function MapControl() {
       <div className="flex flex-row gap-6 items-center">
         <div >
           {/* 日付選択 */}
-          <Select label="日付" value="1" size="sm">
+          <Select label="日付" value={gtaDay.toString()} onChange={(val) => onGtaDayChange(Number(val))} size="sm">
             <Option value="1">Day 1(6/15)</Option>
             <Option value="2">Day 2(6/16)</Option>
             <Option value="3">Day 3(6/17)</Option>
@@ -36,17 +61,24 @@ export default function MapControl() {
       </div>
 
       {/* 再生・停止 */}
-      <Slider defaultValue={50} color="green" className="w-full" />
+      {/* FIXME: プログレスバーが突き抜けてる。 https://github.com/creativetimofficial/material-tailwind/issues/836 と同根 */}
+      <Slider
+        value={gtaTime}
+        onChange={(ev) => onGtaTimeChange(Number(ev.target.value))}
+        min={gtaTimeMin}
+        max={gtaTimeMax}
+        color="green"
+        className="w-full" />
       <div className="flex flex-row gap-6">
         <ButtonGroup variant="outlined">
           {/* TODO: 一番最初・最後に行くとわかりやすいアイコンにしたい。heroiconsにはない？*/}
-          <IconButton variant="outlined">
+          <IconButton variant="outlined">{/* TODO: 頭出しの実装 */}
             <BackwardIcon className="h-4 w-4" />
           </IconButton>
           <IconButton variant="outlined">
-            <PlayIcon className="h-4 w-4" />
+            {isPlaying ? <PauseIcon className="h-4 w-4" /> : <PlayIcon className="h-4 w-4" />}
           </IconButton>
-          <IconButton variant="outlined">
+          <IconButton variant="outlined">{/* TODO: 最後へスキップの実装 */}
             <ForwardIcon className="h-4 w-4" />
           </IconButton>
         </ButtonGroup>
@@ -57,7 +89,7 @@ export default function MapControl() {
         </Select>
       </div>
       {/* 表示オプション */}
-      <Switch label="ルートを表示" defaultChecked={true} color="green" />
+      <Switch label="ルートを表示" checked={showRoute} onChange={(ev) => onShowRouteChange(ev.target.checked)} color="green" />
 
       {/* ライバー選択 */}
       <div className="w-full">
@@ -65,7 +97,7 @@ export default function MapControl() {
       </div>
       <div className="flex flex-col gap-6 overflow-y-auto">
         {
-          livers.map((liver) => (
+          selectedLivers.map((liver) => (
             <div key={liver.name} className="flex items-center gap-4">
               <Avatar src={liver.imageUrl} className={`border-2 ${toBorderColorClass(liver)}`} />
               <div>
