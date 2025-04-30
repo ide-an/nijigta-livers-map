@@ -13,6 +13,7 @@ export default function Page() {
   const [gtaTimeMax, setGtaTimeMax] = useState(1718474400);
   const [isPlaying, setIsPlaying] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
+  const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
   // TODO: selectLiversやgtaDayの変化を拾ってprobeを更新する
 
   const handleSelectedLiversChange = (livers: Liver[]) => {
@@ -34,6 +35,10 @@ export default function Page() {
     setIsPlaying(isPlaying);
     console.log("isPlaying", isPlaying);
   };
+  const handlePlaySpeedRatioChange = (ratio: number) => {
+    setPlaySpeedRatio(ratio);
+    console.log("playSpeedRatio", ratio.toString());
+  };
 
   return (
     <div className="flex flex-col md:flex-row flex-grow h-screen">
@@ -49,11 +54,13 @@ export default function Page() {
           gtaTimeMax={gtaTimeMax}
           isPlaying={isPlaying}
           showRoute={showRoute}
+          playSpeedRatio={playSpeedRatio}
           onSelectedLiversChange={handleSelectedLiversChange}
           onGtaDayChange={handleGtaDayChange}
           onGtaTimeChange={handleGtaTimeChange}
           onIsPlayingChange={handleIsPlayingChange}
           onShowRouteChange={handleShowRouteChange}
+          onPlaySpeedRatioChange={handlePlaySpeedRatioChange}
         />
       </div>
     </div>

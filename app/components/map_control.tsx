@@ -3,6 +3,7 @@
 import { BackwardIcon, ForwardIcon, PlayIcon, PauseIcon } from "@heroicons/react/24/solid";
 import { ButtonGroup, IconButton, Select, Slider, Option, Switch, Button, Avatar, Typography, Chip } from "@material-tailwind/react";
 import { Liver } from "../data/liver";
+import { formatInTimeZone } from "date-fns-tz";
 
 export default function MapControl({
   selectedLivers,
@@ -12,10 +13,12 @@ export default function MapControl({
   gtaTimeMax,
   isPlaying,
   showRoute,
+  playSpeedRatio,
   onSelectedLiversChange,
   onGtaDayChange,
   onGtaTimeChange,
   onShowRouteChange,
+  onPlaySpeedRatioChange,
 }: {
   selectedLivers: Liver[],
   gtaDay: number, // 1 - 10
@@ -24,16 +27,21 @@ export default function MapControl({
   gtaTimeMax: number, // unix timestamp
   isPlaying: boolean,
   showRoute: boolean,
+  playSpeedRatio: number, // 何倍速か
   onSelectedLiversChange: (livers: Liver[]) => void,
   onGtaDayChange: (day: number) => void,
   onGtaTimeChange: (time: number) => void,
   onIsPlayingChange: (isPlaying: boolean) => void,
   onShowRouteChange: (show: boolean) => void,
+  onPlaySpeedRatioChange: (ratio: number) => void,
 }) {
   // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
   const toBorderColorClass = (liver: any) => {
     return `border-${liver.id}-500`;
   }
+
+  const gtaDate = new Date(gtaTime * 1000);
+  const gtaDateString = formatInTimeZone(gtaDate, "Asia/Tokyo", "MM/dd HH:mm:ss");
 
   return (
     <div className="flex flex-col gap-6 py-6 px-4 overflow-y-hidden md:max-h-screen">
@@ -56,13 +64,13 @@ export default function MapControl({
 
         {/* 時刻表示 */}
         <div >
-          <Typography variant="h3">6/14 19:23:45</Typography>
+          <Typography variant="h3">{gtaDateString}</Typography>
         </div>
       </div>
 
       {/* 再生・停止 */}
-      {/* FIXME: プログレスバーが突き抜けてる。 https://github.com/creativetimofficial/material-tailwind/issues/836 と同根 */}
-      <Slider
+      {/* FIXME: プログレスバーが突き抜けてる。 https://github.com/creativetimofficial/material-tailwind/issues/836 と同根。いったんただのinput rangeに戻す */}
+      <input type="range"
         value={gtaTime}
         onChange={(ev) => onGtaTimeChange(Number(ev.target.value))}
         min={gtaTimeMin}
@@ -82,10 +90,10 @@ export default function MapControl({
             <ForwardIcon className="h-4 w-4" />
           </IconButton>
         </ButtonGroup>
-        <Select label="再生速度" value="1x" size="sm">
-          <Option value="1x">1x</Option>
-          <Option value="60x">60x</Option>
-          <Option value="300x">300x</Option>
+        <Select label="再生速度" value={playSpeedRatio.toString()} onChange={(val) => onPlaySpeedRatioChange(Number(val))} size="sm">
+          <Option value="1">1x</Option>
+          <Option value="60">60x</Option>
+          <Option value="300">300x</Option>
         </Select>
       </div>
       {/* 表示オプション */}
