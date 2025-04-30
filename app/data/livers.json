@@ -4,6 +4,7 @@
     "name": "葛葉",
     "enName": "Kuzuha",
     "imageUrl": "/img/avatar/kuzuha.png",
+    "markerImageUrl": "/img/marker/kuzuha.png",
     "tags": [
       "DROPS",
       "ギャング",
@@ -20,6 +21,7 @@
     "name": "壱百満天原サロメ",
     "enName": "Hyakumantenbara Salome",
     "imageUrl": "/img/avatar/salome-hyakumantenbara.png",
+    "markerImageUrl": "/img/marker/salome-hyakumantenbara.png",
     "tags": [
       "SALOME RAMEN",
       "飲食店",
@@ -33,6 +35,7 @@
     "name": "叶",
     "enName": "Kanae",
     "imageUrl": "/img/avatar/kanae.png",
+    "markerImageUrl": "/img/marker/kanae.png",
     "tags": [
       "主催",
       "DROPS",
@@ -47,6 +50,7 @@
     "name": "月ノ美兎",
     "enName": "Tsukino Mito",
     "imageUrl": "/img/avatar/mito-tsukino.png",
+    "markerImageUrl": "/img/marker/mito-tsukino.png",
     "tags": [
       "CLUB HOZUKI",
       "キャバクラ"
@@ -58,6 +62,7 @@
     "name": "剣持刀也",
     "enName": "Kenmochi Toya",
     "imageUrl": "/img/avatar/toya-kenmochi.png",
+    "markerImageUrl": "/img/marker/toya-kenmochi.png",
     "tags": [
       "天空闘技場 デスマッチ参加者"
     ],
@@ -68,6 +73,7 @@
     "name": "星川サラ",
     "enName": "Hoshikawa Sara",
     "imageUrl": "/img/avatar/sara-hoshikawa.png",
+    "markerImageUrl": "/img/marker/sara-hoshikawa.png",
     "tags": [
       "主催",
       "救急隊"
@@ -79,6 +85,7 @@
     "name": "不破湊",
     "enName": "Fuwa Minato",
     "imageUrl": "/img/avatar/minato-fuwa.png",
+    "markerImageUrl": "/img/marker/minato-fuwa.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -91,6 +98,7 @@
     "name": "ルカ・カネシロ",
     "enName": "Luca Kaneshiro",
     "imageUrl": "/img/avatar/luca-kaneshiro.png",
+    "markerImageUrl": "/img/marker/luca-kaneshiro.png",
     "tags": [
       "V!VONO",
       "飲食店",
@@ -104,6 +112,7 @@
     "name": "闇ノシュウ",
     "enName": "Shu Yamino",
     "imageUrl": "/img/avatar/shu-yamino.png",
+    "markerImageUrl": "/img/marker/shu-yamino.png",
     "tags": [
       "警察",
       "DROPS",
@@ -122,6 +131,7 @@
     "name": "リゼ・ヘルエスタ",
     "enName": "Lize Helesta",
     "imageUrl": "/img/avatar/lize-helesta.png",
+    "markerImageUrl": "/img/marker/lize-helesta.png",
     "tags": [
       "#にじさんじ逃走中"
     ],
@@ -132,6 +142,7 @@
     "name": "笹木咲",
     "enName": "Sasaki Saku",
     "imageUrl": "/img/avatar/saku-sasaki.png",
+    "markerImageUrl": "/img/marker/saku-sasaki.png",
     "tags": [
       "警察",
       "CLUB HOZUKI",
@@ -145,6 +156,7 @@
     "name": "樋口楓",
     "enName": "Higuchi Kaede",
     "imageUrl": "/img/avatar/kaede-higuchi.png",
+    "markerImageUrl": "/img/marker/kaede-higuchi.png",
     "tags": [
       "救急隊",
       "生徒会パン屋さん",
@@ -157,6 +169,7 @@
     "name": "社築",
     "enName": "Yashiro Kizuku",
     "imageUrl": "/img/avatar/kizuku-yashiro.png",
+    "markerImageUrl": "/img/marker/kizuku-yashiro.png",
     "tags": [
       "天空闘技場 デスマッチ参加者",
       "#にじさんじ逃走中"
@@ -168,6 +181,7 @@
     "name": "アルス・アルマル",
     "enName": "Ars Almal",
     "imageUrl": "/img/avatar/ars-almal.png",
+    "markerImageUrl": "/img/marker/ars-almal.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -180,6 +194,7 @@
     "name": "加賀美ハヤト",
     "enName": "Kagami Hayato",
     "imageUrl": "/img/avatar/hayato-kagami.png",
+    "markerImageUrl": "/img/marker/hayato-kagami.png",
     "tags": [
       "めんや 加賀美",
       "飲食店",
@@ -195,6 +210,7 @@
     "name": "椎名唯華",
     "enName": "Shiina Yuika",
     "imageUrl": "/img/avatar/yuika-shiina.png",
+    "markerImageUrl": "/img/marker/yuika-shiina.png",
     "tags": [
       "cafe&kitchen DRAKE",
       "うんちやさん",
@@ -209,6 +225,7 @@
     "name": "ローレン・イロアス",
     "enName": "Lauren Iroas",
     "imageUrl": "/img/avatar/lauren-iroas.png",
+    "markerImageUrl": "/img/marker/lauren-iroas.png",
     "tags": [
       "警察",
       "DROPS",
@@ -224,6 +241,7 @@
     "name": "イブラヒム",
     "enName": "Ibrahim",
     "imageUrl": "/img/avatar/ibrahim.png",
+    "markerImageUrl": "/img/marker/ibrahim.png",
     "tags": [
       "メカニック",
       "mec崖超え",
@@ -238,6 +256,7 @@
     "name": "本間ひまわり",
     "enName": "Honma Himawari",
     "imageUrl": "/img/avatar/himawari-honma.png",
+    "markerImageUrl": "/img/marker/himawari-honma.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -250,6 +269,7 @@
     "name": "町田ちま",
     "enName": "Machita Chima",
     "imageUrl": "/img/avatar/chima-machita.png",
+    "markerImageUrl": "/img/marker/chima-machita.png",
     "tags": [],
     "color": "#80C8EF"
   },
@@ -258,6 +278,7 @@
     "name": "天宮こころ",
     "enName": "Amamiya Kokoro",
     "imageUrl": "/img/avatar/kokoro-amamiya.png",
+    "markerImageUrl": "/img/marker/kokoro-amamiya.png",
     "tags": [
       "メカニック",
       "mec崖超え",
@@ -270,6 +291,7 @@
     "name": "フレン・E・ルスタリオ",
     "enName": "Furen E Lustario",
     "imageUrl": "/img/avatar/furen-e-lustario.png",
+    "markerImageUrl": "/img/marker/furen-e-lustario.png",
     "tags": [
       "ENIGMA",
       "麻薬カルテル",
@@ -283,6 +305,7 @@
     "name": "三枝明那",
     "enName": "Saegusa Akina",
     "imageUrl": "/img/avatar/akina-saegusa.png",
+    "markerImageUrl": "/img/marker/akina-saegusa.png",
     "tags": [
       "救急隊",
       "タクシー",
@@ -299,6 +322,7 @@
     "name": "甲斐田晴",
     "enName": "Kaida Haru",
     "imageUrl": "/img/avatar/haru-kaida.png",
+    "markerImageUrl": "/img/marker/haru-kaida.png",
     "tags": [
       "救急隊"
     ],
@@ -309,6 +333,7 @@
     "name": "える",
     "enName": "Elu",
     "imageUrl": "/img/avatar/elu.png",
+    "markerImageUrl": "/img/marker/elu.png",
     "tags": [
       "CLUB HOZUKI",
       "キャバクラ"
@@ -320,6 +345,7 @@
     "name": "ニュイ・ソシエール",
     "enName": "Nui Sociere",
     "imageUrl": "/img/avatar/nui-sociere.png",
+    "markerImageUrl": "/img/marker/nui-sociere.png",
     "tags": [
       "タクシー"
     ],
@@ -330,6 +356,7 @@
     "name": "ラトナ・プティ",
     "enName": "Ratna Petit",
     "imageUrl": "/img/avatar/ratna-petit.png",
+    "markerImageUrl": "/img/marker/ratna-petit.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -342,6 +369,7 @@
     "name": "西園チグサ",
     "enName": "Nishizono Chigusa",
     "imageUrl": "/img/avatar/chigusa-nishizono.png",
+    "markerImageUrl": "/img/marker/chigusa-nishizono.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -353,6 +381,7 @@
     "name": "でびでび・でびる",
     "enName": "Debidebi Debiru",
     "imageUrl": "/img/avatar/debidebi-debiru.png",
+    "markerImageUrl": "/img/marker/debidebi-debiru.png",
     "tags": [
       "うんちやさん",
       "飲食店"
@@ -364,6 +393,7 @@
     "name": "健屋花那",
     "enName": "Sukoya Kana",
     "imageUrl": "/img/avatar/kana-sukoya.png",
+    "markerImageUrl": "/img/marker/kana-sukoya.png",
     "tags": [
       "救急隊",
       "CLUB HOZUKI",
@@ -377,6 +407,7 @@
     "name": "竜胆尊",
     "enName": "Rindou Mikoto",
     "imageUrl": "/img/avatar/mikoto-rindou.png",
+    "markerImageUrl": "/img/marker/mikoto-rindou.png",
     "tags": [
       "鬼灯組",
       "ギャング",
@@ -390,6 +421,7 @@
     "name": "周央サンゴ",
     "enName": "Suo Sango",
     "imageUrl": "/img/avatar/sango-suo.png",
+    "markerImageUrl": "/img/marker/sango-suo.png",
     "tags": [
       "生徒会パン屋さん",
       "飲食店"
@@ -401,6 +433,7 @@
     "name": "シスター・クレア",
     "enName": "Sister Claire",
     "imageUrl": "/img/avatar/sister-claire.png",
+    "markerImageUrl": "/img/marker/sister-claire.png",
     "tags": [
       "CLUB HOZUKI",
       "キャバクラ",
@@ -413,6 +446,7 @@
     "name": "夜見れな",
     "enName": "Yorumi Rena",
     "imageUrl": "/img/avatar/rena-yorumi.png",
+    "markerImageUrl": "/img/marker/rena-yorumi.png",
     "tags": [
       "めんや 加賀美",
       "うんちやさん",
@@ -428,6 +462,7 @@
     "name": "狂蘭 メロコ",
     "enName": "Meloco Kyoran",
     "imageUrl": "/img/avatar/meloco-kyoran.png",
+    "markerImageUrl": "/img/marker/meloco-kyoran.png",
     "tags": [
       "ENIGMA",
       "麻薬カルテル",
@@ -441,6 +476,7 @@
     "name": "サニー・ブリスコー",
     "enName": "Sonny Brisko",
     "imageUrl": "/img/avatar/sonny-brisko.png",
+    "markerImageUrl": "/img/marker/sonny-brisko.png",
     "tags": [],
     "color": "#FFF321"
   },
@@ -449,6 +485,7 @@
     "name": "エリーラ ペンドラ",
     "enName": "Elira Pendora",
     "imageUrl": "/img/avatar/elira-pendora.png",
+    "markerImageUrl": "/img/marker/elira-pendora.png",
     "tags": [],
     "color": "#95C8D8"
   },
@@ -457,6 +494,7 @@
     "name": "魔界ノりりむ",
     "enName": "Makaino Ririmu",
     "imageUrl": "/img/avatar/makaino-ririmu.png",
+    "markerImageUrl": "/img/marker/makaino-ririmu.png",
     "tags": [
       "警察",
       "天空闘技場 デスマッチ参加者",
@@ -469,6 +507,7 @@
     "name": "花畑チャイカ",
     "enName": "Hanabatake Chaika",
     "imageUrl": "/img/avatar/chaika-hanabatake.png",
+    "markerImageUrl": "/img/marker/chaika-hanabatake.png",
     "tags": [
       "CLUB HOZUKI",
       "キャバクラ",
@@ -482,6 +521,7 @@
     "name": "鷹宮リオン",
     "enName": "Takamiya Rion",
     "imageUrl": "/img/avatar/rion-takamiya.png",
+    "markerImageUrl": "/img/marker/rion-takamiya.png",
     "tags": [
       "警察",
       "うんちやさん",
@@ -496,6 +536,7 @@
     "name": "渡会雲雀",
     "enName": "Watarai Hibari",
     "imageUrl": "/img/avatar/hibari-watarai.png",
+    "markerImageUrl": "/img/marker/hibari-watarai.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -508,6 +549,7 @@
     "name": "ましろ爻",
     "enName": "Mashiro Meme",
     "imageUrl": "/img/avatar/meme-mashiro.png",
+    "markerImageUrl": "/img/marker/meme-mashiro.png",
     "tags": [
       "鬼灯組",
       "ギャング",
@@ -520,6 +562,7 @@
     "name": "グウェル・オス・ガール",
     "enName": "Gwelu Os Gar",
     "imageUrl": "/img/avatar/gwelu-os-gar.png",
+    "markerImageUrl": "/img/marker/gwelu-os-gar.png",
     "tags": [
       "救急隊",
       "#にじさんじ逃走中"
@@ -531,6 +574,7 @@
     "name": "ロゼミ ラブロック",
     "enName": "Rosemi Lovelock",
     "imageUrl": "/img/avatar/rosemi-lovelock.png",
+    "markerImageUrl": "/img/marker/rosemi-lovelock.png",
     "tags": [],
     "color": "#DC3753"
   },
@@ -539,6 +583,7 @@
     "name": "ベルモンド・バンデラス",
     "enName": "Belmond Banderas",
     "imageUrl": "/img/avatar/belmond-banderas.png",
+    "markerImageUrl": "/img/marker/belmond-banderas.png",
     "tags": [
       "Blue Union Gangsters(BUGs)",
       "ギャング"
@@ -550,6 +595,7 @@
     "name": "レオス・ヴィンセント",
     "enName": "Leos Vincent",
     "imageUrl": "/img/avatar/leos-vincent.png",
+    "markerImageUrl": "/img/marker/leos-vincent.png",
     "tags": [
       "ENIGMA",
       "麻薬カルテル",
@@ -565,6 +611,7 @@
     "name": "葉加瀬冬雪",
     "enName": "Hakase Fuyuki",
     "imageUrl": "/img/avatar/fuyuki-hakase.png",
+    "markerImageUrl": "/img/marker/fuyuki-hakase.png",
     "tags": [
       "めんや 加賀美",
       "飲食店"
@@ -576,6 +623,7 @@
     "name": "長尾景",
     "enName": "Nagao Kei",
     "imageUrl": "/img/avatar/kei-nagao.png",
+    "markerImageUrl": "/img/marker/kei-nagao.png",
     "tags": [
       "救急隊",
       "#にじさんじ逃走中"
@@ -587,6 +635,7 @@
     "name": "エクス・アルビオ",
     "enName": "Ex Albio",
     "imageUrl": "/img/avatar/ex-albio.png",
+    "markerImageUrl": "/img/marker/ex-albio.png",
     "tags": [
       "警察",
       "DROPS",
@@ -603,6 +652,7 @@
     "name": "マリア マリオネット",
     "enName": "Maria Marionette",
     "imageUrl": "/img/avatar/maria-marionette.png",
+    "markerImageUrl": "/img/marker/maria-marionette.png",
     "tags": [
       "救急隊",
       "犬カフェ",
@@ -616,6 +666,7 @@
     "name": "レイン・パターソン",
     "enName": "Lain Paterson",
     "imageUrl": "/img/avatar/lain-paterson.png",
+    "markerImageUrl": "/img/marker/lain-paterson.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -627,6 +678,7 @@
     "name": "卯月コウ",
     "enName": "Uzuki Kou",
     "imageUrl": "/img/avatar/kou-uzuki.png",
+    "markerImageUrl": "/img/marker/kou-uzuki.png",
     "tags": [
       "警察",
       "鬼灯組",
@@ -643,6 +695,7 @@
     "name": "四季凪アキラ",
     "enName": "Shikinagi Akira",
     "imageUrl": "/img/avatar/akira-shikinagi.png",
+    "markerImageUrl": "/img/marker/akira-shikinagi.png",
     "tags": [],
     "color": "#235AAA"
   },
@@ -651,6 +704,7 @@
     "name": "レヴィ・エリファ",
     "enName": "Levi Elipha",
     "imageUrl": "/img/avatar/levi-elipha.png",
+    "markerImageUrl": "/img/marker/levi-elipha.png",
     "tags": [
       "警察",
       "鬼灯組",
@@ -666,6 +720,7 @@
     "name": "弦月藤士郎",
     "enName": "Genzuki Tojiro",
     "imageUrl": "/img/avatar/tojiro-genzuki.png",
+    "markerImageUrl": "/img/marker/tojiro-genzuki.png",
     "tags": [
       "救急隊",
       "#にじさんじ逃走中"
@@ -677,6 +732,7 @@
     "name": "夢追翔",
     "enName": "Yumeoi Kakeru",
     "imageUrl": "/img/avatar/kakeru-yumeoi.png",
+    "markerImageUrl": "/img/marker/kakeru-yumeoi.png",
     "tags": [
       "#にじさんじ逃走中"
     ],
@@ -687,6 +743,7 @@
     "name": "夕陽リリ",
     "enName": "Yuhi Riri",
     "imageUrl": "/img/avatar/riri-yuhi.png",
+    "markerImageUrl": "/img/marker/riri-yuhi.png",
     "tags": [
       "メカニック",
       "mec崖超え",
@@ -699,6 +756,7 @@
     "name": "ドーラ",
     "enName": "Dola",
     "imageUrl": "/img/avatar/dola.png",
+    "markerImageUrl": "/img/marker/dola.png",
     "tags": [
       "cafe&kitchen DRAKE",
       "飲食店",
@@ -713,6 +771,7 @@
     "name": "伏見ガク",
     "enName": "Fushimi Gaku",
     "imageUrl": "/img/avatar/gaku-fushimi.png",
+    "markerImageUrl": "/img/marker/gaku-fushimi.png",
     "tags": [
       "cafe&kitchen DRAKE",
       "飲食店",
@@ -727,6 +786,7 @@
     "name": "オリバー・エバンス",
     "enName": "Oliver Evans",
     "imageUrl": "/img/avatar/oliver-evans.png",
+    "markerImageUrl": "/img/marker/oliver-evans.png",
     "tags": [
       "Blue Union Gangsters(BUGs)",
       "ギャング",
@@ -739,6 +799,7 @@
     "name": "森中花咲",
     "enName": "Morinaka Kazaki",
     "imageUrl": "/img/avatar/kazaki-morinaka.png",
+    "markerImageUrl": "/img/marker/kazaki-morinaka.png",
     "tags": [
       "救急隊",
       "CLUB HOZUKI",
@@ -752,6 +813,7 @@
     "name": "ヤン・ナリ",
     "enName": "Yang Nari",
     "imageUrl": "/img/avatar/yang-nari.png",
+    "markerImageUrl": "/img/marker/yang-nari.png",
     "tags": [
       "猫カフェ",
       "飲食店"
@@ -763,6 +825,7 @@
     "name": "鈴木勝",
     "enName": "Suzuki Masaru",
     "imageUrl": "/img/avatar/masaru-suzuki.png",
+    "markerImageUrl": "/img/marker/masaru-suzuki.png",
     "tags": [
       "V!VONO",
       "飲食店",
@@ -777,6 +840,7 @@
     "name": "ソフィア・ヴァレンタイン",
     "enName": "Sophia Valentine",
     "imageUrl": "/img/avatar/sophia-valentine.png",
+    "markerImageUrl": "/img/marker/sophia-valentine.png",
     "tags": [
       "警察"
     ],
@@ -787,6 +851,7 @@
     "name": "魔使マオ",
     "enName": "Matsukai Mao",
     "imageUrl": "/img/avatar/mao-matsukai.png",
+    "markerImageUrl": "/img/marker/mao-matsukai.png",
     "tags": [
       "cafe&kitchen DRAKE",
       "飲食店",
@@ -799,6 +864,7 @@
     "name": "北小路ヒスイ",
     "enName": "Kitakoji Hisui",
     "imageUrl": "/img/avatar/hisui-kitakoji.png",
+    "markerImageUrl": "/img/marker/hisui-kitakoji.png",
     "tags": [
       "記者",
       "CLUB HOZUKI",
@@ -812,6 +878,7 @@
     "name": "セラフ・ダズルガーデン",
     "enName": "Seraph Dazzlegarden",
     "imageUrl": "/img/avatar/seraph-dazzlegarden.png",
+    "markerImageUrl": "/img/marker/seraph-dazzlegarden.png",
     "tags": [
       "Blue Union Gangsters(BUGs)",
       "ギャング",
@@ -826,6 +893,7 @@
     "name": "小清水透",
     "enName": "Koshimizu Toru",
     "imageUrl": "/img/avatar/toru-koshimizu.png",
+    "markerImageUrl": "/img/marker/toru-koshimizu.png",
     "tags": [
       "メカニック",
       "mec崖超え",
@@ -838,6 +906,7 @@
     "name": "小柳ロウ",
     "enName": "Koyanagi Rou",
     "imageUrl": "/img/avatar/rou-koyanagi.png",
+    "markerImageUrl": "/img/marker/rou-koyanagi.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -849,6 +918,7 @@
     "name": "黒井しば",
     "enName": "Kuroi Shiba",
     "imageUrl": "/img/avatar/shiba-kuroi.png",
+    "markerImageUrl": "/img/marker/shiba-kuroi.png",
     "tags": [
       "タクシー",
       "天空闘技場 デスマッチ参加者"
@@ -860,6 +930,7 @@
     "name": "先斗寧",
     "enName": "Ponto Nei",
     "imageUrl": "/img/avatar/nei-ponto.png",
+    "markerImageUrl": "/img/marker/nei-ponto.png",
     "tags": [
       "#にじさんじ逃走中"
     ],
@@ -870,6 +941,7 @@
     "name": "星導ショウ",
     "enName": "Hoshirube Sho",
     "imageUrl": "/img/avatar/sho-hoshirube.png",
+    "markerImageUrl": "/img/marker/sho-hoshirube.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -884,6 +956,7 @@
     "name": "桜凛月",
     "enName": "Sakura Ritsuki",
     "imageUrl": "/img/avatar/ritsuki-sakura.png",
+    "markerImageUrl": "/img/marker/ritsuki-sakura.png",
     "tags": [
       "救急隊",
       "CLUB HOZUKI",
@@ -897,6 +970,7 @@
     "name": "緋八マナ",
     "enName": "Hibachi Mana",
     "imageUrl": "/img/avatar/mana-hibachi.png",
+    "markerImageUrl": "/img/marker/mana-hibachi.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -908,6 +982,7 @@
     "name": "風楽奏斗",
     "enName": "Fura Kanato",
     "imageUrl": "/img/avatar/kanato-fura.png",
+    "markerImageUrl": "/img/marker/kanato-fura.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -920,6 +995,7 @@
     "name": "栞葉るり",
     "enName": "Shioriha Ruri",
     "imageUrl": "/img/avatar/ruri-shioriha.png",
+    "markerImageUrl": "/img/marker/ruri-shioriha.png",
     "tags": [
       "#にじさんじ逃走中"
     ],
@@ -930,6 +1006,7 @@
     "name": "神田笑一",
     "enName": "Kanda Shoichi",
     "imageUrl": "/img/avatar/shoichi-kanda.png",
+    "markerImageUrl": "/img/marker/shoichi-kanda.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -941,6 +1018,7 @@
     "name": "早瀬走",
     "enName": "Hayase Sou",
     "imageUrl": "/img/avatar/sou-hayase.png",
+    "markerImageUrl": "/img/marker/sou-hayase.png",
     "tags": [
       "鬼灯組",
       "ギャング",
@@ -954,6 +1032,7 @@
     "name": "石神のぞみ",
     "enName": "Ishigami Nozomi",
     "imageUrl": "/img/avatar/nozomi-ishigami.png",
+    "markerImageUrl": "/img/marker/nozomi-ishigami.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -965,6 +1044,7 @@
     "name": "フミ",
     "enName": "Fumi",
     "imageUrl": "/img/avatar/fumi.png",
+    "markerImageUrl": "/img/marker/fumi.png",
     "tags": [
       "#にじさんじ逃走中"
     ],
@@ -975,6 +1055,7 @@
     "name": "魁星",
     "enName": "Kaisei",
     "imageUrl": "/img/avatar/kaisei.png",
+    "markerImageUrl": "/img/marker/kaisei.png",
     "tags": [
       "救急隊",
       "#にじさんじ逃走中"
@@ -986,6 +1067,7 @@
     "name": "山神カルタ",
     "enName": "Yamagami Karuta",
     "imageUrl": "/img/avatar/karuta-yamagami.png",
+    "markerImageUrl": "/img/marker/karuta-yamagami.png",
     "tags": [
       "cafe&kitchen DRAKE",
       "飲食店",
@@ -998,6 +1080,7 @@
     "name": "ルイス・キャミー",
     "enName": "Luis Cammy",
     "imageUrl": "/img/avatar/luis-cammy.png",
+    "markerImageUrl": "/img/marker/luis-cammy.png",
     "tags": [],
     "color": "#E86A74"
   },
@@ -1006,6 +1089,7 @@
     "name": "獅子堂あかり",
     "enName": "Shishido Akari",
     "imageUrl": "/img/avatar/akari-shishido.png",
+    "markerImageUrl": "/img/marker/akari-shishido.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -1017,6 +1101,7 @@
     "name": "来栖夏芽",
     "enName": "Kurusu Natsume",
     "imageUrl": "/img/avatar/natsume-kurusu.png",
+    "markerImageUrl": "/img/marker/natsume-kurusu.png",
     "tags": [
       "CLUB HOZUKI",
       "キャバクラ",
@@ -1029,6 +1114,7 @@
     "name": "海妹四葉",
     "enName": "Umise Yotsuha",
     "imageUrl": "/img/avatar/yotsuha-umise.png",
+    "markerImageUrl": "/img/marker/yotsuha-umise.png",
     "tags": [
       "#にじさんじ逃走中"
     ],
@@ -1039,6 +1125,7 @@
     "name": "エリー・コニファー",
     "enName": "Eli Conifer",
     "imageUrl": "/img/avatar/eli-conifer.png",
+    "markerImageUrl": "/img/marker/eli-conifer.png",
     "tags": [
       "V!VONO",
       "飲食店",
@@ -1053,6 +1140,7 @@
     "name": "小野町春香",
     "enName": "Onomachi Haruka",
     "imageUrl": "/img/avatar/haruka-onomachi.png",
+    "markerImageUrl": "/img/marker/haruka-onomachi.png",
     "tags": [
       "救急隊",
       "#にじさんじ逃走中"
@@ -1064,6 +1152,7 @@
     "name": "五十嵐梨花",
     "enName": "Igarashi Rika",
     "imageUrl": "/img/avatar/rika-igarashi.png",
+    "markerImageUrl": "/img/marker/rika-igarashi.png",
     "tags": [
       "警察",
       "鬼灯組",
@@ -1080,6 +1169,7 @@
     "name": "ヴェール ヴァーミリオン",
     "enName": "Ver Vermillion",
     "imageUrl": "/img/avatar/ver-vermillion.png",
+    "markerImageUrl": "/img/marker/ver-vermillion.png",
     "tags": [],
     "color": "#D5345E"
   },
@@ -1088,6 +1178,7 @@
     "name": "榊ネス",
     "enName": "Sakaki Ness",
     "imageUrl": "/img/avatar/ness-sakaki.png",
+    "markerImageUrl": "/img/marker/ness-sakaki.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -1099,6 +1190,7 @@
     "name": "えま★おうがすと",
     "enName": "Emma August",
     "imageUrl": "/img/avatar/emma-august.png",
+    "markerImageUrl": "/img/marker/emma-august.png",
     "tags": [
       "V!VONO",
       "飲食店",
@@ -1112,6 +1204,7 @@
     "name": "叢雲カゲツ",
     "enName": "Murakumo Kagetsu",
     "imageUrl": "/img/avatar/kagetsu-murakumo.png",
+    "markerImageUrl": "/img/marker/kagetsu-murakumo.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -1124,6 +1217,7 @@
     "name": "セフィナ",
     "enName": "Seffyna",
     "imageUrl": "/img/avatar/seffyna.png",
+    "markerImageUrl": "/img/marker/seffyna.png",
     "tags": [
       "救急隊",
       "犬カフェ",
@@ -1137,6 +1231,7 @@
     "name": "伊波ライ",
     "enName": "Inami Rai",
     "imageUrl": "/img/avatar/rai-inami.png",
+    "markerImageUrl": "/img/marker/rai-inami.png",
     "tags": [
       "メカニック",
       "mec崖超え",
@@ -1149,6 +1244,7 @@
     "name": "宇佐美リト",
     "enName": "Usami Rito",
     "imageUrl": "/img/avatar/rito-usami.png",
+    "markerImageUrl": "/img/marker/rito-usami.png",
     "tags": [
       "救急隊"
     ],
@@ -1159,6 +1255,7 @@
     "name": "倉持めると",
     "enName": "Kuramochi Meruto",
     "imageUrl": "/img/avatar/meruto-kuramochi.png",
+    "markerImageUrl": "/img/marker/meruto-kuramochi.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -1170,6 +1267,7 @@
     "name": "ヴェザリウス バンデージ",
     "enName": "Vezalius Bandage",
     "imageUrl": "/img/avatar/vezalius-bandage.png",
+    "markerImageUrl": "/img/marker/vezalius-bandage.png",
     "tags": [
       "警察",
       "救急隊",
@@ -1182,6 +1280,7 @@
     "name": "鏑木ろこ",
     "enName": "Kaburaki Roco",
     "imageUrl": "/img/avatar/roco-kaburaki.png",
+    "markerImageUrl": "/img/marker/roco-kaburaki.png",
     "tags": [
       "#にじさんじ逃走中"
     ],
@@ -1192,6 +1291,7 @@
     "name": "赤城ウェン",
     "enName": "Akagi Wen",
     "imageUrl": "/img/avatar/wen-akagi.png",
+    "markerImageUrl": "/img/marker/wen-akagi.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -1203,6 +1303,7 @@
     "name": "ミン・スゥーハ",
     "enName": "Min Suha",
     "imageUrl": "/img/avatar/min-suha.png",
+    "markerImageUrl": "/img/marker/min-suha.png",
     "tags": [
       "救急隊",
       "#にじさんじ逃走中"
@@ -1214,6 +1315,7 @@
     "name": "渋谷ハジメ",
     "enName": "Shibuya Hajime",
     "imageUrl": "/img/avatar/hajime-shibuya.png",
+    "markerImageUrl": "/img/marker/hajime-shibuya.png",
     "tags": [
       "メカニック",
       "mec崖超え",
@@ -1227,6 +1329,7 @@
     "name": "北見遊征",
     "enName": "Kitami Yusei",
     "imageUrl": "/img/avatar/yusei-kitami.png",
+    "markerImageUrl": "/img/marker/yusei-kitami.png",
     "tags": [
       "警察",
       "#にじさんじ逃走中"
@@ -1238,6 +1341,7 @@
     "name": "轟京子",
     "enName": "Todoroki Kyoko",
     "imageUrl": "/img/avatar/kyoko-todoroki.png",
+    "markerImageUrl": "/img/marker/kyoko-todoroki.png",
     "tags": [],
     "color": "#F8A69A"
   },
@@ -1246,6 +1350,7 @@
     "name": "ミラン・ケストレル",
     "enName": "Milan Kestrel",
     "imageUrl": "/img/avatar/milan-kestrel.png",
+    "markerImageUrl": "/img/marker/milan-kestrel.png",
     "tags": [
       "CLUB.3",
       "ギャング",
@@ -1260,6 +1365,7 @@
     "name": "天ヶ瀬むゆ",
     "enName": "Amagase Muyu",
     "imageUrl": "/img/avatar/muyu-amagase.png",
+    "markerImageUrl": "/img/marker/muyu-amagase.png",
     "tags": [],
     "color": "#FA5578"
   },
@@ -1268,6 +1374,7 @@
     "name": "矢車りね",
     "enName": "Yaguruma Rine",
     "imageUrl": "/img/avatar/rine-yaguruma.png",
+    "markerImageUrl": "/img/marker/rine-yaguruma.png",
     "tags": [
       "#にじさんじ逃走中"
     ],
@@ -1278,6 +1385,7 @@
     "name": "イ・ロハ",
     "enName": "Lee Roha",
     "imageUrl": "/img/avatar/lee-roha.png",
+    "markerImageUrl": "/img/marker/lee-roha.png",
     "tags": [
       "メカニック",
       "mec崖超え",
@@ -1290,6 +1398,7 @@
     "name": "ハ・ユン",
     "enName": "Ha Yun",
     "imageUrl": "/img/avatar/ha-yun.png",
+    "markerImageUrl": "/img/marker/ha-yun.png",
     "tags": [
       "警察"
     ],
@@ -1300,6 +1409,7 @@
     "name": "立伝都々",
     "enName": "Tachitsute Toto",
     "imageUrl": "/img/avatar/toto-tachitsute.png",
+    "markerImageUrl": "/img/marker/toto-tachitsute.png",
     "tags": [
       "V!VONO",
       "飲食店",
@@ -1314,6 +1424,7 @@
     "name": "クララ チャームウッド",
     "enName": "Klara Charmwood",
     "imageUrl": "/img/avatar/klara-charmwood.png",
+    "markerImageUrl": "/img/marker/klara-charmwood.png",
     "tags": [
       "警察",
       "V!VONO",
@@ -1329,6 +1440,7 @@
     "name": "ナ・セラ",
     "enName": "Na Sera",
     "imageUrl": "/img/avatar/na-sera.png",
+    "markerImageUrl": "/img/marker/na-sera.png",
     "tags": [
       "Blue Union Gangsters(BUGs)",
       "ギャング",
@@ -1341,6 +1453,7 @@
     "name": "オ・ジユ",
     "enName": "Oh Jiyu",
     "imageUrl": "/img/avatar/oh-jiyu.png",
+    "markerImageUrl": "/img/marker/oh-jiyu.png",
     "tags": [
       "救急隊",
       "バーガー屋",
@@ -1354,6 +1467,7 @@
     "name": "リュ・ハリ",
     "enName": "Ryu Hari",
     "imageUrl": "/img/avatar/ryu-hari.png",
+    "markerImageUrl": "/img/marker/ryu-hari.png",
     "tags": [
       "猫カフェ",
       "飲食店",
@@ -1366,6 +1480,7 @@
     "name": "ヘックス ヘイワイヤー",
     "enName": "Hex Haywire",
     "imageUrl": "/img/avatar/hex-haywire.png",
+    "markerImageUrl": "/img/marker/hex-haywire.png",
     "tags": [],
     "color": "#007199"
   }

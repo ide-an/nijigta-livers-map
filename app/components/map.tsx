@@ -44,8 +44,7 @@ const createMarkerFeature = (probePoint: ProbePoint, liver: Liver) => {
   const feature = new Feature({ geometry: point });
   feature.setStyle(new Style({
     image: new Icon({
-      // src: liver.imageUrl,
-      src: "/img/marker_k.png",
+      src: liver.markerImageUrl,
       anchor: [0.5, 1.0],
       scale: 0.7,
     }),
