@@ -7,8 +7,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme = {
+    chip: {
+      styles: {
+        base: {
+          chip: {
+            textTransform: "normal-case",
+          }
+        }
+      }
+    }
+  };
   return (
-    <ThemeProvider>
+    <ThemeProvider value={theme}>
       <html lang="ja">
         <body>
           {children}
