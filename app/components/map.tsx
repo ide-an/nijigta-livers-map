@@ -29,6 +29,7 @@ function Map({
 }) {
 
   const [map, setMap] = useState<OlMap | null>(null);
+  const [routeVectorSource, setRouteVectorSource] = useState<VectorSrouce | null>(null);
 
   useEffect(() => {
 
@@ -63,37 +64,51 @@ function Map({
       }),
     });
     console.log("map", map);
+    const vectorSource = new VectorSrouce({
+        features: []
+    });
+    map.addLayer(new Vector({
+      source: vectorSource,
+    }));
     setMap(map);
+    setRouteVectorSource(vectorSource);
 
     return () => map.setTarget(null!);
   }, []);
 
   useEffect(() => {
-    if (!map){
+    if (!routeVectorSource){
       return;
     }
+    routeVectorSource.clear();
     // TODO: probeの描画
     for(const probe of probes) {
       const probePoints = probe.probePoints;
-      const points = probePoints.map((point) => {
-        return [point.x, point.y];
-      });
-      console.log("points", points);  
+      const points = probePoints
+        .filter((point) => point.t < gtaTime)
+        .map((point) => {
+          return [point.x, point.y];
+        });
+      if (points.length === 0) {
+        continue;
+      }
+      // TODO: 次の点を補完で追加する
+      // console.log("points", points);  
       const line = new LineString(points);
-      const feature = new Feature({  geometry: line });
-      feature.setStyle(new Style({   
+      const feature = new Feature({ geometry: line });
+      feature.setStyle(new Style({
         stroke: new Stroke({
           color: 'red',
           width: 2,
         }),
       }));
-      map.addLayer(new Vector({
-        source: new VectorSrouce({
-          features: [feature],
-        }),
-      }));
+      routeVectorSource.addFeature(feature);
+      // TODO: マーカーの追加
     }
-  },[probes, gtaTime, showRoute, isPlaying]);
+    if (map) {
+      map.render();
+    }
+  }, [probes, gtaTime, showRoute, isPlaying]);
 
   return <div className="h-full w-full" id="map-container" />;
 }

@@ -3,8 +3,30 @@ import Map from "./components/map"
 import MapControl from "./components/map_control";
 import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
-import { useEffect, useState } from "react";
+import { DependencyList, use, useEffect, useRef, useState } from "react";
 import { Probe } from "./data/probe";
+
+// https://css-tricks.com/using-requestanimationframe-with-react-hooks/
+const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: DependencyList) => {
+  // Use useRef for mutable variables that we want to persist
+  // without triggering a re-render on their change
+  const requestRef = useRef<number>(-1);
+  const previousTimeRef = useRef<number>(null);
+  
+  const animate = (time: number ) => {
+    if (previousTimeRef.current != undefined) {
+      const deltaTime = time - previousTimeRef.current;
+      callback(deltaTime)
+    }
+    previousTimeRef.current = time;
+    requestRef.current = requestAnimationFrame(animate);
+  }
+  
+  useEffect(() => {
+    requestRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, dependencies); // Make sure the effect runs only once
+}
 
 export default function Page() {
   const [probes, setProbes] = useState<Probe[]>([]); // TODO: probeを取得してセットする
@@ -42,19 +64,20 @@ export default function Page() {
     console.log("playSpeedRatio", ratio.toString());
   };
 
-  // TODO: 
+  // TODO:  gtaDayやselectedLiversの変更を検知してprobeを更新する
   const updateProbes = () => {
     const liver = selectedLivers[0];
     const newProbe: Probe = {
       liver: liver,
       gtaDay: gtaDay,
-      probePoints: [
-        { t: 1718447025, x: 1000, y: 2000 },
-        { t: 1718447080, x: 1100, y: 2100 },
-        { t: 1718447140, x: 1200, y: 2400 },
-        { t: 1718447200, x: 1300, y: 2900 },
-        { t: 1718447260, x: 1400, y: 3600 },
-      ]
+      probePoints: 
+        (new Array(100)).fill(0).map((_, i) => {
+          return {
+            t: gtaTime + i * 60,
+            x: Math.floor(i * 50),
+            y: Math.floor(Math.sin(i * 1/10) * 1000 + 2000),
+          }
+        }),
     };
     console.log("updateProbes", newProbe);
     setProbes([newProbe]);
@@ -63,6 +86,21 @@ export default function Page() {
     updateProbes();
   }, [selectedLivers, gtaDay]);
 
+  // GTAの時間を更新する
+  useAnimationFrame((deltaTime) => {
+    if (!isPlaying) {
+      return;
+    }
+    setGtaTime(prev => {
+      const newGtaTime = prev + deltaTime * playSpeedRatio / 1000;
+      if (newGtaTime > gtaTimeMax) {
+        setIsPlaying(false);
+        return gtaTimeMax;
+      }
+      return newGtaTime;
+    });
+  }, [isPlaying, playSpeedRatio]);
+  
   return (
     <div className="flex flex-col md:flex-row flex-grow h-screen">
       <div className="flex-grow">
