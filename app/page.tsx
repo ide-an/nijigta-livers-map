@@ -3,9 +3,11 @@ import Map from "./components/map"
 import MapControl from "./components/map_control";
 import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Probe } from "./data/probe";
 
 export default function Page() {
+  const [probes, setProbes] = useState<Probe[]>([]); // TODO: probeを取得してセットする
   const [selectedLivers, setSelectedLivers] = useState<Liver[]>(livers.filter((liver) => { return liver.tags.includes("DROPS") }));
   const [gtaDay, setGtaDay] = useState(1);
   const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
@@ -40,10 +42,36 @@ export default function Page() {
     console.log("playSpeedRatio", ratio.toString());
   };
 
+  // TODO: 
+  const updateProbes = () => {
+    const liver = selectedLivers[0];
+    const newProbe: Probe = {
+      liver: liver,
+      gtaDay: gtaDay,
+      probePoints: [
+        { t: 1718447025, x: 1000, y: 2000 },
+        { t: 1718447080, x: 1100, y: 2100 },
+        { t: 1718447140, x: 1200, y: 2400 },
+        { t: 1718447200, x: 1300, y: 2900 },
+        { t: 1718447260, x: 1400, y: 3600 },
+      ]
+    };
+    console.log("updateProbes", newProbe);
+    setProbes([newProbe]);
+  }
+  useEffect(() => {
+    updateProbes();
+  }, [selectedLivers, gtaDay]);
+
   return (
     <div className="flex flex-col md:flex-row flex-grow h-screen">
       <div className="flex-grow">
-        <Map />
+        <Map
+          probes={probes}
+          gtaTime={gtaTime}
+          showRoute={showRoute}
+          isPlaying={isPlaying}
+        />
       </div>
       <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-scroll">
         <MapControl
