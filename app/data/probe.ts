@@ -1,13 +1,13 @@
 import { Liver } from "./liver";
 
 export interface ProbePoint {
-    t: number; // unix timestamp
-    x: number; // x座標
-    y: number; // y座標
+  t: number; // unix timestamp
+  x: number; // x座標
+  y: number; // y座標
 }
 
 export interface Probe {
-    liver: Liver;
-    gta_day: number; // 1 - 10
-    probePoints: ProbePoint[];
+  liver: Liver;
+  gtaDay: number; // 1 - 10
+  probePoints: ProbePoint[];
 }

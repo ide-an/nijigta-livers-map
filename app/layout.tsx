@@ -13,17 +13,15 @@ export default function RootLayout({
         base: {
           chip: {
             textTransform: "normal-case",
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   };
   return (
     <ThemeProvider value={theme}>
       <html lang="ja">
-        <body>
-          {children}
-        </body>
+        <body>{children}</body>
       </html>
     </ThemeProvider>
   );

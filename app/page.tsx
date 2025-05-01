@@ -1,17 +1,21 @@
 "use client";
-import Map from "./components/map"
+import Map from "./components/map";
 import MapControl from "./components/map_control";
 import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
 import { DependencyList, use, useEffect, useRef, useState } from "react";
-import { Probe } from "./data/probe";
-import { filterLiverProbesByGtaDayAndLivers, getProbesFetcher } from "./data/liver_probes";
+import {
+  filterLiverProbesByGtaDayAndLivers,
+  getProbesFetcher,
+} from "./data/liver_probes";
 import liverProbes from "./data/liver_probes.json";
-import { set } from "ol/transform";
 import useSWR from "swr";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
-const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: DependencyList) => {
+const useAnimationFrame = (
+  callback: (deltaTime: number) => void,
+  dependencies: DependencyList
+) => {
   // Use useRef for mutable variables that we want to persist
   // without triggering a re-render on their change
   const requestRef = useRef<number>(-1);
@@ -20,20 +24,26 @@ const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: 
   const animate = (time: number) => {
     if (previousTimeRef.current != undefined) {
       const deltaTime = time - previousTimeRef.current;
-      callback(deltaTime)
+      callback(deltaTime);
     }
     previousTimeRef.current = time;
     requestRef.current = requestAnimationFrame(animate);
-  }
+  };
 
-  useEffect(() => { // TODO: gtadayなどを変えるとここが死ぬので調査
+  useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
-  }, dependencies); // Make sure the effect runs only once
-}
+  }, dependencies);
+};
 
 export default function Page() {
-  const [selectedLivers, setSelectedLivers] = useState<Liver[]>(livers.filter((liver) => { return ["kanae", "sara-hoshikawa", "kuzuha"].some((id) => liver.id === id); })); // TODO: デフォルトで選択するライバーを決める
+  const [selectedLivers, setSelectedLivers] = useState<Liver[]>(
+    livers.filter((liver) => {
+      return ["kanae", "sara-hoshikawa", "kuzuha"].some(
+        (id) => liver.id === id
+      );
+    })
+  ); // TODO: デフォルトで選択するライバーを決める
   const [gtaDay, setGtaDay] = useState(1);
   const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
   const [gtaTimeMin, setGtaTimeMin] = useState(1718445600); // TODO: timestamp gtadayできめる
@@ -42,22 +52,29 @@ export default function Page() {
   const [showRoute, setShowRoute] = useState(true);
   const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
   // GTAの時間を更新する
-  useAnimationFrame((deltaTime) => {
-    if (!isPlaying) {
-      return;
-    }
-    setGtaTime(prev => {
-      const newGtaTime = prev + deltaTime * playSpeedRatio / 1000;
-      if (newGtaTime > gtaTimeMax) {
-        setIsPlaying(false);
-        return gtaTimeMax;
+  useAnimationFrame(
+    (deltaTime) => {
+      if (!isPlaying) {
+        return;
       }
-      return newGtaTime;
-    });
-  }, [isPlaying, playSpeedRatio]);
+      setGtaTime((prev) => {
+        const newGtaTime = prev + (deltaTime * playSpeedRatio) / 1000;
+        if (newGtaTime > gtaTimeMax) {
+          setIsPlaying(false);
+          return gtaTimeMax;
+        }
+        return newGtaTime;
+      });
+    },
+    [isPlaying, playSpeedRatio]
+  );
 
-  // TODO: selectLiversやgtaDayの変化を拾ってprobeを更新する
-  const {data, error} = useSWR(filterLiverProbesByGtaDayAndLivers(liverProbes, gtaDay, selectedLivers).map((probe) => probe.probePath),getProbesFetcher);
+  const { data, error } = useSWR(
+    filterLiverProbesByGtaDayAndLivers(liverProbes, gtaDay, selectedLivers).map(
+      (probe) => probe.probePath
+    ),
+    getProbesFetcher
+  );
   // TODO: probeの取得に失敗した場合のエラーハンドリング
   const probes = data || [];
 
@@ -85,7 +102,6 @@ export default function Page() {
     setPlaySpeedRatio(ratio);
     console.log("playSpeedRatio", ratio.toString());
   };
-
 
   return (
     <div className="flex flex-col md:flex-row flex-grow h-screen">
