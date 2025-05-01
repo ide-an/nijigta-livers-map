@@ -20,7 +20,8 @@ import {
 } from "@material-tailwind/react";
 import { Liver } from "../data/liver";
 import { formatInTimeZone } from "date-fns-tz";
-import { useEffect } from "react";
+import LiverList from "./liver_list";
+import { memo, useMemo } from "react";
 
 export default function MapControl({
   selectedLivers,
@@ -65,9 +66,13 @@ export default function MapControl({
     "Asia/Tokyo",
     "MM/dd HH:mm:ss"
   );
+  const selecterLiversMemo = useMemo(() => {
+    return selectedLivers;
+  }, [selectedLivers]);
+  const LiverListMemo = memo(LiverList);
   // console.timeEnd("MapControl render");
   return (
-    <div className="flex flex-col gap-6 py-6 px-4 overflow-y-hidden md:max-h-screen">
+    <div className="flex flex-col gap-6 py-6 px-4 overflow-y-hidden md:max-h-full h-full">
       <div className="flex flex-row gap-6 items-center">
         <div>
           {/* 日付選択 */}
@@ -159,24 +164,32 @@ export default function MapControl({
           ライバー選択
         </Button>
       </div>
-      <div className="flex flex-col gap-6 overflow-y-auto">
-        {selectedLivers.map((liver) => (
-          <div key={liver.name} className="flex items-center gap-4">
-            <Avatar
-              src={liver.imageUrl}
-              className={`border-2 ${toBorderColorClass(liver)}`}
-            />
-            <div>
-              <Typography variant="h6">{liver.name}</Typography>
-              <div className="flex flex-wrap gap-2">
-                {liver.tags.map((tag, index) => (
-                  <Chip value={tag} key={liver.name + "_" + tag} size="sm" />
-                ))}
+
+      <LiverListMemo livers={selectedLivers} />
+      {/*
+      <div className="flex flex-col gap-6 overflow-y-auto h-full">
+        <Virtuoso
+          data={selectedLivers}
+          itemContent={(index, liver) => (
+            <div key={liver.id} className="flex items-center gap-4">
+              <Avatar
+                src={liver.imageUrl}
+                className={`border-2 ${toBorderColorClass(liver)}`}
+              />
+              <div>
+                <Typography variant="h6">{liver.name}</Typography>
+                <div className="flex flex-wrap gap-2">
+                  {liver.tags.map((tag, index) => (
+                    <Chip value={tag} key={liver.name + "_" + tag} size="sm" />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )}
+          style={{ height: "100%" }}
+        />
       </div>
+        */}
     </div>
   );
 }

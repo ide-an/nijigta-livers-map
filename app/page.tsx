@@ -3,7 +3,7 @@ import Map from "./components/map";
 import MapControl from "./components/map_control";
 import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
-import { DependencyList, use, useEffect, useRef, useState } from "react";
+import { DependencyList, use, useEffect, useMemo, useRef, useState } from "react";
 import {
   filterLiverProbesByGtaDayAndLivers,
   getProbesFetcher,
@@ -35,13 +35,14 @@ const useAnimationFrame = (
     return () => cancelAnimationFrame(requestRef.current);
   }, dependencies);
 };
+const initialLivers = livers.filter((liver) => {
+  return liver.tags.includes("警察");
+});
+
+
 
 export default function Page() {
-  const [selectedLivers, setSelectedLivers] = useState<Liver[]>(
-    livers.filter((liver) => {
-      return liver.tags.includes("警察");
-    })
-  ); // TODO: デフォルトで選択するライバーを決める
+  const [selectedLivers, setSelectedLivers] = useState<Liver[]>(initialLivers); // TODO: デフォルトで選択するライバーを決める
   const [gtaDay, setGtaDay] = useState(1);
   const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
   const [gtaTimeMin, setGtaTimeMin] = useState(1718445600); // TODO: timestamp gtadayできめる
@@ -66,6 +67,10 @@ export default function Page() {
     },
     [isPlaying, playSpeedRatio]
   );
+
+  const selecterLiversMemo = useMemo(() => {
+    return selectedLivers;
+  }, [selectedLivers]);
 
   const { data, error } = useSWR(
     filterLiverProbesByGtaDayAndLivers(liverProbes, gtaDay, selectedLivers).map(
@@ -113,7 +118,7 @@ export default function Page() {
       </div>
       <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-scroll">
         <MapControl
-          selectedLivers={selectedLivers}
+          selectedLivers={selecterLiversMemo}
           gtaDay={gtaDay}
           gtaTime={gtaTime}
           gtaTimeMin={gtaTimeMin}
