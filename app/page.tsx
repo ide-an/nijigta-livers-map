@@ -138,7 +138,7 @@ function AnimatedPage({
 export default function Page() {
   const [selectedLivers, setSelectedLivers] = useState<Liver[]>(
     livers.filter((liver) => {
-      return liver.tags.includes("警察");
+      return liver;
     })
   ); // TODO: デフォルトで選択するライバーを決める
 
