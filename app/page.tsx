@@ -48,7 +48,7 @@ export default function Page() {
   const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
   const [gtaTimeMin, setGtaTimeMin] = useState(1718445600); // TODO: timestamp gtadayできめる
   const [gtaTimeMax, setGtaTimeMax] = useState(1718474400);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [showRoute, setShowRoute] = useState(true);
   const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
   // GTAの時間を更新する

@@ -33,6 +33,7 @@ export default function MapControl({
   onSelectedLiversChange,
   onGtaDayChange,
   onGtaTimeChange,
+  onIsPlayingChange,
   onShowRouteChange,
   onPlaySpeedRatioChange,
 }: {
@@ -107,19 +108,27 @@ export default function MapControl({
       <div className="flex flex-row gap-6">
         <ButtonGroup variant="outlined">
           {/* TODO: 一番最初・最後に行くとわかりやすいアイコンにしたい。heroiconsにはない？*/}
-          <IconButton variant="outlined">
+          <IconButton
+            variant="outlined"
+            onClick={() => onGtaTimeChange(gtaTimeMin)}
+          >
             {/* TODO: 頭出しの実装 */}
             <BackwardIcon className="h-4 w-4" />
           </IconButton>
-          <IconButton variant="outlined">
+          <IconButton
+            variant="outlined"
+            onClick={() => onIsPlayingChange(!isPlaying)}
+          >
             {isPlaying ? (
               <PauseIcon className="h-4 w-4" />
             ) : (
               <PlayIcon className="h-4 w-4" />
             )}
           </IconButton>
-          <IconButton variant="outlined">
-            {/* TODO: 最後へスキップの実装 */}
+          <IconButton
+            variant="outlined"
+            onClick={() => onGtaTimeChange(gtaTimeMax)}
+          >
             <ForwardIcon className="h-4 w-4" />
           </IconButton>
         </ButtonGroup>
