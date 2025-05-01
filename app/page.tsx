@@ -39,9 +39,7 @@ const useAnimationFrame = (
 export default function Page() {
   const [selectedLivers, setSelectedLivers] = useState<Liver[]>(
     livers.filter((liver) => {
-      return ["kanae", "sara-hoshikawa", "kuzuha"].some(
-        (id) => liver.id === id
-      );
+      return liver.tags.includes("警察");
     })
   ); // TODO: デフォルトで選択するライバーを決める
   const [gtaDay, setGtaDay] = useState(1);

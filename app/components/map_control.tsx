@@ -20,6 +20,7 @@ import {
 } from "@material-tailwind/react";
 import { Liver } from "../data/liver";
 import { formatInTimeZone } from "date-fns-tz";
+import { useEffect } from "react";
 
 export default function MapControl({
   selectedLivers,
@@ -52,6 +53,7 @@ export default function MapControl({
   onShowRouteChange: (show: boolean) => void;
   onPlaySpeedRatioChange: (ratio: number) => void;
 }) {
+  // console.time("MapControl render");
   // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
   const toBorderColorClass = (liver: any) => {
     return `border-${liver.id}-500`;
@@ -63,7 +65,7 @@ export default function MapControl({
     "Asia/Tokyo",
     "MM/dd HH:mm:ss"
   );
-
+  // console.timeEnd("MapControl render");
   return (
     <div className="flex flex-col gap-6 py-6 px-4 overflow-y-hidden md:max-h-screen">
       <div className="flex flex-row gap-6 items-center">

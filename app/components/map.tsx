@@ -125,6 +125,7 @@ function Map({
       return;
     }
     routeVectorSource.clear();
+    console.time("add features");
     for (const probe of probes) {
       const probePoints = probe.probePoints;
       const visitedPoints = probePoints.filter((point) => point.t < gtaTime);
@@ -146,6 +147,7 @@ function Map({
       );
       routeVectorSource.addFeature(markerFeature);
     }
+    console.timeEnd("add features");
     if (map) {
       map.render();
     }
