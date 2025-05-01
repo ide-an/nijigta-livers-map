@@ -18,10 +18,15 @@ import VectorSrouce from "ol/source/Vector";
 import { Liver } from "../data/liver";
 import Icon from "ol/style/Icon";
 
+const mapImageWidth = 6144;
+const mapImageHeight = 9216;
+
+const toMapCoord = (point: ProbePoint) => {
+  return [point.x, mapImageHeight - point.y];
+
+};
 const createRouteLineFeature = (probePoints: ProbePoint[], liver: Liver) => {
-  const line = new LineString(probePoints.map((point) => {
-    return [point.x, point.y]; // TODO: 座標の補正
-  }))
+  const line = new LineString(probePoints.map(toMapCoord));
   const feature = new Feature({ geometry: line });
   feature.setStyle([
     new Style({
@@ -40,7 +45,7 @@ const createRouteLineFeature = (probePoints: ProbePoint[], liver: Liver) => {
   return feature;
 };
 const createMarkerFeature = (probePoint: ProbePoint, liver: Liver) => {
-  const point = new Point([probePoint.x, probePoint.y]);
+  const point = new Point(toMapCoord(probePoint));
   const feature = new Feature({ geometry: point });
   feature.setStyle(new Style({
     image: new Icon({
@@ -70,9 +75,7 @@ function Map({
   useEffect(() => {
 
     // create base map layer
-    const imaggeWidth = 6144;
-    const imageHeight = 9216;
-    const extent = [0, 0, imaggeWidth, imageHeight];
+    const extent = [0, 0, mapImageWidth, mapImageHeight];
     const projection = new Projection({
       code: "static-image",
       units: "pixels",
@@ -116,6 +119,9 @@ function Map({
     if (!routeVectorSource) {
       return;
     }
+    if (probes === undefined) {
+      return;
+    }
     routeVectorSource.clear();
     // TODO: probeの描画
     for (const probe of probes) {
@@ -126,9 +132,10 @@ function Map({
       }
       // TODO: 次の点を補完で追加する
       // console.log("points", points);  
-      const routeLineFeature = createRouteLineFeature(visitedPoints, probe.liver);
-      routeVectorSource.addFeature(routeLineFeature);
-      // TODO: マーカーの追加
+      if (showRoute) {
+        const routeLineFeature = createRouteLineFeature(visitedPoints, probe.liver);
+        routeVectorSource.addFeature(routeLineFeature);
+      }
       const markerFeature = createMarkerFeature(visitedPoints[visitedPoints.length - 1], probe.liver);
       routeVectorSource.addFeature(markerFeature);
     }

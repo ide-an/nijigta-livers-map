@@ -5,6 +5,9 @@ import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
 import { DependencyList, use, useEffect, useRef, useState } from "react";
 import { Probe } from "./data/probe";
+import { getProbesByGtaDayAndLivers } from "./data/liver_probes";
+import liverProbes from "./data/liver_probes.json";
+import { set } from "ol/transform";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: DependencyList) => {
@@ -12,8 +15,8 @@ const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: 
   // without triggering a re-render on their change
   const requestRef = useRef<number>(-1);
   const previousTimeRef = useRef<number>(null);
-  
-  const animate = (time: number ) => {
+
+  const animate = (time: number) => {
     if (previousTimeRef.current != undefined) {
       const deltaTime = time - previousTimeRef.current;
       callback(deltaTime)
@@ -21,7 +24,7 @@ const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: 
     previousTimeRef.current = time;
     requestRef.current = requestAnimationFrame(animate);
   }
-  
+
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
@@ -29,8 +32,8 @@ const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: 
 }
 
 export default function Page() {
-  const [probes, setProbes] = useState<Probe[]>([]); // TODO: probeを取得してセットする
-  const [selectedLivers, setSelectedLivers] = useState<Liver[]>(livers.filter((liver) => { return liver.tags.includes("DROPS") }));
+  // const [probes, setProbes] = useState<Probe[]>([]); // TODO: probeを取得してセットする
+  const [selectedLivers, setSelectedLivers] = useState<Liver[]>(livers.filter((liver) => { return ["kanae", "sara-hoshikawa", "kuzuha"].some((id) => liver.id === id); })); // TODO: デフォルトで選択するライバーを決める
   const [gtaDay, setGtaDay] = useState(1);
   const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
   const [gtaTimeMin, setGtaTimeMin] = useState(1718445600); // TODO: timestamp gtadayできめる
@@ -39,6 +42,7 @@ export default function Page() {
   const [showRoute, setShowRoute] = useState(true);
   const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
   // TODO: selectLiversやgtaDayの変化を拾ってprobeを更新する
+  const probes = getProbesByGtaDayAndLivers(liverProbes, gtaDay, selectedLivers);
 
   const handleSelectedLiversChange = (livers: Liver[]) => {
     setSelectedLivers(livers);
@@ -64,28 +68,6 @@ export default function Page() {
     console.log("playSpeedRatio", ratio.toString());
   };
 
-  // TODO:  gtaDayやselectedLiversの変更を検知してprobeを更新する
-  const updateProbes = () => {
-    const liver = selectedLivers[0];
-    const newProbe: Probe = {
-      liver: liver,
-      gtaDay: gtaDay,
-      probePoints: 
-        (new Array(100)).fill(0).map((_, i) => {
-          return {
-            t: gtaTime + i * 60,
-            x: Math.floor(i * 50),
-            y: Math.floor(Math.sin(i * 1/10) * 1000 + 2000),
-          }
-        }),
-    };
-    console.log("updateProbes", newProbe);
-    setProbes([newProbe]);
-  }
-  useEffect(() => {
-    updateProbes();
-  }, [selectedLivers, gtaDay]);
-
   // GTAの時間を更新する
   useAnimationFrame((deltaTime) => {
     if (!isPlaying) {
@@ -100,7 +82,7 @@ export default function Page() {
       return newGtaTime;
     });
   }, [isPlaying, playSpeedRatio]);
-  
+
   return (
     <div className="flex flex-col md:flex-row flex-grow h-screen">
       <div className="flex-grow">

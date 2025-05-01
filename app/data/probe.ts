@@ -8,6 +8,6 @@ export interface ProbePoint {
 
 export interface Probe {
     liver: Liver;
-    gtaDay: number; // 1 - 10
+    gta_day: number; // 1 - 10
     probePoints: ProbePoint[];
 }
