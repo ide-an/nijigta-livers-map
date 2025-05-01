@@ -3,7 +3,8 @@ import Map from "./components/map";
 import MapControl from "./components/map_control";
 import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
-import { DependencyList, use, useEffect, useMemo, useRef, useState } from "react";
+import { DependencyList, useEffect, useMemo, useRef, useState } from "react";
+import LiverList from "./components/liver_list"; // Adjust the path as needed
 import {
   filterLiverProbesByGtaDayAndLivers,
   getProbesFetcher,
@@ -35,14 +36,16 @@ const useAnimationFrame = (
     return () => cancelAnimationFrame(requestRef.current);
   }, dependencies);
 };
-const initialLivers = livers.filter((liver) => {
-  return liver.tags.includes("警察");
-});
 
-
-
-export default function Page() {
-  const [selectedLivers, setSelectedLivers] = useState<Liver[]>(initialLivers); // TODO: デフォルトで選択するライバーを決める
+function AnimatedPage({
+  selectedLivers,
+  handleSelectedLiversChange,
+  liverListComponent,
+}: {
+  selectedLivers: Liver[];
+  handleSelectedLiversChange: (livers: Liver[]) => void;
+  liverListComponent: React.ReactNode;
+}) {
   const [gtaDay, setGtaDay] = useState(1);
   const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
   const [gtaTimeMin, setGtaTimeMin] = useState(1718445600); // TODO: timestamp gtadayできめる
@@ -68,10 +71,6 @@ export default function Page() {
     [isPlaying, playSpeedRatio]
   );
 
-  const selecterLiversMemo = useMemo(() => {
-    return selectedLivers;
-  }, [selectedLivers]);
-
   const { data, error } = useSWR(
     filterLiverProbesByGtaDayAndLivers(liverProbes, gtaDay, selectedLivers).map(
       (probe) => probe.probePath
@@ -81,9 +80,6 @@ export default function Page() {
   // TODO: probeの取得に失敗した場合のエラーハンドリング
   const probes = data || [];
 
-  const handleSelectedLiversChange = (livers: Liver[]) => {
-    setSelectedLivers(livers);
-  };
   const handleGtaDayChange = (day: number) => {
     setGtaDay(day);
     setIsPlaying(false);
@@ -118,7 +114,7 @@ export default function Page() {
       </div>
       <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-scroll">
         <MapControl
-          selectedLivers={selecterLiversMemo}
+          selectedLivers={selectedLivers}
           gtaDay={gtaDay}
           gtaTime={gtaTime}
           gtaTimeMin={gtaTimeMin}
@@ -132,8 +128,32 @@ export default function Page() {
           onIsPlayingChange={handleIsPlayingChange}
           onShowRouteChange={handleShowRouteChange}
           onPlaySpeedRatioChange={handlePlaySpeedRatioChange}
+          liverListComponent={liverListComponent}
         />
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  const [selectedLivers, setSelectedLivers] = useState<Liver[]>(
+    livers.filter((liver) => {
+      return liver.tags.includes("警察");
+    })
+  ); // TODO: デフォルトで選択するライバーを決める
+
+  const handleSelectedLiversChange = (livers: Liver[]) => {
+    setSelectedLivers(livers);
+  };
+
+  // FIXME: gtaTimeの変化でLiverListが再レンダリングされるのを防ぐために、このComponentからpropで入れている
+  // HTML的な構造からは不自然だが、memo化でどうにかしようとしてもうまくいかなかった。
+  // 参考： https://qiita.com/yokoto/items/ee3ed0b3ca905b9016d3
+  return (
+    <AnimatedPage
+      selectedLivers={selectedLivers}
+      handleSelectedLiversChange={handleSelectedLiversChange}
+      liverListComponent={<LiverList livers={selectedLivers} />}
+    />
   );
 }

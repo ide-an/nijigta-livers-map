@@ -10,18 +10,13 @@ import {
   ButtonGroup,
   IconButton,
   Select,
-  Slider,
   Option,
   Switch,
   Button,
-  Avatar,
   Typography,
-  Chip,
 } from "@material-tailwind/react";
 import { Liver } from "../data/liver";
 import { formatInTimeZone } from "date-fns-tz";
-import LiverList from "./liver_list";
-import { memo, useMemo } from "react";
 
 export default function MapControl({
   selectedLivers,
@@ -38,6 +33,7 @@ export default function MapControl({
   onIsPlayingChange,
   onShowRouteChange,
   onPlaySpeedRatioChange,
+  liverListComponent,
 }: {
   selectedLivers: Liver[];
   gtaDay: number; // 1 - 10
@@ -53,6 +49,7 @@ export default function MapControl({
   onIsPlayingChange: (isPlaying: boolean) => void;
   onShowRouteChange: (show: boolean) => void;
   onPlaySpeedRatioChange: (ratio: number) => void;
+  liverListComponent: React.ReactNode;
 }) {
   // console.time("MapControl render");
   // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
@@ -66,10 +63,6 @@ export default function MapControl({
     "Asia/Tokyo",
     "MM/dd HH:mm:ss"
   );
-  const selecterLiversMemo = useMemo(() => {
-    return selectedLivers;
-  }, [selectedLivers]);
-  const LiverListMemo = memo(LiverList);
   // console.timeEnd("MapControl render");
   return (
     <div className="flex flex-col gap-6 py-6 px-4 overflow-y-hidden md:max-h-full h-full">
@@ -165,31 +158,7 @@ export default function MapControl({
         </Button>
       </div>
 
-      <LiverListMemo livers={selectedLivers} />
-      {/*
-      <div className="flex flex-col gap-6 overflow-y-auto h-full">
-        <Virtuoso
-          data={selectedLivers}
-          itemContent={(index, liver) => (
-            <div key={liver.id} className="flex items-center gap-4">
-              <Avatar
-                src={liver.imageUrl}
-                className={`border-2 ${toBorderColorClass(liver)}`}
-              />
-              <div>
-                <Typography variant="h6">{liver.name}</Typography>
-                <div className="flex flex-wrap gap-2">
-                  {liver.tags.map((tag, index) => (
-                    <Chip value={tag} key={liver.name + "_" + tag} size="sm" />
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-          style={{ height: "100%" }}
-        />
-      </div>
-        */}
+      {liverListComponent}
     </div>
   );
 }
