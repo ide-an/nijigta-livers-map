@@ -5,9 +5,10 @@ import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
 import { DependencyList, use, useEffect, useRef, useState } from "react";
 import { Probe } from "./data/probe";
-import { getProbesByGtaDayAndLivers } from "./data/liver_probes";
+import { filterLiverProbesByGtaDayAndLivers, getProbesFetcher } from "./data/liver_probes";
 import liverProbes from "./data/liver_probes.json";
 import { set } from "ol/transform";
+import useSWR from "swr";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: DependencyList) => {
@@ -25,14 +26,13 @@ const useAnimationFrame = (callback: (deltaTime: number) => void, dependencies: 
     requestRef.current = requestAnimationFrame(animate);
   }
 
-  useEffect(() => {
+  useEffect(() => { // TODO: gtadayなどを変えるとここが死ぬので調査
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
   }, dependencies); // Make sure the effect runs only once
 }
 
 export default function Page() {
-  // const [probes, setProbes] = useState<Probe[]>([]); // TODO: probeを取得してセットする
   const [selectedLivers, setSelectedLivers] = useState<Liver[]>(livers.filter((liver) => { return ["kanae", "sara-hoshikawa", "kuzuha"].some((id) => liver.id === id); })); // TODO: デフォルトで選択するライバーを決める
   const [gtaDay, setGtaDay] = useState(1);
   const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
@@ -41,14 +41,32 @@ export default function Page() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [showRoute, setShowRoute] = useState(true);
   const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
+  // GTAの時間を更新する
+  useAnimationFrame((deltaTime) => {
+    if (!isPlaying) {
+      return;
+    }
+    setGtaTime(prev => {
+      const newGtaTime = prev + deltaTime * playSpeedRatio / 1000;
+      if (newGtaTime > gtaTimeMax) {
+        setIsPlaying(false);
+        return gtaTimeMax;
+      }
+      return newGtaTime;
+    });
+  }, [isPlaying, playSpeedRatio]);
+
   // TODO: selectLiversやgtaDayの変化を拾ってprobeを更新する
-  const probes = getProbesByGtaDayAndLivers(liverProbes, gtaDay, selectedLivers);
+  const {data, error} = useSWR(filterLiverProbesByGtaDayAndLivers(liverProbes, gtaDay, selectedLivers).map((probe) => probe.probePath),getProbesFetcher);
+  // TODO: probeの取得に失敗した場合のエラーハンドリング
+  const probes = data || [];
 
   const handleSelectedLiversChange = (livers: Liver[]) => {
     setSelectedLivers(livers);
   };
   const handleGtaDayChange = (day: number) => {
     setGtaDay(day);
+    setIsPlaying(false);
     console.log("day", day);
   };
   const handleGtaTimeChange = (time: number) => {
@@ -68,20 +86,6 @@ export default function Page() {
     console.log("playSpeedRatio", ratio.toString());
   };
 
-  // GTAの時間を更新する
-  useAnimationFrame((deltaTime) => {
-    if (!isPlaying) {
-      return;
-    }
-    setGtaTime(prev => {
-      const newGtaTime = prev + deltaTime * playSpeedRatio / 1000;
-      if (newGtaTime > gtaTimeMax) {
-        setIsPlaying(false);
-        return gtaTimeMax;
-      }
-      return newGtaTime;
-    });
-  }, [isPlaying, playSpeedRatio]);
 
   return (
     <div className="flex flex-col md:flex-row flex-grow h-screen">
