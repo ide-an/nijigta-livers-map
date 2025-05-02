@@ -13,6 +13,13 @@ import livers from "../data/livers.json";
 import { Virtuoso } from "react-virtuoso";
 import { LiverInfo } from "./liver_info";
 
+function removeDuplicates(array: Liver[]): Liver[] {
+  const uniqueIds = new Set(array.map((item) => item.id));
+  return Array.from(uniqueIds).map((id) => {
+    return array.find((item) => item.id === id);
+  }) as Liver[];
+}
+
 export default function LiverSelectDialog({
   selectedLivers,
   onSelectedLiversChange,
@@ -36,6 +43,23 @@ export default function LiverSelectDialog({
       liver.tags.some((tag) => tag.toLowerCase().includes(query))
     );
   });
+  const handleAddLiver = (liver: Liver) => {
+    onSelectedLiversChange(removeDuplicates([...selectedLivers, liver]));
+  };
+  const handleAddAll = () => {
+    onSelectedLiversChange(
+      removeDuplicates([...selectedLivers, ...filteredLivers])
+    );
+  };
+  const handleRemoveLiver = (liver: Liver) => {
+    onSelectedLiversChange(
+      selectedLivers.filter((selectedLiver) => selectedLiver.id !== liver.id)
+    );
+  };
+  const handleRemoveAll = () => {
+    onSelectedLiversChange([]);
+  };
+
   //   console.timeEnd("LiverSelectDialog render");
 
   return (
@@ -61,7 +85,7 @@ export default function LiverSelectDialog({
                 />
               </div>
               <div className="p-2">
-                <Button size="sm" color="green">
+                <Button size="sm" color="green" onClick={handleAddAll}>
                   全選択
                 </Button>
               </div>
@@ -71,7 +95,13 @@ export default function LiverSelectDialog({
                   itemContent={(_, liver) => (
                     <div key={liver.id} className="flex items-center gap-4">
                       <div className="flex-none">
-                        <Button size="sm" variant="outlined" color="green">
+                        {/* TODO: 選択済みならdsabledにする */}
+                        <Button
+                          size="sm"
+                          variant="outlined"
+                          color="green"
+                          onClick={() => handleAddLiver(liver)}
+                        >
                           選択
                         </Button>
                       </div>
@@ -88,7 +118,7 @@ export default function LiverSelectDialog({
               </Typography>
               {/* 左右で位置を揃えるためのpt */}
               <div className="p-2 md:pt-3">
-                <Button size="sm" color="red">
+                <Button size="sm" color="red" onClick={handleRemoveAll}>
                   全解除
                 </Button>
               </div>
@@ -98,7 +128,12 @@ export default function LiverSelectDialog({
                   itemContent={(_, liver) => (
                     <div key={liver.id} className="flex items-center gap-4">
                       <div className="flex-none">
-                        <Button size="sm" variant="outlined" color="red">
+                        <Button
+                          size="sm"
+                          variant="outlined"
+                          color="red"
+                          onClick={() => handleRemoveLiver(liver)}
+                        >
                           解除
                         </Button>
                       </div>
