@@ -20,6 +20,10 @@ function removeDuplicates(array: Liver[]): Liver[] {
   }) as Liver[];
 }
 
+function isLiverSelected(liver: Liver, selectedLivers: Liver[]) {
+  return selectedLivers.some((selectedLiver) => selectedLiver.id === liver.id);
+}
+
 export default function LiverSelectDialog({
   selectedLivers,
   onSelectedLiversChange,
@@ -38,9 +42,9 @@ export default function LiverSelectDialog({
     const lowerQuery = query.toLowerCase();
     return (
       query === "" ||
-      liver.name.toLowerCase().includes(query) ||
-      liver.enName.toLowerCase().includes(query) ||
-      liver.tags.some((tag) => tag.toLowerCase().includes(query))
+      liver.name.toLowerCase().includes(lowerQuery) ||
+      liver.enName.toLowerCase().includes(lowerQuery) ||
+      liver.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
     );
   });
   const handleAddLiver = (liver: Liver) => {
@@ -95,15 +99,27 @@ export default function LiverSelectDialog({
                   itemContent={(_, liver) => (
                     <div key={liver.id} className="flex items-center gap-4">
                       <div className="flex-none">
-                        {/* TODO: 選択済みならdsabledにする */}
-                        <Button
-                          size="sm"
-                          variant="outlined"
-                          color="green"
-                          onClick={() => handleAddLiver(liver)}
-                        >
-                          選択
-                        </Button>
+                        {isLiverSelected(liver, selectedLivers) ? (
+                          <Button
+                            size="sm"
+                            className="w-24"
+                            variant="outlined"
+                            color="gray"
+                            disabled
+                          >
+                            選択済み
+                          </Button>
+                        ) : (
+                          <Button
+                            size="sm"
+                            className="w-24"
+                            variant="outlined"
+                            color="green"
+                            onClick={() => handleAddLiver(liver)}
+                          >
+                            選択
+                          </Button>
+                        )}
                       </div>
                       <LiverInfo liver={liver} />
                     </div>
@@ -130,6 +146,7 @@ export default function LiverSelectDialog({
                       <div className="flex-none">
                         <Button
                           size="sm"
+                          className="w-24"
                           variant="outlined"
                           color="red"
                           onClick={() => handleRemoveLiver(liver)}
