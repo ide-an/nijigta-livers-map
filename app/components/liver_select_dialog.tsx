@@ -1,5 +1,5 @@
 import {
-    Avatar,
+  Avatar,
   Button,
   Chip,
   Dialog,
@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import { Liver } from "../data/liver";
 import livers from "../data/livers.json";
+import { Virtuoso } from "react-virtuoso";
 
 // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
 const toBorderColorClass = (liver: Liver) => {
@@ -25,20 +26,23 @@ export default function LiverSelectDialog({
   selectedLivers: Liver[];
   onSelectedLiversChange: (livers: Liver[]) => void;
 }) {
-    console.time("LiverSelectDialog render");
+  //   console.time("LiverSelectDialog render");
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
-console.timeLog("LiverSelectDialog render", "open", open);
+  //   console.timeLog("LiverSelectDialog render", "open", open);
   const filteredLivers = livers.filter((liver) => {
-    if (query === "") return true;
-    if (liver.name.includes(query)) return true;
-    if (liver.tags.some((tag) => tag.includes(query))) return true;
-    return false;
+    const lowerQuery = query.toLowerCase();
+    return (
+      query === "" ||
+      liver.name.toLowerCase().includes(query) ||
+      liver.enName.toLowerCase().includes(query) ||
+      liver.tags.some((tag) => tag.toLowerCase().includes(query))
+    );
   });
-  console.timeEnd("LiverSelectDialog render");
+  //   console.timeEnd("LiverSelectDialog render");
 
   return (
     <>
@@ -66,33 +70,36 @@ console.timeLog("LiverSelectDialog render", "open", open);
                 全選択
               </Button>
               <div className="overflow-y-auto h-96">
-                {filteredLivers.map((liver) => (
-                  <div key={liver.id} className="flex items-center gap-4">
-                    <div className="flex-none">
-                      <Button size="sm" variant="outlined" color="green">
-                        選択
-                      </Button>
-                    </div>
-                    <Avatar
-                      src={liver.imageUrl}
-                      className={`border-2 ${toBorderColorClass(
-                        liver
-                      )} flex-none`}
-                    />
-                    <div className="grow">
-                      <Typography variant="h6">{liver.name}</Typography>
-                      <div className="flex flex-wrap gap-2">
-                        {liver.tags.map((tag, index) => (
-                          <Chip
-                            value={tag}
-                            key={liver.name + "_" + tag}
-                            size="sm"
-                          />
-                        ))}
+                <Virtuoso
+                  data={filteredLivers}
+                  itemContent={(_, liver) => (
+                    <div key={liver.id} className="flex items-center gap-4">
+                      <div className="flex-none">
+                        <Button size="sm" variant="outlined" color="green">
+                          選択
+                        </Button>
+                      </div>
+                      <Avatar
+                        src={liver.imageUrl}
+                        className={`border-2 ${toBorderColorClass(
+                          liver
+                        )} flex-none`}
+                      />
+                      <div className="grow">
+                        <Typography variant="h6">{liver.name}</Typography>
+                        <div className="flex flex-wrap gap-2">
+                          {liver.tags.map((tag, index) => (
+                            <Chip
+                              value={tag}
+                              key={liver.name + "_" + tag}
+                              size="sm"
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )}
+                />
               </div>
             </div>
             {/* 選択済みのライバー一覧 */}
@@ -104,33 +111,36 @@ console.timeLog("LiverSelectDialog render", "open", open);
                 全解除
               </Button>
               <div className="overflow-y-auto h-96">
-                {selectedLivers.map((liver) => (
-                  <div key={liver.id} className="flex items-center gap-4">
-                    <div className="flex-none">
-                      <Button size="sm" variant="outlined" color="red">
-                        解除
-                      </Button>
-                    </div>
-                    <Avatar
-                      src={liver.imageUrl}
-                      className={`border-2 ${toBorderColorClass(
-                        liver
-                      )} flex-none`}
-                    />
-                    <div className="grow">
-                      <Typography variant="h6">{liver.name}</Typography>
-                      <div className="flex flex-wrap gap-2">
-                        {liver.tags.map((tag, index) => (
-                          <Chip
-                            value={tag}
-                            key={liver.name + "_" + tag}
-                            size="sm"
-                          />
-                        ))}
+                <Virtuoso
+                  data={selectedLivers}
+                  itemContent={(_, liver) => (
+                    <div key={liver.id} className="flex items-center gap-4">
+                      <div className="flex-none">
+                        <Button size="sm" variant="outlined" color="red">
+                          解除
+                        </Button>
+                      </div>
+                      <Avatar
+                        src={liver.imageUrl}
+                        className={`border-2 ${toBorderColorClass(
+                          liver
+                        )} flex-none`}
+                      />
+                      <div className="grow">
+                        <Typography variant="h6">{liver.name}</Typography>
+                        <div className="flex flex-wrap gap-2">
+                          {liver.tags.map((tag, index) => (
+                            <Chip
+                              value={tag}
+                              key={liver.name + "_" + tag}
+                              size="sm"
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )}
+                />
               </div>
             </div>
           </div>
