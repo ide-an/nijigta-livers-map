@@ -17,7 +17,6 @@ import { Liver } from "../data/liver";
 import Icon from "ol/style/Icon";
 import VectorImageLayer from "ol/layer/VectorImage";
 import VectorLayer from "ol/layer/Vector";
-import { set } from "ol/transform";
 
 const mapImageWidth = 6144;
 const mapImageHeight = 9216;
@@ -71,10 +70,6 @@ const interpolatePoint = (currentPoint: ProbePoint, nextPoint: ProbePoint, t: nu
   return { t, x, y };
 }
 
-const shouldUpdateRoute = (frameCount:number, showRoute:boolean, isPlaying:boolean) =>{
-  return (frameCount % 12 === 0 && showRoute) || !isPlaying;
-}
-
 function Map({
   probes,
   gtaTime,
@@ -91,8 +86,6 @@ function Map({
     useState<VectorSrouce | null>(null);
   const [markerVectorSource, setMarkerVectorSource] =
     useState<VectorSrouce | null>(null);
-  // ルート描画の頻度を減らすため、frame数をカウントする
-  const frameCountRef = React.useRef(0);
 
   useEffect(() => {
     // create base map layer
@@ -150,10 +143,7 @@ function Map({
     if (probes === undefined) {
       return;
     }
-    const updateRoute = shouldUpdateRoute(frameCountRef.current, showRoute, isPlaying);
-    if (updateRoute) {
-      routeVectorSource.clear();
-    }
+    routeVectorSource.clear();
     markerVectorSource.clear();
     // console.time("add features");
     for (const probe of probes) {
@@ -177,7 +167,7 @@ function Map({
         visitedPoints.push(interpolatePointResult);
       }
       // console.log("points", points);
-      if (showRoute && updateRoute) {
+      if (showRoute ) {
         const routeLineFeature = createRouteLineFeature(
           visitedPoints,
           probe.liver
@@ -190,7 +180,6 @@ function Map({
       );
       markerVectorSource.addFeature(markerFeature);
     }
-    frameCountRef.current += 1;
     // console.timeEnd("add features");
     if (map) {
       map.render();
