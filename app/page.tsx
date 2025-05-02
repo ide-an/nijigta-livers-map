@@ -123,7 +123,6 @@ function AnimatedPage({
           isPlaying={isPlaying}
           showRoute={showRoute}
           playSpeedRatio={playSpeedRatio}
-          onSelectedLiversChange={handleSelectedLiversChange}
           onGtaDayChange={handleGtaDayChange}
           onGtaTimeChange={handleGtaTimeChange}
           onIsPlayingChange={handleIsPlayingChange}
