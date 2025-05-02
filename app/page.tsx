@@ -11,6 +11,7 @@ import {
 } from "./data/liver_probes";
 import liverProbes from "./data/liver_probes.json";
 import useSWR from "swr";
+import LiverSelectDialog from "./components/liver_select_dialog";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 const useAnimationFrame = (
@@ -40,11 +41,11 @@ const useAnimationFrame = (
 function AnimatedPage({
   selectedLivers,
   handleSelectedLiversChange,
-  liverListComponent,
+  liverSelectComponent,
 }: {
   selectedLivers: Liver[];
   handleSelectedLiversChange: (livers: Liver[]) => void;
-  liverListComponent: React.ReactNode;
+  liverSelectComponent: React.ReactNode;
 }) {
   const [gtaDay, setGtaDay] = useState(1);
   const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
@@ -128,7 +129,7 @@ function AnimatedPage({
           onIsPlayingChange={handleIsPlayingChange}
           onShowRouteChange={handleShowRouteChange}
           onPlaySpeedRatioChange={handlePlaySpeedRatioChange}
-          liverListComponent={liverListComponent}
+          liverSelectComponent={liverSelectComponent}
         />
       </div>
     </div>
@@ -153,7 +154,15 @@ export default function Page() {
     <AnimatedPage
       selectedLivers={selectedLivers}
       handleSelectedLiversChange={handleSelectedLiversChange}
-      liverListComponent={<LiverList livers={selectedLivers} />}
+      liverSelectComponent={
+        <>
+          <LiverSelectDialog
+            selectedLivers={selectedLivers}
+            onSelectedLiversChange={handleSelectedLiversChange}
+          />
+          <LiverList livers={selectedLivers} />
+        </>
+      }
     />
   );
 }

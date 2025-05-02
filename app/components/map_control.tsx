@@ -33,7 +33,7 @@ export default function MapControl({
   onIsPlayingChange,
   onShowRouteChange,
   onPlaySpeedRatioChange,
-  liverListComponent,
+  liverSelectComponent,
 }: {
   selectedLivers: Liver[];
   gtaDay: number; // 1 - 10
@@ -49,7 +49,7 @@ export default function MapControl({
   onIsPlayingChange: (isPlaying: boolean) => void;
   onShowRouteChange: (show: boolean) => void;
   onPlaySpeedRatioChange: (ratio: number) => void;
-  liverListComponent: React.ReactNode;
+  liverSelectComponent: React.ReactNode;
 }) {
   // console.time("MapControl render");
   // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
@@ -151,14 +151,7 @@ export default function MapControl({
         color="green"
       />
 
-      {/* ライバー選択 */}
-      <div className="w-full">
-        <Button variant="outlined" fullWidth>
-          ライバー選択
-        </Button>
-      </div>
-
-      {liverListComponent}
+      {liverSelectComponent}
     </div>
   );
 }

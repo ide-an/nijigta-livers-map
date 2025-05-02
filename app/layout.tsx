@@ -17,6 +17,15 @@ export default function RootLayout({
         },
       },
     },
+    dialog: {
+      styles: {
+        base: {
+          backdrop: {
+            backgroundColor: "bg-black/60",
+          },
+        },
+      },
+    },
   };
   return (
     <ThemeProvider value={theme}>
