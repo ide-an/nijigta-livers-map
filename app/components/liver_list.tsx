@@ -1,5 +1,5 @@
 import { Liver } from "../data/liver";
-import { Avatar, Chip, Typography } from "@material-tailwind/react";
+import { LiverInfo } from "./liver_info";
 
 // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
 const toBorderColorClass = (liver: Liver) => {
@@ -11,18 +11,7 @@ export default function LiverList({ livers }: { livers: Liver[] }) {
     <div className="flex flex-col gap-6 overflow-y-auto h-full">
       {livers.map((liver) => (
         <div key={liver.id} className="flex items-center gap-4">
-          <Avatar
-            src={liver.imageUrl}
-            className={`border-2 ${toBorderColorClass(liver)}`}
-          />
-          <div>
-            <Typography variant="h6">{liver.name}</Typography>
-            <div className="flex flex-wrap gap-2">
-              {liver.tags.map((tag, index) => (
-                <Chip value={tag} key={liver.name + "_" + tag} size="sm" />
-              ))}
-            </div>
-          </div>
+        <LiverInfo liver={liver} />
         </div>
       ))}
     </div>

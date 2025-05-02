@@ -1,7 +1,5 @@
 import {
-  Avatar,
   Button,
-  Chip,
   Dialog,
   DialogBody,
   DialogFooter,
@@ -13,11 +11,8 @@ import { useState } from "react";
 import { Liver } from "../data/liver";
 import livers from "../data/livers.json";
 import { Virtuoso } from "react-virtuoso";
+import { LiverInfo } from "./liver_info";
 
-// ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
-const toBorderColorClass = (liver: Liver) => {
-  return `border-${liver.id}-500`;
-};
 
 export default function LiverSelectDialog({
   selectedLivers,
@@ -79,24 +74,7 @@ export default function LiverSelectDialog({
                           選択
                         </Button>
                       </div>
-                      <Avatar
-                        src={liver.imageUrl}
-                        className={`border-2 ${toBorderColorClass(
-                          liver
-                        )} flex-none`}
-                      />
-                      <div className="grow">
-                        <Typography variant="h6">{liver.name}</Typography>
-                        <div className="flex flex-wrap gap-2">
-                          {liver.tags.map((tag, index) => (
-                            <Chip
-                              value={tag}
-                              key={liver.name + "_" + tag}
-                              size="sm"
-                            />
-                          ))}
-                        </div>
-                      </div>
+                      <LiverInfo liver={liver} />
                     </div>
                   )}
                 />
@@ -120,24 +98,7 @@ export default function LiverSelectDialog({
                           解除
                         </Button>
                       </div>
-                      <Avatar
-                        src={liver.imageUrl}
-                        className={`border-2 ${toBorderColorClass(
-                          liver
-                        )} flex-none`}
-                      />
-                      <div className="grow">
-                        <Typography variant="h6">{liver.name}</Typography>
-                        <div className="flex flex-wrap gap-2">
-                          {liver.tags.map((tag, index) => (
-                            <Chip
-                              value={tag}
-                              key={liver.name + "_" + tag}
-                              size="sm"
-                            />
-                          ))}
-                        </div>
-                      </div>
+                      <LiverInfo liver={liver} />
                     </div>
                   )}
                 />
