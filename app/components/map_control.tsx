@@ -1,22 +1,23 @@
 "use client";
 
 import {
-  BackwardIcon,
-  ForwardIcon,
-  PlayIcon,
-  PauseIcon,
-} from "@heroicons/react/24/solid";
-import {
   ButtonGroup,
   IconButton,
   Select,
   Option,
   Switch,
-  Button,
   Typography,
 } from "@material-tailwind/react";
 import { Liver } from "../data/liver";
 import { formatInTimeZone } from "date-fns-tz";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBackward,
+  faBackwardStep,
+  faForwardStep,
+  faPause,
+  faPlay,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function MapControl({
   selectedLivers,
@@ -27,7 +28,6 @@ export default function MapControl({
   isPlaying,
   showRoute,
   playSpeedRatio,
-  onSelectedLiversChange,
   onGtaDayChange,
   onGtaTimeChange,
   onIsPlayingChange,
@@ -43,7 +43,6 @@ export default function MapControl({
   isPlaying: boolean;
   showRoute: boolean;
   playSpeedRatio: number; // 何倍速か
-  onSelectedLiversChange: (livers: Liver[]) => void;
   onGtaDayChange: (day: number) => void;
   onGtaTimeChange: (time: number) => void;
   onIsPlayingChange: (isPlaying: boolean) => void;
@@ -107,28 +106,27 @@ export default function MapControl({
       />
       <div className="flex flex-row gap-6">
         <ButtonGroup variant="outlined">
-          {/* TODO: 一番最初・最後に行くとわかりやすいアイコンにしたい。heroiconsにはない？*/}
           <IconButton
             variant="outlined"
             onClick={() => onGtaTimeChange(gtaTimeMin)}
           >
-            <BackwardIcon className="h-4 w-4" />
+            <FontAwesomeIcon icon={faBackwardStep} />
           </IconButton>
           <IconButton
             variant="outlined"
             onClick={() => onIsPlayingChange(!isPlaying)}
           >
             {isPlaying ? (
-              <PauseIcon className="h-4 w-4" />
+              <FontAwesomeIcon icon={faPause} />
             ) : (
-              <PlayIcon className="h-4 w-4" />
+              <FontAwesomeIcon icon={faPlay} />
             )}
           </IconButton>
           <IconButton
             variant="outlined"
             onClick={() => onGtaTimeChange(gtaTimeMax)}
           >
-            <ForwardIcon className="h-4 w-4" />
+            <FontAwesomeIcon icon={faForwardStep} />
           </IconButton>
         </ButtonGroup>
         <Select
