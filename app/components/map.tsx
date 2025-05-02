@@ -62,13 +62,23 @@ const createMarkerFeature = (probePoint: ProbePoint, liver: Liver) => {
 const findNextPointIndex = (probePoints: ProbePoint[], t: number) => {
   return probePoints.findIndex((point) => {
     return point.t > t;
-  })
-}
-const interpolatePoint = (currentPoint: ProbePoint, nextPoint: ProbePoint, t: number) => {
-  const x = currentPoint.x + ((nextPoint.x - currentPoint.x) * (t - currentPoint.t)) / (nextPoint.t - currentPoint.t);
-  const y = currentPoint.y + ((nextPoint.y - currentPoint.y) * (t - currentPoint.t)) / (nextPoint.t - currentPoint.t);
+  });
+};
+const interpolatePoint = (
+  currentPoint: ProbePoint,
+  nextPoint: ProbePoint,
+  t: number
+) => {
+  const x =
+    currentPoint.x +
+    ((nextPoint.x - currentPoint.x) * (t - currentPoint.t)) /
+      (nextPoint.t - currentPoint.t);
+  const y =
+    currentPoint.y +
+    ((nextPoint.y - currentPoint.y) * (t - currentPoint.t)) /
+      (nextPoint.t - currentPoint.t);
   return { t, x, y };
-}
+};
 
 function Map({
   probes,
@@ -167,7 +177,7 @@ function Map({
         visitedPoints.push(interpolatePointResult);
       }
       // console.log("points", points);
-      if (showRoute ) {
+      if (showRoute) {
         const routeLineFeature = createRouteLineFeature(
           visitedPoints,
           probe.liver
