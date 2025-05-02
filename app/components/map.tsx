@@ -59,6 +59,17 @@ const createMarkerFeature = (probePoint: ProbePoint, liver: Liver) => {
   return feature;
 };
 
+const findNextPointIndex = (probePoints: ProbePoint[], t: number) => {
+  return probePoints.findIndex((point) => {
+    return point.t > t;
+  })
+}
+const interpolatePoint = (currentPoint: ProbePoint, nextPoint: ProbePoint, t: number) => {
+  const x = currentPoint.x + ((nextPoint.x - currentPoint.x) * (t - currentPoint.t)) / (nextPoint.t - currentPoint.t);
+  const y = currentPoint.y + ((nextPoint.y - currentPoint.y) * (t - currentPoint.t)) / (nextPoint.t - currentPoint.t);
+  return { t, x, y };
+}
+
 function Map({
   probes,
   gtaTime,
@@ -129,11 +140,24 @@ function Map({
     // console.time("add features");
     for (const probe of probes) {
       const probePoints = probe.probePoints;
-      const visitedPoints = probePoints.filter((point) => point.t < gtaTime);
-      if (visitedPoints.length === 0) {
+      const nextPointIndex = findNextPointIndex(probePoints, gtaTime);
+      let visitedPoints: ProbePoint[] = [];
+      if (nextPointIndex === 0) {
+        // まだ点がない
         continue;
+      } else if (nextPointIndex === -1) {
+        // すべての点を通過している
+        visitedPoints = probePoints;
+      } else {
+        //  次の点を補間で追加する
+        visitedPoints = probePoints.slice(0, nextPointIndex);
+        const interpolatePointResult = interpolatePoint(
+          probePoints[nextPointIndex - 1],
+          probePoints[nextPointIndex],
+          gtaTime
+        );
+        visitedPoints.push(interpolatePointResult);
       }
-      // TODO: 次の点を補完で追加する
       // console.log("points", points);
       if (showRoute) {
         const routeLineFeature = createRouteLineFeature(
