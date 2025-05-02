@@ -13,7 +13,6 @@ import livers from "../data/livers.json";
 import { Virtuoso } from "react-virtuoso";
 import { LiverInfo } from "./liver_info";
 
-
 export default function LiverSelectDialog({
   selectedLivers,
   onSelectedLiversChange,
@@ -51,7 +50,7 @@ export default function LiverSelectDialog({
       <Dialog open={open} handler={handleOpen} size="lg">
         <DialogHeader>ライバーを選択</DialogHeader>
         <DialogBody>
-          <div className="flex flex-row gap-6">
+          <div className="flex flex-col md:flex-row gap-6">
             {/* ライバーの検索 */}
             <div className="flex-1">
               <div className="p-1">
@@ -61,10 +60,12 @@ export default function LiverSelectDialog({
                   onChange={(e) => setQuery(e.target.value)}
                 />
               </div>
-              <Button size="sm" color="green">
-                全選択
-              </Button>
-              <div className="overflow-y-auto h-96">
+              <div className="p-2">
+                <Button size="sm" color="green">
+                  全選択
+                </Button>
+              </div>
+              <div className="overflow-y-auto md:h-96 h-48 border pl-2">
                 <Virtuoso
                   data={filteredLivers}
                   itemContent={(_, liver) => (
@@ -85,10 +86,13 @@ export default function LiverSelectDialog({
               <Typography variant="h5" className="mb-4">
                 選択中のライバー
               </Typography>
-              <Button size="sm" color="red">
-                全解除
-              </Button>
-              <div className="overflow-y-auto h-96">
+              {/* 左右で位置を揃えるためのpt */}
+              <div className="p-2 md:pt-3">
+                <Button size="sm" color="red">
+                  全解除
+                </Button>
+              </div>
+              <div className="overflow-y-auto md:h-96 h-48 border pl-2">
                 <Virtuoso
                   data={selectedLivers}
                   itemContent={(_, liver) => (

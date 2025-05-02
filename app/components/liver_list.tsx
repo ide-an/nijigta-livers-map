@@ -8,7 +8,7 @@ const toBorderColorClass = (liver: Liver) => {
 export default function LiverList({ livers }: { livers: Liver[] }) {
   console.log("LiverList render", livers.length);
   return (
-    <div className="flex flex-col gap-6 overflow-y-auto h-full">
+    <div className="flex flex-col gap-6 overflow-y-auto h-full hidden md:block">
       {livers.map((liver) => (
         <div key={liver.id} className="flex items-center gap-4">
         <LiverInfo liver={liver} />
