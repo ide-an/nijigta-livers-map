@@ -104,32 +104,39 @@ function AnimatedPage({
   };
 
   return (
-    <div className="flex flex-col md:flex-row flex-grow h-screen">
-      <div className="flex-grow">
-        <Map
-          probes={probes}
-          gtaTime={gtaTime}
-          showRoute={showRoute}
-          isPlaying={isPlaying}
-        />
-      </div>
-      <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-scroll">
-        <MapControl
-          selectedLivers={selectedLivers}
-          gtaDay={gtaDay}
-          gtaTime={gtaTime}
-          gtaTimeMin={gtaTimeMin}
-          gtaTimeMax={gtaTimeMax}
-          isPlaying={isPlaying}
-          showRoute={showRoute}
-          playSpeedRatio={playSpeedRatio}
-          onGtaDayChange={handleGtaDayChange}
-          onGtaTimeChange={handleGtaTimeChange}
-          onIsPlayingChange={handleIsPlayingChange}
-          onShowRouteChange={handleShowRouteChange}
-          onPlaySpeedRatioChange={handlePlaySpeedRatioChange}
-          liverSelectComponent={liverSelectComponent}
-        />
+    <div className="flex flex-col h-screen">
+      <nav className="h-[60px] flex flex-row">
+        <h1>にじGTAライバーマップ</h1>
+        <a href="#">credit</a>
+        <a href="#">技術的な話</a>
+      </nav>
+      <div className="flex flex-col md:flex-row h-[calc(100vh-60px)]">
+        <div className="flex-grow">
+          <Map
+            probes={probes}
+            gtaTime={gtaTime}
+            showRoute={showRoute}
+            isPlaying={isPlaying}
+          />
+        </div>
+        <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-scroll">
+          <MapControl
+            selectedLivers={selectedLivers}
+            gtaDay={gtaDay}
+            gtaTime={gtaTime}
+            gtaTimeMin={gtaTimeMin}
+            gtaTimeMax={gtaTimeMax}
+            isPlaying={isPlaying}
+            showRoute={showRoute}
+            playSpeedRatio={playSpeedRatio}
+            onGtaDayChange={handleGtaDayChange}
+            onGtaTimeChange={handleGtaTimeChange}
+            onIsPlayingChange={handleIsPlayingChange}
+            onShowRouteChange={handleShowRouteChange}
+            onPlaySpeedRatioChange={handlePlaySpeedRatioChange}
+            liverSelectComponent={liverSelectComponent}
+          />
+        </div>
       </div>
     </div>
   );
