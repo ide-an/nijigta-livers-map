@@ -12,10 +12,11 @@ import { Probe, ProbePoint } from "../data/probe";
 import { LineString, Point } from "ol/geom";
 import Style from "ol/style/Style";
 import Stroke from "ol/style/Stroke";
-import Vector from "ol/layer/Vector";
+// import Vector from "ol/layer/Vector";
 import VectorSrouce from "ol/source/Vector";
 import { Liver } from "../data/liver";
 import Icon from "ol/style/Icon";
+import VectorImage from "ol/layer/VectorImage";
 
 const mapImageWidth = 6144;
 const mapImageHeight = 9216;
@@ -102,12 +103,12 @@ function Map({
         maxZoom: 8,
       }),
     });
-    console.log("map", map);
+    // console.log("map", map);
     const vectorSource = new VectorSrouce({
       features: [],
     });
     map.addLayer(
-      new Vector({
+      new VectorImage({
         source: vectorSource,
       })
     );
@@ -125,7 +126,7 @@ function Map({
       return;
     }
     routeVectorSource.clear();
-    console.time("add features");
+    // console.time("add features");
     for (const probe of probes) {
       const probePoints = probe.probePoints;
       const visitedPoints = probePoints.filter((point) => point.t < gtaTime);
@@ -147,7 +148,7 @@ function Map({
       );
       routeVectorSource.addFeature(markerFeature);
     }
-    console.timeEnd("add features");
+    // console.timeEnd("add features");
     if (map) {
       map.render();
     }
