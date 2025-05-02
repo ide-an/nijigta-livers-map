@@ -178,6 +178,7 @@ function Map({
       }
       // console.log("points", points);
       if (showRoute) {
+        // TODO: 毎回featureを作り直すとprobesが多いときにカクつく問題がある。どうにか差分更新の形にしたい
         const routeLineFeature = createRouteLineFeature(
           visitedPoints,
           probe.liver

@@ -112,7 +112,6 @@ export default function MapControl({
             variant="outlined"
             onClick={() => onGtaTimeChange(gtaTimeMin)}
           >
-            {/* TODO: 頭出しの実装 */}
             <BackwardIcon className="h-4 w-4" />
           </IconButton>
           <IconButton
