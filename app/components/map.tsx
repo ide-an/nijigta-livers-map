@@ -12,11 +12,12 @@ import { Probe, ProbePoint } from "../data/probe";
 import { LineString, Point } from "ol/geom";
 import Style from "ol/style/Style";
 import Stroke from "ol/style/Stroke";
-// import Vector from "ol/layer/Vector";
 import VectorSrouce from "ol/source/Vector";
 import { Liver } from "../data/liver";
 import Icon from "ol/style/Icon";
-import VectorImage from "ol/layer/VectorImage";
+import VectorImageLayer from "ol/layer/VectorImage";
+import VectorLayer from "ol/layer/Vector";
+import { set } from "ol/transform";
 
 const mapImageWidth = 6144;
 const mapImageHeight = 9216;
@@ -70,6 +71,10 @@ const interpolatePoint = (currentPoint: ProbePoint, nextPoint: ProbePoint, t: nu
   return { t, x, y };
 }
 
+const shouldUpdateRoute = (frameCount:number, showRoute:boolean, isPlaying:boolean) =>{
+  return (frameCount % 12 === 0 && showRoute) || !isPlaying;
+}
+
 function Map({
   probes,
   gtaTime,
@@ -84,6 +89,10 @@ function Map({
   const [map, setMap] = useState<OlMap | null>(null);
   const [routeVectorSource, setRouteVectorSource] =
     useState<VectorSrouce | null>(null);
+  const [markerVectorSource, setMarkerVectorSource] =
+    useState<VectorSrouce | null>(null);
+  // ルート描画の頻度を減らすため、frame数をカウントする
+  const frameCountRef = React.useRef(0);
 
   useEffect(() => {
     // create base map layer
@@ -115,28 +124,37 @@ function Map({
       }),
     });
     // console.log("map", map);
-    const vectorSource = new VectorSrouce({
+    const routeVectorSource = new VectorSrouce({
       features: [],
     });
     map.addLayer(
-      new VectorImage({
-        source: vectorSource,
+      new VectorImageLayer({
+        source: routeVectorSource,
       })
     );
+    const markerVectorSource = new VectorSrouce({
+      features: [],
+    });
+    map.addLayer(new VectorLayer({ source: markerVectorSource }));
     setMap(map);
-    setRouteVectorSource(vectorSource);
+    setRouteVectorSource(routeVectorSource);
+    setMarkerVectorSource(markerVectorSource);
 
     return () => map.setTarget(null!);
   }, []);
 
   useEffect(() => {
-    if (!routeVectorSource) {
+    if (!routeVectorSource || !markerVectorSource) {
       return;
     }
     if (probes === undefined) {
       return;
     }
-    routeVectorSource.clear();
+    const updateRoute = shouldUpdateRoute(frameCountRef.current, showRoute, isPlaying);
+    if (updateRoute) {
+      routeVectorSource.clear();
+    }
+    markerVectorSource.clear();
     // console.time("add features");
     for (const probe of probes) {
       const probePoints = probe.probePoints;
@@ -159,7 +177,7 @@ function Map({
         visitedPoints.push(interpolatePointResult);
       }
       // console.log("points", points);
-      if (showRoute) {
+      if (showRoute && updateRoute) {
         const routeLineFeature = createRouteLineFeature(
           visitedPoints,
           probe.liver
@@ -170,8 +188,9 @@ function Map({
         visitedPoints[visitedPoints.length - 1],
         probe.liver
       );
-      routeVectorSource.addFeature(markerFeature);
+      markerVectorSource.addFeature(markerFeature);
     }
+    frameCountRef.current += 1;
     // console.timeEnd("add features");
     if (map) {
       map.render();
