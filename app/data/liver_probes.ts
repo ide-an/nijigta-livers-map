@@ -47,7 +47,13 @@ export function getProbesFetcher(urls: string[]): Promise<Probe[]> {
           if (!liver) {
             throw new Error(`Liver not found for id: ${data.liver_id}`);
           }
-          return { liver, gtaDay: data.gta_day, probePoints };
+          return {
+            liver,
+            gtaDay: data.gta_day,
+            probePoints,
+            videoUrl: data.video_url,
+            videoStartTimestamp: data.video_start_timestamp,
+          };
         })
     )
   );

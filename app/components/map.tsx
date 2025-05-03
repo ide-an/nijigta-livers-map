@@ -1,7 +1,7 @@
 "use client";
 
-import { Feature, View } from "ol";
-import React, { useEffect, useState } from "react";
+import { Feature, MapBrowserEvent, Overlay, View } from "ol";
+import React, { useEffect, useRef, useState } from "react";
 import { Map as OlMap } from "ol";
 import "ol/ol.css";
 import ImageLayer from "ol/layer/Image";
@@ -24,9 +24,17 @@ const mapImageHeight = 9216;
 const toMapCoord = (point: ProbePoint) => {
   return [point.x, mapImageHeight - point.y];
 };
-const createRouteLineFeature = (probePoints: ProbePoint[], liver: Liver) => {
+const createRouteLineFeature = (
+  probePoints: ProbePoint[],
+  liver: Liver,
+  probe: Probe
+) => {
   const line = new LineString(probePoints.map(toMapCoord));
-  const feature = new Feature({ geometry: line });
+  const feature = new Feature({
+    geometry: line,
+    type: "route",
+    videoUrl: probe.videoUrl,
+  });
   feature.setStyle([
     new Style({
       stroke: new Stroke({
@@ -43,9 +51,19 @@ const createRouteLineFeature = (probePoints: ProbePoint[], liver: Liver) => {
   ]);
   return feature;
 };
-const createMarkerFeature = (probePoint: ProbePoint, liver: Liver) => {
+const createMarkerFeature = (
+  probePoint: ProbePoint,
+  liver: Liver,
+  probe: Probe
+) => {
   const point = new Point(toMapCoord(probePoint));
-  const feature = new Feature({ geometry: point });
+  const feature = new Feature({
+    geometry: point,
+    type: "marker",
+    videoUrl: probe.videoUrl,
+    liverName: liver.name,
+    liverId: liver.id,
+  });
   feature.setStyle(
     new Style({
       image: new Icon({
@@ -96,8 +114,13 @@ function Map({
     useState<VectorSrouce | null>(null);
   const [markerVectorSource, setMarkerVectorSource] =
     useState<VectorSrouce | null>(null);
+  const popupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // create popup
+    const popup = new Overlay({
+      element: popupRef.current!,
+    });
     // create base map layer
     const extent = [0, 0, mapImageWidth, mapImageHeight];
     const projection = new Projection({
@@ -118,6 +141,7 @@ function Map({
     const map = new OlMap({
       target: "map-container",
       layers: [mapLayer],
+      overlays: [popup],
       view: new View({
         projection: projection,
         center: getCenter(extent),
@@ -142,7 +166,27 @@ function Map({
     setMap(map);
     setRouteVectorSource(routeVectorSource);
     setMarkerVectorSource(markerVectorSource);
-
+    // popupの表示
+    map.on("singleclick", (evt: MapBrowserEvent) => {
+      console.log("click", evt.coordinate);
+      const features = map
+        .getFeaturesAtPixel(evt.pixel)
+        .filter((feature) => feature.get("type") === "marker");
+      if (features.length === 0) {
+        popupRef.current!.innerHTML = "";
+        popup.setPosition(undefined);
+        return;
+      }
+      popupRef.current!.innerHTML = features
+        .map((feature) => {
+          const videoUrl = feature.get("videoUrl") as string;
+          const liverName = feature.get("liverName") as string;
+          // TODO: 動画内時刻の指定
+          return `<a href="${videoUrl}" target="_blank">${liverName} 視点</a>`;
+        })
+        .join("<br>");
+      popup.setPosition(evt.coordinate);
+    });
     return () => map.setTarget(null!);
   }, []);
 
@@ -181,13 +225,15 @@ function Map({
         // TODO: 毎回featureを作り直すとprobesが多いときにカクつく問題がある。どうにか差分更新の形にしたい
         const routeLineFeature = createRouteLineFeature(
           visitedPoints,
-          probe.liver
+          probe.liver,
+          probe
         );
         routeVectorSource.addFeature(routeLineFeature);
       }
       const markerFeature = createMarkerFeature(
         visitedPoints[visitedPoints.length - 1],
-        probe.liver
+        probe.liver,
+        probe
       );
       markerVectorSource.addFeature(markerFeature);
     }
@@ -197,7 +243,28 @@ function Map({
     }
   }, [probes, gtaTime, showRoute, isPlaying]);
 
-  return <div className="h-full w-full" id="map-container" />;
+  return (
+    <>
+      <div className="h-full w-full" id="map-container" />
+      <div
+        ref={popupRef}
+        id="popup"
+        className="ol-popup"
+        style={popupStyle}
+      ></div>
+    </>
+  );
 }
 
+const popupStyle = {
+  position: "absolute",
+  backgroundColor: "white",
+  padding: "5px",
+  borderRadius: "5px",
+  border: "1px solid black",
+  transform: "translate(-50%, -100%)",
+  pointerEvents: "none",
+  width: "220px",
+  color: "black",
+};
 export default Map;
