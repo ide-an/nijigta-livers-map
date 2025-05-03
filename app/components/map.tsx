@@ -182,6 +182,9 @@ function Map({
           const videoUrl = feature.get("videoUrl") as string;
           const liverName = feature.get("liverName") as string;
           // TODO: 動画内時刻の指定
+          // FIXME: クリックが貫通してmapにいく
+          // https://github.com/openlayers/openlayers/issues/12848
+          // https://github.com/openlayers/openlayers/issues/6948
           return `<a href="${videoUrl}" target="_blank">${liverName} 視点</a>`;
         })
         .join("<br>");
