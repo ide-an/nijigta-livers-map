@@ -17,6 +17,8 @@ import { Liver } from "../data/liver";
 import Icon from "ol/style/Icon";
 import VectorImageLayer from "ol/layer/VectorImage";
 import VectorLayer from "ol/layer/Vector";
+import { createPortal } from "react-dom";
+import { set } from "ol/transform";
 
 const mapImageWidth = 6144;
 const mapImageHeight = 9216;
@@ -63,6 +65,7 @@ const createMarkerFeature = (
     videoUrl: probe.videoUrl,
     liverName: liver.name,
     liverId: liver.id,
+    // TODO: 時刻を指定した動画URLを使う。ProbePointに持たせるべきか？
   });
   feature.setStyle(
     new Style({
@@ -73,7 +76,6 @@ const createMarkerFeature = (
       }),
     })
   );
-  // TODO: マーカーをクリックしたときにポップアップで動画URLを表示する
   return feature;
 };
 
@@ -114,12 +116,22 @@ function Map({
     useState<VectorSrouce | null>(null);
   const [markerVectorSource, setMarkerVectorSource] =
     useState<VectorSrouce | null>(null);
+  // popupの管理系
   const popupRef = useRef<HTMLDivElement>(null);
+  const [popupUrls, setPopupUrls] = useState<string[]>([]);
+  const [popupNames, setPopupNames] = useState<string[]>([]);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
+    popupRef.current = document.createElement("div");
     // create popup
     const popup = new Overlay({
-      element: popupRef.current!,
+      element: popupRef.current,
+      autoPan: {
+        animation: {
+          duration: 250,
+        },
+      },
     });
     // create base map layer
     const extent = [0, 0, mapImageWidth, mapImageHeight];
@@ -173,21 +185,14 @@ function Map({
         .getFeaturesAtPixel(evt.pixel)
         .filter((feature) => feature.get("type") === "marker");
       if (features.length === 0) {
-        popupRef.current!.innerHTML = "";
         popup.setPosition(undefined);
+        setIsPopupOpen(false);
         return;
       }
-      popupRef.current!.innerHTML = features
-        .map((feature) => {
-          const videoUrl = feature.get("videoUrl") as string;
-          const liverName = feature.get("liverName") as string;
-          // TODO: 動画内時刻の指定
-          // FIXME: クリックが貫通してmapにいく
-          // https://github.com/openlayers/openlayers/issues/12848
-          // https://github.com/openlayers/openlayers/issues/6948
-          return `<a href="${videoUrl}" target="_blank">${liverName} 視点</a>`;
-        })
-        .join("<br>");
+      setIsPopupOpen(true);
+      // TODO: 時刻を指定した動画URLを使う。ProbePointに持たせるべきか？
+      setPopupUrls(features.map((feature) => feature.get("videoUrl")));
+      setPopupNames(features.map((feature) => feature.get("liverName")));
       popup.setPosition(evt.coordinate);
     });
     return () => map.setTarget(null!);
@@ -249,25 +254,51 @@ function Map({
   return (
     <>
       <div className="h-full w-full" id="map-container" />
-      <div
-        ref={popupRef}
-        id="popup"
-        className="ol-popup"
-        style={popupStyle}
-      ></div>
+      {/*
+       Overlay内のクリックが拾われずにMapに飛ぶ問題を回避するため、portalとしてreact管理下の要素としてPopup内部を埋め込む
+      参考： https://github.com/openlayers/openlayers/issues/12848
+      */}
+      {popupRef.current &&
+        createPortal(
+          <MapPopup urls={popupUrls} names={popupNames} isOpen={isPopupOpen} />,
+          popupRef.current!
+        )}
     </>
   );
 }
+function MapPopup({
+  urls,
+  names,
+  isOpen,
+}: {
+  urls: string[];
+  names: string[];
+  isOpen: boolean;
+}) {
+  return (
+    <div
+      className={`z-10 w-64 bg-white border border-gray-300 rounded p-2 shadow-md ${
+        isOpen ? "block" : "hidden"
+      }`}
+    >
+      <ul>
+        {urls.map((url, index) => {
+          return (
+            <li key={url}>
+              <a
+                href={url}
+                className="text-blue-500 hover:text-blue-200"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {names[index]}視点
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
 
-const popupStyle = {
-  position: "absolute",
-  backgroundColor: "white",
-  padding: "5px",
-  borderRadius: "5px",
-  border: "1px solid black",
-  transform: "translate(-50%, -100%)",
-  pointerEvents: "none",
-  width: "220px",
-  color: "black",
-};
 export default Map;
