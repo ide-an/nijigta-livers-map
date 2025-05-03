@@ -12,6 +12,7 @@ import {
 import liverProbes from "./data/liver_probes.json";
 import useSWR from "swr";
 import LiverSelectDialog from "./components/liver_select_dialog";
+import { NavbarDefault } from "./components/navbar";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 const useAnimationFrame = (
@@ -105,12 +106,10 @@ function AnimatedPage({
 
   return (
     <div className="flex flex-col h-screen">
-      <nav className="h-[60px] flex flex-row">
-        <h1>にじGTAライバーマップ</h1>
-        <a href="#">credit</a>
-        <a href="#">技術的な話</a>
-      </nav>
-      <div className="flex flex-col md:flex-row h-[calc(100vh-60px)]">
+      <div className="h-[62px] md:h-[62px]">
+        <NavbarDefault />
+      </div>
+      <div className="flex flex-col md:flex-row h-[calc(100vh-62px)] md:h-[calc(100vh-62px)]">
         <div className="flex-grow">
           <Map
             probes={probes}
@@ -119,7 +118,7 @@ function AnimatedPage({
             isPlaying={isPlaying}
           />
         </div>
-        <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-scroll">
+        <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-hidden">
           <MapControl
             selectedLivers={selectedLivers}
             gtaDay={gtaDay}
