@@ -106,10 +106,10 @@ function AnimatedPage({
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="h-[62px] md:h-[62px]">
+      <div className="h-[63.5px] md:h-[63.5px]">
         <NavbarDefault />
       </div>
-      <div className="flex flex-col md:flex-row h-[calc(100vh-62px)] md:h-[calc(100vh-62px)]">
+      <div className="flex flex-col md:flex-row h-[calc(100vh-63.5px)] md:h-[calc(100vh-63.5px)]">
         <div className="flex-grow">
           <Map
             probes={probes}

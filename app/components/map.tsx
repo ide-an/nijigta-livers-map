@@ -157,11 +157,15 @@ function Map({
       view: new View({
         projection: projection,
         center: getCenter(extent),
-        zoom: 2.5,
-        minZoom: 2.5,
+        zoom: 2,
+        minZoom: 1,
         maxZoom: 8,
       }),
     });
+    // zoomの調整
+    map.getView().fit(extent, { size: map.getSize()! });
+    const currentZoom = map.getView().getZoom();
+    map.getView().setMinZoom(currentZoom!);
     // console.log("map", map);
     const routeVectorSource = new VectorSrouce({
       features: [],
