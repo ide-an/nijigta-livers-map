@@ -12,7 +12,6 @@ import { Liver } from "../data/liver";
 import { formatInTimeZone } from "date-fns-tz";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBackward,
   faBackwardStep,
   faForwardStep,
   faPause,
@@ -60,7 +59,7 @@ export default function MapControl({
   const gtaDateString = formatInTimeZone(
     gtaDate,
     "Asia/Tokyo",
-    "MM/dd HH:mm:ss"
+    "M/d HH:mm:ss"
   );
   // console.timeEnd("MapControl render");
   return (
@@ -89,7 +88,8 @@ export default function MapControl({
 
         {/* 時刻表示 */}
         <div>
-          <Typography variant="h3">{gtaDateString}</Typography>
+          <Typography variant="h5" className="block md:hidden">{gtaDateString}</Typography>
+          <Typography variant="h3" className="hidden md:block">{gtaDateString}</Typography>
         </div>
       </div>
 
@@ -135,9 +135,10 @@ export default function MapControl({
           onChange={(val) => onPlaySpeedRatioChange(Number(val))}
           size="sm"
         >
-          <Option value="1">1x</Option>
-          <Option value="60">60x</Option>
-          <Option value="300">300x</Option>
+          <Option value="1">x1 (等倍)</Option>
+          <Option value="60">x60 (1秒 = 1分)</Option>
+          <Option value="300">x300 (1秒 = 5分)</Option>
+          <Option value="1800">x1800 (1秒 = 30分)</Option>
         </Select>
       </div>
       {/* 表示オプション */}

@@ -157,8 +157,8 @@ function Map({
       view: new View({
         projection: projection,
         center: getCenter(extent),
-        zoom: 2,
-        minZoom: 1,
+        zoom: 2.5,
+        minZoom: 2.5,
         maxZoom: 8,
       }),
     });

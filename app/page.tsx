@@ -118,7 +118,7 @@ function AnimatedPage({
             isPlaying={isPlaying}
           />
         </div>
-        <div className="w-full h-96 md:w-128 md:h-full bg-gray-200 overflow-y-hidden">
+        <div className="w-full h-80 md:w-128 md:h-full bg-gray-200 overflow-y-hidden">
           <MapControl
             selectedLivers={selectedLivers}
             gtaDay={gtaDay}
