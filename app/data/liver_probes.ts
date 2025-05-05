@@ -22,7 +22,7 @@ interface RawProbePoint {
   t: number; // unix timestamp
   x: number; // x座標
   y: number; // y座標
-  video_url: string; // 時刻込のvideo url
+  vt: number; // 動画のtimestamp。動画開始からの秒数
 }
 
 export function filterLiverProbesByGtaDayAndLivers(
@@ -49,7 +49,7 @@ export function getProbesFetcher(urls: string[]): Promise<Probe[]> {
             t: point.t,
             x: point.x,
             y: point.y,
-            videoUrl: point.video_url,
+            vt: point.vt,
           }));
           const liver = livers.find((liver) => liver.id === data.liver_id);
           if (!liver) {

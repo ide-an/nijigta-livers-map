@@ -18,7 +18,6 @@ import Icon from "ol/style/Icon";
 import VectorImageLayer from "ol/layer/VectorImage";
 import VectorLayer from "ol/layer/Vector";
 import { createPortal } from "react-dom";
-import { set } from "ol/transform";
 
 const mapImageWidth = 6144;
 const mapImageHeight = 9216;
@@ -64,7 +63,7 @@ const createMarkerFeature = (
     geometry: point,
     type: "marker",
     videoUrl: probe.videoUrl,
-    videoUrlWithTime: probePoint.videoUrl,
+    vt: probePoint.vt,
     liverName: liver.name,
     liverId: liver.id,
   });
@@ -98,8 +97,22 @@ const interpolatePoint = (
     currentPoint.y +
     ((nextPoint.y - currentPoint.y) * (t - currentPoint.t)) /
       (nextPoint.t - currentPoint.t);
-      // TODO: probe pointが video urlを直接持つのではなく動画内時刻を持つほうがよさそう？それなら時刻からurlを作れる
-  return { t, x, y, videoUrl: currentPoint.videoUrl }; // video urlとしては直近通過した点のものを使う。 時刻からurlを作るには情報が足りてないため
+  const vt = currentPoint.vt + (t - currentPoint.t);
+  return { t, x, y, vt };
+};
+
+const createVideoUrlWithTimestamp = (videoUrl: string, vt: number) => {
+  if (videoUrl.includes("youtube") || videoUrl.includes("youtu.be")) {
+    const t = Math.floor(vt);
+    return videoUrl + "?t=" + t;
+  } else if (videoUrl.includes("twitch")) {
+    const h = Math.floor(vt/3600);
+    const m = Math.floor((vt%3600) / 60);
+    const s = Math.floor(vt % 60);
+    return videoUrl + `?t=${h}h${m}m${s}s`;
+  } else {
+    throw new Error("Unknown video url: " + videoUrl);
+  }
 };
 
 function Map({
@@ -196,7 +209,13 @@ function Map({
         return;
       }
       setIsPopupOpen(true);
-      setPopupUrls(features.map((feature) => feature.get("videoUrlWithTime")));
+      setPopupUrls(
+        features.map((feature) => {
+          const videoUrl = feature.get("videoUrl");
+          const vt = feature.get("vt");
+          return createVideoUrlWithTimestamp(videoUrl, vt);
+        })
+      );
       setPopupNames(features.map((feature) => feature.get("liverName")));
       popup.setPosition(evt.coordinate);
     });
