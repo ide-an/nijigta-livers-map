@@ -59,13 +59,14 @@ const createMarkerFeature = (
   probe: Probe
 ) => {
   const point = new Point(toMapCoord(probePoint));
+  console.log("probepoint", probePoint);
   const feature = new Feature({
     geometry: point,
     type: "marker",
     videoUrl: probe.videoUrl,
+    videoUrlWithTime: probePoint.videoUrl,
     liverName: liver.name,
     liverId: liver.id,
-    // TODO: 時刻を指定した動画URLを使う。ProbePointに持たせるべきか？
   });
   feature.setStyle(
     new Style({
@@ -97,7 +98,8 @@ const interpolatePoint = (
     currentPoint.y +
     ((nextPoint.y - currentPoint.y) * (t - currentPoint.t)) /
       (nextPoint.t - currentPoint.t);
-  return { t, x, y };
+      // TODO: probe pointが video urlを直接持つのではなく動画内時刻を持つほうがよさそう？それなら時刻からurlを作れる
+  return { t, x, y, videoUrl: currentPoint.videoUrl }; // video urlとしては直近通過した点のものを使う。 時刻からurlを作るには情報が足りてないため
 };
 
 function Map({
@@ -194,8 +196,7 @@ function Map({
         return;
       }
       setIsPopupOpen(true);
-      // TODO: 時刻を指定した動画URLを使う。ProbePointに持たせるべきか？
-      setPopupUrls(features.map((feature) => feature.get("videoUrl")));
+      setPopupUrls(features.map((feature) => feature.get("videoUrlWithTime")));
       setPopupNames(features.map((feature) => feature.get("liverName")));
       popup.setPosition(evt.coordinate);
     });

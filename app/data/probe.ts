@@ -4,6 +4,7 @@ export interface ProbePoint {
   t: number; // unix timestamp
   x: number; // x座標
   y: number; // y座標
+  videoUrl: string; // 時刻込のvideo url
 }
 
 export interface Probe {
