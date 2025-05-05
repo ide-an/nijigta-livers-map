@@ -39,7 +39,9 @@ const createRouteLineFeature = (
   feature.setStyle([
     new Style({
       stroke: new Stroke({
-        color: "#ffffff",
+        // 明るい色の場合は暗く縁取りする
+        color:
+          colorCodeToYUVLuminence(liver.color) < 0.8 ? "#ffffff" : "#cccccc",
         width: 5,
       }),
     }),
@@ -78,6 +80,13 @@ const createMarkerFeature = (
   );
   return feature;
 };
+
+const colorCodeToYUVLuminence = (colorCode:string) =>  {
+  const r = parseInt(colorCode.slice(1,3), 16) / 255;
+  const g = parseInt(colorCode.slice(3,5), 16) / 255;
+  const b = parseInt(colorCode.slice(5,7), 16) / 255;
+  return 0.298912 * r + 0.586611 * g + 0.114478 * b;
+}
 
 const findNextPointIndex = (probePoints: ProbePoint[], t: number) => {
   return probePoints.findIndex((point) => {
