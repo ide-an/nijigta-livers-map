@@ -49,9 +49,10 @@ function AnimatedPage({
   handleSelectedLiversChange: (livers: Liver[]) => void;
   liverSelectComponent: React.ReactNode;
 }) {
+  // TODO: share buttonで日付、時間、ライバーを指定したurlにしたい
   const gtaDay1Timestamp = gtaDayTimestamps[0];
   const [gtaDay, setGtaDay] = useState(1);
-  const [gtaTime, setGtaTime] = useState(gtaDay1Timestamp.startTimestamp); // TODO: 初回の表示ならendの方がいいか？
+  const [gtaTime, setGtaTime] = useState(gtaDay1Timestamp.endTimeStamp);
   const [gtaTimeMin, setGtaTimeMin] = useState(gtaDay1Timestamp.startTimestamp);
   const [gtaTimeMax, setGtaTimeMax] = useState(gtaDay1Timestamp.endTimeStamp);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -90,7 +91,7 @@ function AnimatedPage({
     const gtaDayTimestamp = gtaDayTimestamps.find((x) => x.gtaDay === day)!;
     setGtaTimeMin(gtaDayTimestamp?.startTimestamp);
     setGtaTimeMax(gtaDayTimestamp?.endTimeStamp);
-    setGtaTime(gtaDayTimestamp?.startTimestamp);
+    setGtaTime(gtaDayTimestamp?.endTimeStamp);
     console.log("day", day);
   };
   const handleGtaTimeChange = (time: number) => {
