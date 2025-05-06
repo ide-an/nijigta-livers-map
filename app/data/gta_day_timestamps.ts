@@ -14,6 +14,6 @@ export const gtaDayTimestamps: GtaDayTimestamp[] = [
   { gtaDay: 7, startTimestamp: 1718974800, endTimeStamp: 1719000000 }, // 22-29
   { gtaDay: 8, startTimestamp: 1719061200, endTimeStamp: 1719086400 }, // 22-29
   { gtaDay: 9, startTimestamp: 1719136800, endTimeStamp: 1719172800 }, // 19-29
-  //{ gtaDay: 9.5, startTimestamp: 1, endTimeStamp: 1 }, // 卯月コウと北小路ヒスイの神殺し準備
+  { gtaDay: 9.5, startTimestamp: 1719201600, endTimeStamp: 1719216000 }, // 卯月コウと北小路ヒスイの神殺し準備 13:00-17:00
   { gtaDay: 10, startTimestamp: 1719223200, endTimeStamp: 1719253800 }, // 19-27:30
 ];

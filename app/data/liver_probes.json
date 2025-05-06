@@ -970,7 +970,7 @@
     "probePath": "probes/hisui-kitakoji_9_1719137121.0.json"
   },
   {
-    "gtaDay": 9,
+    "gtaDay": 9.5,
     "liverId": "hisui-kitakoji",
     "probePath": "probes/hisui-kitakoji_9_1719201612.0.json"
   },
@@ -1530,7 +1530,7 @@
     "probePath": "probes/kou-uzuki_9_1719144069.0.json"
   },
   {
-    "gtaDay": 9,
+    "gtaDay": 9.5,
     "liverId": "kou-uzuki",
     "probePath": "probes/kou-uzuki_9_1719201933.0.json"
   },

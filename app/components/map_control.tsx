@@ -82,6 +82,7 @@ export default function MapControl({
             <Option value="7">Day 7(6/21)</Option>
             <Option value="8">Day 8(6/22)</Option>
             <Option value="9">Day 9(6/23)</Option>
+            <Option value="9.5">Day 9.5(6/24)</Option>
             <Option value="10">Day 10(6/24)</Option>
           </Select>
         </div>
