@@ -13,6 +13,7 @@ import liverProbes from "./data/liver_probes.json";
 import useSWR from "swr";
 import LiverSelectDialog from "./components/liver_select_dialog";
 import { NavbarDefault } from "./components/navbar";
+import { gtaDayTimestamps } from "./data/gta_day_timestamps";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 const useAnimationFrame = (
@@ -48,10 +49,11 @@ function AnimatedPage({
   handleSelectedLiversChange: (livers: Liver[]) => void;
   liverSelectComponent: React.ReactNode;
 }) {
+  const gtaDay1Timestamp = gtaDayTimestamps[0];
   const [gtaDay, setGtaDay] = useState(1);
-  const [gtaTime, setGtaTime] = useState(1718447025); // TODO: timestamp
-  const [gtaTimeMin, setGtaTimeMin] = useState(1718445600); // TODO: timestamp gtadayできめる
-  const [gtaTimeMax, setGtaTimeMax] = useState(1718474400);
+  const [gtaTime, setGtaTime] = useState(gtaDay1Timestamp.startTimestamp); // TODO: 初回の表示ならendの方がいいか？
+  const [gtaTimeMin, setGtaTimeMin] = useState(gtaDay1Timestamp.startTimestamp);
+  const [gtaTimeMax, setGtaTimeMax] = useState(gtaDay1Timestamp.endTimeStamp);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showRoute, setShowRoute] = useState(true);
   const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
@@ -85,6 +87,10 @@ function AnimatedPage({
   const handleGtaDayChange = (day: number) => {
     setGtaDay(day);
     setIsPlaying(false);
+    const gtaDayTimestamp = gtaDayTimestamps.find((x) => x.gtaDay === day)!;
+    setGtaTimeMin(gtaDayTimestamp?.startTimestamp);
+    setGtaTimeMax(gtaDayTimestamp?.endTimeStamp);
+    setGtaTime(gtaDayTimestamp?.startTimestamp);
     console.log("day", day);
   };
   const handleGtaTimeChange = (time: number) => {

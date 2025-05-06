@@ -243,6 +243,10 @@ function Map({
     // console.time("add features");
     for (const probe of probes) {
       const probePoints = probe.probePoints;
+      if (probePoints.length === 0) {
+        console.log("なぜかprobePontsが空", probe);
+        continue;
+      }
       const nextPointIndex = findNextPointIndex(probePoints, gtaTime);
       let visitedPoints: ProbePoint[] = [];
       if (nextPointIndex === 0) {
