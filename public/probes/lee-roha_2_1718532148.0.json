@@ -3,5 +3,18 @@
   "video_start_timestamp": 1718532148,
   "video_url": "https://youtu.be/rkXbY8iQ9qA",
   "gta_day": 2,
-  "probe": []
+  "probe": [
+    {
+      "t": 1718532400.0,
+      "x": 2581,
+      "y": 5836,
+      "vt": 329.0
+    },
+    {
+      "t": 1718534253.0,
+      "x": 2606,
+      "y": 5844,
+      "vt": 2182.0
+    }
+  ]
 }
