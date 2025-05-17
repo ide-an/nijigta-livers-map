@@ -22,7 +22,7 @@ export default function Page() {
               <ul className="list-disc pl-4">
                 <li>特に山間部、海上（客船強盗、オイルリグを含む）、高速道路上では位置の誤判定、取得漏れが起きやすいです。</li>
                 <li>大まかには、動画内のミニマップ表示から番地を取得して位置を推定しています。</li>
-                {/* TODO: 技術的な詳細へのリンク */}
+                <li>解析の詳細は<TextLink href="https://github.com/ide-an/nijigta-livers-map/blob/main/doc/technical_detail.md">技術的な話</TextLink>をご参照ください。</li>
               </ul>
             </li>
             <li>成瀬鳴（2024年8月31日卒業）はアーカイブを取得できなかったため、対応していません。</li>
