@@ -26,9 +26,12 @@ export function NavbarDefault() {
             variant="small"
             className="flex items-center gap-x-2 p-1 font-medium"
           >
-            <a href="#" className="flex items-center hover:text-blue-gray-200">
+            <Link
+              href="/notice"
+              className="flex items-center hover:text-blue-gray-200"
+            >
               注意事項
-            </a>
+            </Link>
           </Typography>
           {/* 誤判定がありうる、配信外は取れない、アーカイブ非公開で取れないなど */}
           <Typography

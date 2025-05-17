@@ -1361,15 +1361,6 @@
     "color": "#2C35BD"
   },
   {
-    "id": "muyu-amagase",
-    "name": "天ヶ瀬むゆ",
-    "enName": "Amagase Muyu",
-    "imageUrl": "/img/avatar/muyu-amagase.png",
-    "markerImageUrl": "/img/marker/muyu-amagase.png",
-    "tags": [],
-    "color": "#FA5578"
-  },
-  {
     "id": "rine-yaguruma",
     "name": "矢車りね",
     "enName": "Yaguruma Rine",
