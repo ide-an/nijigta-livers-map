@@ -10,6 +10,7 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import liverVideos from "../data/liver_videos.json";
+import { Fragment } from "react";
 
 export default function Page() {
   return (
@@ -42,22 +43,26 @@ export default function Page() {
           <Typography variant="h5" className="my-4">
             素材、参照情報など
           </Typography>
-          <ul>
-            <li key="map">
+          <ul className="list-disc pl-4">
+            <li>
               地図画像:{" "}
               <TextLink href="https://forum.cfx.re/t/release-postal-code-map-minimap-new-improved-v1-3/147458">
                 [Release] Postal Code Map & Minimap - New & Improved - v1.3
               </TextLink>{" "}
               を元に改変
             </li>
-            <li key="liverimage">
+            <li>
               ライバー画像:{" "}
               <TextLink href="https://www.nijisanji.jp/talents">
                 タレント一覧 | にじさんじ
               </TextLink>{" "}
-              Hex Haywireのみ<TextLink href="https://wikiwiki.jp/nijisanji/Hex%20Haywire">にじさんじ非公式Wiki</TextLink>から取得（卒業のため）
+              Hex Haywireのみ
+              <TextLink href="https://wikiwiki.jp/nijisanji/Hex%20Haywire">
+                にじさんじ非公式Wiki
+              </TextLink>
+              から取得（卒業のため）
             </li>
-            <li key="job">
+            <li>
               GTA内の職業、イベント参加情報など:{" "}
               <TextLink href="https://wikiwiki.jp/nijisanji/Grand%20Theft%20Auto%E3%81%BE%E3%81%A8%E3%82%81/GTA5/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98GTA">
                 にじさんじGTAサーバーまとめ | にじさんじ非公式Wiki
@@ -70,18 +75,18 @@ export default function Page() {
           </Typography>
           {liverVideos.map((entry) => {
             return (
-              <>
+              <Fragment key={entry.liver + "-frag"}>
                 <Typography variant="h6">{entry.liver}</Typography>
-                <ul>
+                <ul className="list-disc pl-4">
                   {entry.videos.map((video) => {
                     return (
-                      <li className="ml-4" key={video}>
+                      <li key={video}>
                         <TextLink href={video}>{video}</TextLink>
                       </li>
                     );
                   })}
                 </ul>
-              </>
+              </Fragment>
             );
           })}
         </main>
