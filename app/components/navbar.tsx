@@ -19,7 +19,6 @@ export function NavbarDefault() {
             にじGTAライバーMAP
           </Typography>
         </Link>
-        {/* TODO: リンク */}
         <div className="ml-auto flex gap-1 md:mr-4">
           <Typography
             as="li"
@@ -33,7 +32,6 @@ export function NavbarDefault() {
               注意事項
             </Link>
           </Typography>
-          {/* 誤判定がありうる、配信外は取れない、アーカイブ非公開で取れないなど */}
           <Typography
             as="li"
             variant="small"
@@ -46,8 +44,6 @@ export function NavbarDefault() {
               Credit
             </Link>
           </Typography>
-          {/* 元動画、地図画像、開発者情報など */}
-          {/* 技術的な話はcreditからgithub docへのリンクでよかろう */}
         </div>
       </div>
     </Navbar>
