@@ -1250,11 +1250,6 @@
     "probePath": "probes/kanae_1_1718446445.0.json"
   },
   {
-    "gtaDay": 1,
-    "liverId": "kanae",
-    "probePath": "probes/kanae_1_merged.json"
-  },
-  {
     "gtaDay": 2,
     "liverId": "kanae",
     "probePath": "probes/kanae_2_1718538431.0.json"

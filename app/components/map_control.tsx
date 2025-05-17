@@ -72,6 +72,7 @@ export default function MapControl({
             value={gtaDay.toString()}
             onChange={(val) => onGtaDayChange(Number(val))}
             size="sm"
+            menuProps={{ className: "max-h-48 md:max-h-none" }}
           >
             <Option value="1">Day 1(6/15)</Option>
             <Option value="2">Day 2(6/16)</Option>
@@ -89,8 +90,12 @@ export default function MapControl({
 
         {/* 時刻表示 */}
         <div>
-          <Typography variant="h5" className="block md:hidden">{gtaDateString}</Typography>
-          <Typography variant="h3" className="hidden md:block">{gtaDateString}</Typography>
+          <Typography variant="h5" className="block md:hidden">
+            {gtaDateString}
+          </Typography>
+          <Typography variant="h3" className="hidden md:block">
+            {gtaDateString}
+          </Typography>
         </div>
       </div>
 
@@ -135,11 +140,13 @@ export default function MapControl({
           value={playSpeedRatio.toString()}
           onChange={(val) => onPlaySpeedRatioChange(Number(val))}
           size="sm"
+          menuProps={{ className: "max-h-32 md:max-h-none" }}
         >
           <Option value="1">x1 (等倍)</Option>
           <Option value="60">x60 (1秒 = 1分)</Option>
           <Option value="300">x300 (1秒 = 5分)</Option>
           <Option value="1800">x1800 (1秒 = 30分)</Option>
+          <Option value="3600">x3600 (1秒 = 60分)</Option>
         </Select>
       </div>
       {/* 表示オプション */}

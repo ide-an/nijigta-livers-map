@@ -151,9 +151,10 @@ function AnimatedPage({
 export default function Page() {
   const [selectedLivers, setSelectedLivers] = useState<Liver[]>(
     livers.filter((liver) => {
-      return liver;
+      // デフォルトでは主催陣
+      return liver.tags.includes("主催");
     })
-  ); // TODO: デフォルトで選択するライバーを決める
+  ); 
 
   const handleSelectedLiversChange = (livers: Liver[]) => {
     setSelectedLivers(livers);
