@@ -286,7 +286,7 @@ function Map({
     if (map) {
       map.render();
     }
-  }, [probes, gtaTime, showRoute, isPlaying]);
+  }, [probes, gtaTime, showRoute, isPlaying, map]);
 
   return (
     <>
