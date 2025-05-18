@@ -60,7 +60,7 @@ const createMarkerFeature = (
   probe: Probe
 ) => {
   const point = new Point(toMapCoord(probePoint));
-  console.log("probepoint", probePoint);
+  // console.log("probepoint", probePoint);
   const feature = new Feature({
     geometry: point,
     type: "marker",
@@ -208,7 +208,7 @@ function Map({
     setMarkerVectorSource(markerVectorSource);
     // popupの表示
     map.on("singleclick", (evt: MapBrowserEvent) => {
-      console.log("click", evt.coordinate);
+      // console.log("click", evt.coordinate);
       const features = map
         .getFeaturesAtPixel(evt.pixel)
         .filter((feature) => feature.get("type") === "marker");
@@ -267,7 +267,8 @@ function Map({
       }
       // console.log("points", points);
       if (showRoute) {
-        // TODO: 毎回featureを作り直すとprobesが多いときにカクつく問題がある。どうにか差分更新の形にしたい
+        // FIXME: probesが多いときに描画がカクつく問題がある。
+        // 対応するfeatureが存在する場合はappendCoordinateするだけの実装も試したがかえってカクつきがひどかった
         const routeLineFeature = createRouteLineFeature(
           visitedPoints,
           probe.liver,
