@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export function NavbarDefault() {
   return (
+    // @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528
     <Navbar
       variant="gradient"
       color="blue-gray"
@@ -11,6 +12,7 @@ export function NavbarDefault() {
     >
       <div className="flex flex-wrap items-center justify-between gap-y-4 text-white">
         <Link href="/">
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography
             href="#"
             variant="h5"
@@ -20,6 +22,7 @@ export function NavbarDefault() {
           </Typography>
         </Link>
         <div className="ml-auto flex gap-1 md:mr-4">
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography
             as="li"
             variant="small"
@@ -32,6 +35,7 @@ export function NavbarDefault() {
               注意事項
             </Link>
           </Typography>
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography
             as="li"
             variant="small"

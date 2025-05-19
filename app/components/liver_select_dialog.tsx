@@ -42,7 +42,9 @@ export default function LiverSelectDialog({
   const filteredLivers = livers.filter((liver) => {
     const lowerQuery = query.toLowerCase();
     // 変換前のクエリはromanで当てる
-    const romanQuery = isHiragana(lowerQuery) ? toRomaji(lowerQuery) : lowerQuery;
+    const romanQuery = isHiragana(lowerQuery)
+      ? toRomaji(lowerQuery)
+      : lowerQuery;
     return (
       query === "" ||
       liver.name.toLowerCase().includes(lowerQuery) ||
@@ -74,18 +76,23 @@ export default function LiverSelectDialog({
     <>
       {/* ライバー選択 */}
       <div className="w-full">
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <Button variant="outlined" fullWidth onClick={handleOpen}>
           ライバー選択
         </Button>
       </div>
 
+      {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
       <Dialog open={open} handler={handleOpen} size="lg">
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <DialogHeader>ライバーを選択</DialogHeader>
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <DialogBody>
           <div className="flex flex-col md:flex-row gap-6">
             {/* ライバーの検索 */}
             <div className="flex-1">
               <div className="p-1">
+                {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
                 <Input
                   label="ライバー名、ジョブなどで検索"
                   value={query}
@@ -93,6 +100,7 @@ export default function LiverSelectDialog({
                 />
               </div>
               <div className="p-2">
+                {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
                 <Button size="sm" color="green" onClick={handleAddAll}>
                   全選択
                 </Button>
@@ -104,6 +112,7 @@ export default function LiverSelectDialog({
                     <div key={liver.id} className="flex items-center gap-4">
                       <div className="flex-none">
                         {isLiverSelected(liver, selectedLivers) ? (
+                          // @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528
                           <Button
                             size="sm"
                             className="w-24"
@@ -114,6 +123,7 @@ export default function LiverSelectDialog({
                             選択済み
                           </Button>
                         ) : (
+                          // @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528
                           <Button
                             size="sm"
                             className="w-24"
@@ -133,11 +143,13 @@ export default function LiverSelectDialog({
             </div>
             {/* 選択済みのライバー一覧 */}
             <div className="flex-1">
+              {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
               <Typography variant="h5" className="mb-4">
                 選択中のライバー
               </Typography>
               {/* 左右で位置を揃えるためのpt */}
               <div className="p-2 md:pt-3">
+                {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
                 <Button size="sm" color="red" onClick={handleRemoveAll}>
                   全解除
                 </Button>
@@ -148,6 +160,7 @@ export default function LiverSelectDialog({
                   itemContent={(_, liver) => (
                     <div key={liver.id} className="flex items-center gap-4">
                       <div className="flex-none">
+                        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
                         <Button
                           size="sm"
                           className="w-24"
@@ -166,7 +179,9 @@ export default function LiverSelectDialog({
             </div>
           </div>
         </DialogBody>
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <DialogFooter>
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Button variant="gradient" color="green" onClick={handleOpen}>
             <span>完了</span>
           </Button>

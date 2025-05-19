@@ -9,11 +9,13 @@ const toBorderColorClass = (liver: Liver) => {
 export function LiverInfo({ liver }: { liver: Liver }) {
   return (
     <>
+      {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
       <Avatar
         src={liver.imageUrl}
         className={`border-2 ${toBorderColorClass(liver)} flex-none`}
       />
       <div className="grow">
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <Typography variant="h6">{liver.name}</Typography>
         <div className="flex flex-wrap gap-2">
           {liver.tags.map((tag) => (

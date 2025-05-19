@@ -56,6 +56,7 @@ function ErrorAlert() {
       }
     >
       <p>ライバー経路情報の読み込みに失敗しました。</p>
+      {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
       <IconButton onClick={closeDrawer}>
         <FontAwesomeIcon icon={faX} />
       </IconButton>
@@ -232,7 +233,6 @@ export default function Page() {
   return (
     <AnimatedPage
       selectedLivers={selectedLivers}
-      handleSelectedLiversChange={handleSelectedLiversChange}
       liverSelectComponent={
         <>
           <LiverSelectDialog

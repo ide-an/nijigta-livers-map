@@ -6,6 +6,7 @@ export default function LiverList({ livers }: { livers: Liver[] }) {
   console.log("LiverList render", livers.length);
   return (
     <>
+      {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
       <Typography variant="h6" className="text-gray-700 hidden md:block">
         選択中のライバー
       </Typography>

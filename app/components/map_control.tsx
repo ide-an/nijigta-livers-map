@@ -67,11 +67,12 @@ export default function MapControl({
       <div className="flex flex-row gap-6 items-center">
         <div>
           {/* 日付選択 */}
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Select
             label="日付"
             value={gtaDay.toString()}
             onChange={(val) => onGtaDayChange(Number(val))}
-            size="sm"
+            size="md"
             menuProps={{ className: "max-h-48 md:max-h-none" }}
           >
             <Option value="1">Day 1(6/15)</Option>
@@ -90,9 +91,11 @@ export default function MapControl({
 
         {/* 時刻表示 */}
         <div>
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography variant="h5" className="block md:hidden">
             {gtaDateString}
           </Typography>
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography variant="h3" className="hidden md:block">
             {gtaDateString}
           </Typography>
@@ -111,13 +114,16 @@ export default function MapControl({
         className="w-full"
       />
       <div className="flex flex-row gap-6">
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <ButtonGroup variant="outlined">
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <IconButton
             variant="outlined"
             onClick={() => onGtaTimeChange(gtaTimeMin)}
           >
             <FontAwesomeIcon icon={faBackwardStep} />
           </IconButton>
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <IconButton
             variant="outlined"
             onClick={() => onIsPlayingChange(!isPlaying)}
@@ -128,6 +134,7 @@ export default function MapControl({
               <FontAwesomeIcon icon={faPlay} />
             )}
           </IconButton>
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <IconButton
             variant="outlined"
             onClick={() => onGtaTimeChange(gtaTimeMax)}
@@ -135,11 +142,12 @@ export default function MapControl({
             <FontAwesomeIcon icon={faForwardStep} />
           </IconButton>
         </ButtonGroup>
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <Select
           label="再生速度"
           value={playSpeedRatio.toString()}
           onChange={(val) => onPlaySpeedRatioChange(Number(val))}
-          size="sm"
+          size="md"
           menuProps={{ className: "max-h-32 md:max-h-none" }}
         >
           <Option value="1">x1 (等倍)</Option>
@@ -151,6 +159,7 @@ export default function MapControl({
       </div>
       <div className="flex flex-row gap-6 justify-between">
         {/* 表示オプション */}
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <Switch
           label="ルートを表示"
           checked={showRoute}
@@ -158,12 +167,13 @@ export default function MapControl({
           color="green"
         />
         {/* TODO: クリップボードへコピー */}
+        {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <Button
           variant="outlined"
           className="flex item-center gap-3"
           onClick={copyClipboard}
         >
-          <FontAwesomeIcon icon={faCopy} size="lg"/>
+          <FontAwesomeIcon icon={faCopy} size="lg" />
           この時刻のURLをコピー
         </Button>
       </div>

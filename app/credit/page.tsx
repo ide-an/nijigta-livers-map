@@ -18,10 +18,12 @@ export default function Page() {
       </div>
       <div className="h-[calc(100vh-63.5px)] md:h-[calc(100vh-63.5px)] bg-gray-200  overflow-y-scroll">
         <main className="m-4 md:mx-32 md:my-4 p-8 bg-white rounded-md">
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography variant="h2" className="mb-4">
             Credit
           </Typography>
 
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography variant="h5" className="my-4">
             開発・運用
           </Typography>
@@ -38,6 +40,7 @@ export default function Page() {
               <FontAwesomeIcon icon={faSquareGithub} size="xl" />
             </a>
           </p>
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography variant="h5" className="my-4">
             素材、参照情報など
           </Typography>
@@ -68,12 +71,14 @@ export default function Page() {
               を元に改変（組織の構成員として協力者を含めるかなど調整）
             </li>
           </ul>
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Typography variant="h5" className="my-4">
             元動画一覧
           </Typography>
           {liverVideos.map((entry) => {
             return (
               <Fragment key={entry.liver + "-frag"}>
+                {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
                 <Typography variant="h6">{entry.liver}</Typography>
                 <ul className="list-disc pl-4">
                   {entry.videos.map((video) => {
