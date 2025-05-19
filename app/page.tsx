@@ -17,6 +17,7 @@ import { gtaDayTimestamps } from "./data/gta_day_timestamps";
 import { IconButton } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import { useSearchParams } from "next/navigation";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 const useAnimationFrame = (
@@ -76,6 +77,10 @@ function getShareUrl(
   return pageUrl + `?gtaDay=${gtaDay}&gtaTime=${gtaTime}&livers=${liversStr}`;
 }
 
+function orElseInt(param: string | null, defaultParam: number) {
+  return param ? parseInt(param, 10) : defaultParam;
+}
+
 function AnimatedPage({
   selectedLivers,
   handleSelectedLiversChange,
@@ -86,11 +91,23 @@ function AnimatedPage({
   liverSelectComponent: React.ReactNode;
 }) {
   // TODO: share buttonで日付、時間、ライバーを指定したurlにしたい
-  const gtaDay1Timestamp = gtaDayTimestamps[0];
-  const [gtaDay, setGtaDay] = useState(1);
-  const [gtaTime, setGtaTime] = useState(gtaDay1Timestamp.endTimeStamp);
-  const [gtaTimeMin, setGtaTimeMin] = useState(gtaDay1Timestamp.startTimestamp);
-  const [gtaTimeMax, setGtaTimeMax] = useState(gtaDay1Timestamp.endTimeStamp);
+  const defaultGtaDay = 1;
+  const searchParam = useSearchParams();
+  const [gtaDay, setGtaDay] = useState(
+    // search paramがあればそっちで初期化
+    orElseInt(searchParam.get("gtaDay"), defaultGtaDay)
+  );
+  const defaultGtaDayTimestamp =
+    gtaDayTimestamps.find((x) => x.gtaDay == gtaDay) || gtaDayTimestamps[0];
+  const [gtaTime, setGtaTime] = useState(
+    orElseInt(searchParam.get("gtaTime"), defaultGtaDayTimestamp.endTimeStamp)
+  );
+  const [gtaTimeMin, setGtaTimeMin] = useState(
+    defaultGtaDayTimestamp.startTimestamp
+  );
+  const [gtaTimeMax, setGtaTimeMax] = useState(
+    defaultGtaDayTimestamp.endTimeStamp
+  );
   const [isPlaying, setIsPlaying] = useState(false);
   const [showRoute, setShowRoute] = useState(true);
   const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
@@ -195,11 +212,17 @@ function AnimatedPage({
 }
 
 export default function Page() {
+  const searchParam = useSearchParams();
   const [selectedLivers, setSelectedLivers] = useState<Liver[]>(
-    livers.filter((liver) => {
-      // デフォルトでは主催陣
-      return liver.tags.includes("主催");
-    })
+    searchParam.get("livers")
+      ? // search paramがあればそっちで初期化
+        livers.filter((liver) => {
+          return searchParam.get("livers")?.split(",").includes(liver.id);
+        })
+      : livers.filter((liver) => {
+          // デフォルトでは主催陣
+          return liver.tags.includes("主催");
+        })
   );
 
   const handleSelectedLiversChange = (livers: Liver[]) => {
