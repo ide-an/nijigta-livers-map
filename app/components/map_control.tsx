@@ -7,12 +7,14 @@ import {
   Option,
   Switch,
   Typography,
+  Button,
 } from "@material-tailwind/react";
 import { Liver } from "../data/liver";
 import { formatInTimeZone } from "date-fns-tz";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBackwardStep,
+  faCopy,
   faForwardStep,
   faPause,
   faPlay,
@@ -33,6 +35,7 @@ export default function MapControl({
   onShowRouteChange,
   onPlaySpeedRatioChange,
   liverSelectComponent,
+  shareUrl,
 }: {
   selectedLivers: Liver[];
   gtaDay: number; // 1 - 10
@@ -48,6 +51,7 @@ export default function MapControl({
   onShowRouteChange: (show: boolean) => void;
   onPlaySpeedRatioChange: (ratio: number) => void;
   liverSelectComponent: React.ReactNode;
+  shareUrl: string;
 }) {
   // console.time("MapControl render");
   // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
@@ -56,11 +60,15 @@ export default function MapControl({
   };
 
   const gtaDate = new Date(gtaTime * 1000);
-  const gtaDateString = formatInTimeZone(
-    gtaDate,
-    "Asia/Tokyo",
-    "M/d HH:mm:ss"
-  );
+  const gtaDateString = formatInTimeZone(gtaDate, "Asia/Tokyo", "M/d HH:mm:ss");
+
+  const copyClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+    } catch (error) {
+      console.log("copyClipboard failed:", error);
+    }
+  };
   // console.timeEnd("MapControl render");
   return (
     <div className="flex flex-col gap-6 py-6 px-4 overflow-y-hidden md:max-h-full h-full">
@@ -149,14 +157,24 @@ export default function MapControl({
           <Option value="3600">x3600 (1秒 = 60分)</Option>
         </Select>
       </div>
-      {/* 表示オプション */}
-      <Switch
-        label="ルートを表示"
-        checked={showRoute}
-        onChange={(ev) => onShowRouteChange(ev.target.checked)}
-        color="green"
-      />
-
+      <div className="flex flex-row gap-6 justify-between">
+        {/* 表示オプション */}
+        <Switch
+          label="ルートを表示"
+          checked={showRoute}
+          onChange={(ev) => onShowRouteChange(ev.target.checked)}
+          color="green"
+        />
+        {/* TODO: クリップボードへコピー */}
+        <Button
+          variant="outlined"
+          className="flex item-center gap-3"
+          onClick={copyClipboard}
+        >
+          <FontAwesomeIcon icon={faCopy} size="lg"/>
+          この時刻のURLをコピー
+        </Button>
+      </div>
       {liverSelectComponent}
     </div>
   );

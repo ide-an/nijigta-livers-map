@@ -62,6 +62,20 @@ function ErrorAlert() {
   );
 }
 
+function getShareUrl(
+  location: Location | undefined,
+  gtaDay: number,
+  gtaTime: number,
+  selectedLivers: Liver[]
+) {
+  if (!location) {
+    return "";
+  }
+  const liversStr = selectedLivers.map((liver) => liver.id).join(",");
+  const pageUrl = location.origin + location.pathname;
+  return pageUrl + `?gtaDay=${gtaDay}&gtaTime=${gtaTime}&livers=${liversStr}`;
+}
+
 function AnimatedPage({
   selectedLivers,
   handleSelectedLiversChange,
@@ -80,6 +94,7 @@ function AnimatedPage({
   const [isPlaying, setIsPlaying] = useState(false);
   const [showRoute, setShowRoute] = useState(true);
   const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
+  const [location, setLocation] = useState<Location>();
   // GTAの時間を更新する
   useAnimationFrame(
     (deltaTime) => {
@@ -97,6 +112,9 @@ function AnimatedPage({
     },
     [isPlaying, playSpeedRatio]
   );
+  useEffect(() => {
+    setLocation(window.location);
+  }, []);
 
   const { data, error } = useSWR(
     filterLiverProbesByGtaDayAndLivers(liverProbes, gtaDay, selectedLivers).map(
@@ -135,6 +153,7 @@ function AnimatedPage({
     setPlaySpeedRatio(ratio);
     console.log("playSpeedRatio", ratio.toString());
   };
+  const shareUrl = getShareUrl(location, gtaDay, gtaTime, selectedLivers);
 
   return (
     <div className="flex flex-col h-screen">
@@ -166,6 +185,7 @@ function AnimatedPage({
             onShowRouteChange={handleShowRouteChange}
             onPlaySpeedRatioChange={handlePlaySpeedRatioChange}
             liverSelectComponent={liverSelectComponent}
+            shareUrl={shareUrl}
           />
         </div>
       </div>
