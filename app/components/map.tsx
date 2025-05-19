@@ -141,7 +141,7 @@ function Map({
   const [markerVectorSource, setMarkerVectorSource] =
     useState<VectorSrouce | null>(null);
   // popupの管理系
-  const popupRef = useRef<HTMLDivElement>(null);
+  const popupRef = useRef<HTMLDivElement | null>(null);
   const [popupUrls, setPopupUrls] = useState<string[]>([]);
   const [popupNames, setPopupNames] = useState<string[]>([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
