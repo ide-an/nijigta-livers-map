@@ -14,7 +14,7 @@ import useSWR from "swr";
 import LiverSelectDialog from "./components/liver_select_dialog";
 import { NavbarDefault } from "./components/navbar";
 import { gtaDayTimestamps } from "./data/gta_day_timestamps";
-import { Alert, Drawer, IconButton, Typography } from "@material-tailwind/react";
+import { IconButton } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 
@@ -48,20 +48,17 @@ function ErrorAlert() {
   // const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
   return (
-    <Drawer open={open} onClose={closeDrawer} placement="top" className="p-4">
-      <div className="mb-6 flex items-center justify-between">
-        <Typography variant="h5" color="blue-gray">
-          エラー
-        </Typography>
-
-        <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
-          <FontAwesomeIcon icon={faX}/>
-        </IconButton>
-      </div>
-      <Typography color="gray" className="mb-8 pr-4 font-normal">
-        ライバー経路情報の読み込みに失敗しました。
-      </Typography>
-    </Drawer>
+    <div
+      className={
+        "flex flex-row fixed bottom-2 justify-between rounded-xl bg-blue-gray-800 text-white w-full md:w-1/2 p-4 z-99" +
+        (open ? " block" : " hidden")
+      }
+    >
+      <p>ライバー経路情報の読み込みに失敗しました。</p>
+      <IconButton onClick={closeDrawer}>
+        <FontAwesomeIcon icon={faX} />
+      </IconButton>
+    </div>
   );
 }
 
@@ -110,7 +107,6 @@ function AnimatedPage({
   // probeの取得に失敗した場合のエラーハンドリング
   if (error) {
     console.log("failed to load liver probe", error);
-    // alert("ライバー経路情報の読み込みに失敗しました。");
   }
   const probes = data || [];
 
