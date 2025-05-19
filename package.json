@@ -21,7 +21,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-virtuoso": "^4.12.6",
-    "swr": "^2.3.3"
+    "swr": "^2.3.3",
+    "wanakana": "^5.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

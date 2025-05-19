@@ -12,6 +12,7 @@ import { Liver } from "../data/liver";
 import livers from "../data/livers.json";
 import { Virtuoso } from "react-virtuoso";
 import { LiverInfo } from "./liver_info";
+import { isHiragana, toRomaji } from "wanakana";
 
 function removeDuplicates(array: Liver[]): Liver[] {
   const uniqueIds = new Set(array.map((item) => item.id));
@@ -40,10 +41,13 @@ export default function LiverSelectDialog({
   //   console.timeLog("LiverSelectDialog render", "open", open);
   const filteredLivers = livers.filter((liver) => {
     const lowerQuery = query.toLowerCase();
+    // 変換前のクエリはromanで当てる
+    const romanQuery = isHiragana(lowerQuery) ? toRomaji(lowerQuery) : lowerQuery;
     return (
       query === "" ||
       liver.name.toLowerCase().includes(lowerQuery) ||
       liver.enName.toLowerCase().includes(lowerQuery) ||
+      liver.enName.toLowerCase().includes(romanQuery) ||
       liver.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
     );
   });
