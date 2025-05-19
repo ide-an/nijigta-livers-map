@@ -14,6 +14,9 @@ import useSWR from "swr";
 import LiverSelectDialog from "./components/liver_select_dialog";
 import { NavbarDefault } from "./components/navbar";
 import { gtaDayTimestamps } from "./data/gta_day_timestamps";
+import { Alert, Drawer, IconButton, Typography } from "@material-tailwind/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
 const useAnimationFrame = (
@@ -39,6 +42,28 @@ const useAnimationFrame = (
     return () => cancelAnimationFrame(requestRef.current);
   }, dependencies);
 };
+
+function ErrorAlert() {
+  const [open, setOpen] = useState(true);
+  // const openDrawer = () => setOpen(true);
+  const closeDrawer = () => setOpen(false);
+  return (
+    <Drawer open={open} onClose={closeDrawer} placement="top" className="p-4">
+      <div className="mb-6 flex items-center justify-between">
+        <Typography variant="h5" color="blue-gray">
+          エラー
+        </Typography>
+
+        <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
+          <FontAwesomeIcon icon={faX}/>
+        </IconButton>
+      </div>
+      <Typography color="gray" className="mb-8 pr-4 font-normal">
+        ライバー経路情報の読み込みに失敗しました。
+      </Typography>
+    </Drawer>
+  );
+}
 
 function AnimatedPage({
   selectedLivers,
@@ -82,7 +107,11 @@ function AnimatedPage({
     ),
     getProbesFetcher
   );
-  // TODO: probeの取得に失敗した場合のエラーハンドリング
+  // probeの取得に失敗した場合のエラーハンドリング
+  if (error) {
+    console.log("failed to load liver probe", error);
+    // alert("ライバー経路情報の読み込みに失敗しました。");
+  }
   const probes = data || [];
 
   const handleGtaDayChange = (day: number) => {
@@ -144,6 +173,7 @@ function AnimatedPage({
           />
         </div>
       </div>
+      {error ? <ErrorAlert /> : ""}
     </div>
   );
 }
@@ -154,7 +184,7 @@ export default function Page() {
       // デフォルトでは主催陣
       return liver.tags.includes("主催");
     })
-  ); 
+  );
 
   const handleSelectedLiversChange = (livers: Liver[]) => {
     setSelectedLivers(livers);
