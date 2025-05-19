@@ -3,7 +3,7 @@ import Map from "./components/map";
 import MapControl from "./components/map_control";
 import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
-import { DependencyList, useEffect, useMemo, useRef, useState } from "react";
+import { DependencyList, useEffect, useRef, useState } from "react";
 import LiverList from "./components/liver_list"; // Adjust the path as needed
 import {
   filterLiverProbesByGtaDayAndLivers,
@@ -41,7 +41,7 @@ const useAnimationFrame = (
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
-  }, dependencies);
+  }, dependencies); // eslint-disable-line react-hooks/exhaustive-deps
 };
 
 function ErrorAlert() {
@@ -83,11 +83,9 @@ function orElseInt(param: string | null, defaultParam: number) {
 
 function AnimatedPage({
   selectedLivers,
-  handleSelectedLiversChange,
   liverSelectComponent,
 }: {
   selectedLivers: Liver[];
-  handleSelectedLiversChange: (livers: Liver[]) => void;
   liverSelectComponent: React.ReactNode;
 }) {
   // TODO: share buttonで日付、時間、ライバーを指定したurlにしたい
@@ -188,7 +186,6 @@ function AnimatedPage({
         </div>
         <div className="w-full h-80 md:w-128 md:h-full bg-gray-200 overflow-y-hidden">
           <MapControl
-            selectedLivers={selectedLivers}
             gtaDay={gtaDay}
             gtaTime={gtaTime}
             gtaTimeMin={gtaTimeMin}

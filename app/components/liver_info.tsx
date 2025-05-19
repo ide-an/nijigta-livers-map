@@ -16,7 +16,7 @@ export function LiverInfo({ liver }: { liver: Liver }) {
       <div className="grow">
         <Typography variant="h6">{liver.name}</Typography>
         <div className="flex flex-wrap gap-2">
-          {liver.tags.map((tag, index) => (
+          {liver.tags.map((tag) => (
             <Chip value={tag} key={liver.name + "_" + tag} size="sm" />
           ))}
         </div>

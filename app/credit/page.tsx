@@ -4,10 +4,8 @@ import { NavbarDefault } from "../components/navbar";
 import TextLink from "../components/text_link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faGithub,
   faSquareGithub,
   faSquareXTwitter,
-  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import liverVideos from "../data/liver_videos.json";
 import { Fragment } from "react";

@@ -1,6 +1,6 @@
 "use client";
 import { Liver } from "./liver";
-import { Probe, ProbePoint } from "./probe";
+import { Probe } from "./probe";
 import livers from "./livers.json";
 // import useSWR from "swr";
 

@@ -287,7 +287,15 @@ function Map({
     if (map) {
       map.render();
     }
-  }, [probes, gtaTime, showRoute, isPlaying, map]);
+  }, [
+    probes,
+    gtaTime,
+    showRoute,
+    isPlaying,
+    map,
+    routeVectorSource,
+    markerVectorSource,
+  ]);
 
   return (
     <>

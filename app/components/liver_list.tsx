@@ -2,10 +2,6 @@ import { Typography } from "@material-tailwind/react";
 import { Liver } from "../data/liver";
 import { LiverInfo } from "./liver_info";
 
-// ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
-const toBorderColorClass = (liver: Liver) => {
-  return `border-${liver.id}-500`;
-};
 export default function LiverList({ livers }: { livers: Liver[] }) {
   console.log("LiverList render", livers.length);
   return (

@@ -9,7 +9,6 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import { Liver } from "../data/liver";
 import { formatInTimeZone } from "date-fns-tz";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,7 +20,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function MapControl({
-  selectedLivers,
   gtaDay,
   gtaTime,
   gtaTimeMin,
@@ -37,7 +35,6 @@ export default function MapControl({
   liverSelectComponent,
   shareUrl,
 }: {
-  selectedLivers: Liver[];
   gtaDay: number; // 1 - 10
   gtaTime: number; // unix timestamp
   gtaTimeMin: number; // unix timestamp
@@ -54,11 +51,6 @@ export default function MapControl({
   shareUrl: string;
 }) {
   // console.time("MapControl render");
-  // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
-  const toBorderColorClass = (liver: any) => {
-    return `border-${liver.id}-500`;
-  };
-
   const gtaDate = new Date(gtaTime * 1000);
   const gtaDateString = formatInTimeZone(gtaDate, "Asia/Tokyo", "M/d HH:mm:ss");
 
