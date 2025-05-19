@@ -3,7 +3,7 @@ import Map from "./components/map";
 import MapControl from "./components/map_control";
 import livers from "./data/livers.json";
 import { Liver } from "./data/liver";
-import { DependencyList, useEffect, useRef, useState } from "react";
+import { DependencyList, Suspense, useEffect, useRef, useState } from "react";
 import LiverList from "./components/liver_list"; // Adjust the path as needed
 import {
   filterLiverProbesByGtaDayAndLivers,
@@ -209,7 +209,7 @@ function AnimatedPage({
   );
 }
 
-export default function Page() {
+function ParameterizedPage() {
   const searchParam = useSearchParams();
   const [selectedLivers, setSelectedLivers] = useState<Liver[]>(
     searchParam.get("livers")
@@ -244,4 +244,14 @@ export default function Page() {
       }
     />
   );
+}
+
+export default function Page() {
+  // useSearchParamsのエラー回避のためにcomponentを分けているが…
+  // See https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+  return (
+    <Suspense>
+      <ParameterizedPage/>
+    </Suspense>
+  )
 }
