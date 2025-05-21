@@ -300,11 +300,6 @@
     "probePath": "probes/dola_7_1718976820.0.json"
   },
   {
-    "gtaDay": 7,
-    "liverId": "dola",
-    "probePath": "probes/dola_7_1718977946.567042.json"
-  },
-  {
     "gtaDay": 8,
     "liverId": "dola",
     "probePath": "probes/dola_8_1719063017.0.json"
@@ -648,11 +643,6 @@
     "gtaDay": 1,
     "liverId": "ha-yun",
     "probePath": "probes/ha-yun_1_1718445835.0.json"
-  },
-  {
-    "gtaDay": 2,
-    "liverId": "ha-yun",
-    "probePath": "probes/ha-yun_2_1718539272.0.json"
   },
   {
     "gtaDay": 3,
@@ -1398,11 +1388,6 @@
     "gtaDay": 7,
     "liverId": "kei-nagao",
     "probePath": "probes/kei-nagao_7_1718975391.0.json"
-  },
-  {
-    "gtaDay": 7,
-    "liverId": "kei-nagao",
-    "probePath": "probes/kei-nagao_7_1718976203.763214.json"
   },
   {
     "gtaDay": 9,
@@ -3923,11 +3908,6 @@
     "gtaDay": 7,
     "liverId": "yusei-kitami",
     "probePath": "probes/yusei-kitami_7_1718982046.0.json"
-  },
-  {
-    "gtaDay": 7,
-    "liverId": "yusei-kitami",
-    "probePath": "probes/yusei-kitami_7_1719186322.654165.json"
   },
   {
     "gtaDay": 8,
