@@ -69,6 +69,7 @@ const createMarkerFeature = (
     liverName: liver.name,
     liverId: liver.id,
   });
+  // TODO: すでにログアウトした場合は透明度変えるなどわかりやすくしたほうがいい？
   feature.setStyle(
     new Style({
       image: new Icon({

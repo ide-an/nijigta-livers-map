@@ -89,7 +89,6 @@ function AnimatedPage({
   selectedLivers: Liver[];
   liverSelectComponent: React.ReactNode;
 }) {
-  // TODO: share buttonで日付、時間、ライバーを指定したurlにしたい
   const defaultGtaDay = 1;
   const searchParam = useSearchParams();
   const [gtaDay, setGtaDay] = useState(

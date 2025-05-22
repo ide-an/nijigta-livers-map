@@ -166,7 +166,6 @@ export default function MapControl({
           onChange={(ev) => onShowRouteChange(ev.target.checked)}
           color="green"
         />
-        {/* TODO: クリップボードへコピー */}
         {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <Button
           variant="outlined"
