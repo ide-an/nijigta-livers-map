@@ -151,10 +151,10 @@ export default function MapControl({
           menuProps={{ className: "max-h-32 md:max-h-none" }}
         >
           <Option value="1">x1 (等倍)</Option>
+          <Option value="10">x60 (1秒 = 10秒)</Option>
           <Option value="60">x60 (1秒 = 1分)</Option>
           <Option value="300">x300 (1秒 = 5分)</Option>
           <Option value="1800">x1800 (1秒 = 30分)</Option>
-          <Option value="3600">x3600 (1秒 = 60分)</Option>
         </Select>
       </div>
       <div className="flex flex-row gap-6 justify-between">
