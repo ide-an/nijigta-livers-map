@@ -57,7 +57,8 @@ const createRouteLineFeature = (
 const createMarkerFeature = (
   probePoint: ProbePoint,
   liver: Liver,
-  probe: Probe
+  probe: Probe,
+  allPointsVisited: boolean
 ) => {
   const point = new Point(toMapCoord(probePoint));
   // console.log("probepoint", probePoint);
@@ -69,13 +70,12 @@ const createMarkerFeature = (
     liverName: liver.name,
     liverId: liver.id,
   });
-  // TODO: すでにログアウトした場合は透明度変えるなどわかりやすくしたほうがいい？
   feature.setStyle(
     new Style({
       image: new Icon({
         src: liver.markerImageUrl,
         anchor: [0.5, 1.0],
-        scale: 0.7,
+        scale:  allPointsVisited ? 0.5 : 0.7, // ログアウトしているライバーは小さめ
       }),
     })
   );
@@ -250,12 +250,14 @@ function Map({
       }
       const nextPointIndex = findNextPointIndex(probePoints, gtaTime);
       let visitedPoints: ProbePoint[] = [];
+      let allPointsVisited = false;
       if (nextPointIndex === 0) {
         // まだ点がない
         continue;
       } else if (nextPointIndex === -1) {
         // すべての点を通過している
         visitedPoints = probePoints;
+        allPointsVisited = true;
       } else {
         //  次の点を補間で追加する
         visitedPoints = probePoints.slice(0, nextPointIndex);
@@ -280,7 +282,8 @@ function Map({
       const markerFeature = createMarkerFeature(
         visitedPoints[visitedPoints.length - 1],
         probe.liver,
-        probe
+        probe,
+        allPointsVisited
       );
       markerVectorSource.addFeature(markerFeature);
     }
