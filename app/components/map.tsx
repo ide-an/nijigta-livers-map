@@ -18,9 +18,11 @@ import Icon from "ol/style/Icon";
 import VectorImageLayer from "ol/layer/VectorImage";
 import VectorLayer from "ol/layer/Vector";
 import { createPortal } from "react-dom";
+import nextConfig from "@/next.config";
 
 const mapImageWidth = 6144;
 const mapImageHeight = 9216;
+const BASEPATH = nextConfig.basePath || "";
 
 const toMapCoord = (point: ProbePoint) => {
   return [point.x, mapImageHeight - point.y];
@@ -168,7 +170,7 @@ function Map({
     });
     const mapLayer = new ImageLayer({
       source: new Static({
-        url: "/img/map.png",
+        url: BASEPATH + "/img/map.png",
         projection: projection,
         imageExtent: extent,
       }),

@@ -1,6 +1,8 @@
 import { Avatar, Chip, Typography } from "@material-tailwind/react";
 import { Liver } from "../data/liver";
+import nextConfig from "@/next.config";
 
+const BASEPATH = nextConfig.basePath || "";
 // ライバーカラーのborder。 globals.cssでsafelistに追加しているクラスと対応する
 const toBorderColorClass = (liver: Liver) => {
   return `border-${liver.id}-500`;
@@ -11,7 +13,7 @@ export function LiverInfo({ liver }: { liver: Liver }) {
     <>
       {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
       <Avatar
-        src={liver.imageUrl}
+        src={BASEPATH + liver.imageUrl}
         className={`border-2 ${toBorderColorClass(liver)} flex-none`}
       />
       <div className="grow">
