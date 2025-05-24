@@ -75,9 +75,9 @@ const createMarkerFeature = (
   feature.setStyle(
     new Style({
       image: new Icon({
-        src: liver.markerImageUrl,
+        src: BASEPATH + liver.markerImageUrl,
         anchor: [0.5, 1.0],
-        scale:  allPointsVisited ? 0.5 : 0.7, // ログアウトしているライバーは小さめ
+        scale: allPointsVisited ? 0.5 : 0.7, // ログアウトしているライバーは小さめ
       }),
     })
   );
