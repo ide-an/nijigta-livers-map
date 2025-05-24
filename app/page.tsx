@@ -249,8 +249,11 @@ export default function Page() {
   // useSearchParamsのエラー回避のためにcomponentを分けているが…
   // See https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
   return (
-    <Suspense>
-      <ParameterizedPage/>
-    </Suspense>
-  )
+    <>
+      <title>にじGTAライバーMAP</title>
+      <Suspense>
+        <ParameterizedPage />
+      </Suspense>
+    </>
+  );
 }
