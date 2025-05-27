@@ -175,7 +175,7 @@ function AnimatedPage({
       <div className="h-[63.5px] md:h-[63.5px]">
         <NavbarDefault />
       </div>
-      <div className="flex flex-col md:flex-row h-[calc(100vh-63.5px)] md:h-[calc(100vh-63.5px)]">
+      <div className="flex flex-col md:flex-row h-[calc(100vh-63.5px)] md:h-[calc(100vh-63.5px)] bg-white">
         <div className="flex-grow">
           <Map
             probes={probes}
@@ -184,7 +184,7 @@ function AnimatedPage({
             isPlaying={isPlaying}
           />
         </div>
-        <div className="w-full h-80 md:w-128 md:h-full bg-gray-200 overflow-y-hidden">
+        <div className="w-full h-80 md:w-128 md:h-full bg-gray-200 text-black overflow-y-hidden">
           <MapControl
             gtaDay={gtaDay}
             gtaTime={gtaTime}
