@@ -3860,6 +3860,11 @@
     "probePath": "probes/yang-nari_6_1718885921.443019.json"
   },
   {
+    "gtaDay": 9,
+    "liverId": "yotsuha-umise",
+    "probePath": "probes/yotsuha-umise_9_1719140745.0.json"
+  },
+  {
     "gtaDay": 5,
     "liverId": "yuika-shiina",
     "probePath": "probes/yuika-shiina_5_1718798465.0.json"
