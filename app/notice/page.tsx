@@ -6,11 +6,11 @@ export default function Page() {
   return (
     <>
       <title>注意事項 | にじGTAライバーMAP</title>
-      <div className="flex flex-col h-screen">
-        <div className="h-[63.5px] md:h-[63.5px]">
+      <div className="flex flex-col h-dvh">
+        <div className="md:h-[63.5px]">
           <NavbarDefault />
         </div>
-        <div className="h-[calc(100vh-63.5px)] md:h-[calc(100vh-63.5px)] bg-gray-200 text-black overflow-y-scroll">
+        <div className="h-full md:h-[calc(100vh-63.5px)] bg-gray-200 text-black overflow-y-scroll">
           <main className="m-4 md:mx-32 md:my-4 p-8 bg-white rounded-md">
             {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
             <Typography variant="h2" className="mb-4">

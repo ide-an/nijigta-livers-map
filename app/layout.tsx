@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <ThemeProvider value={theme}>
       <html lang="ja">
-        <body>{children}</body>
+        <body className="h-dvh">{children}</body>
       </html>
     </ThemeProvider>
   );
