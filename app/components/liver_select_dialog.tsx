@@ -105,7 +105,7 @@ export default function LiverSelectDialog({
                   全選択
                 </Button>
               </div>
-              <div className="overflow-y-auto md:h-96 h-48 border pl-2">
+              <div className="overflow-y-auto md:h-96 h-[calc(20dvh)] border pl-2">
                 <Virtuoso
                   data={filteredLivers}
                   itemContent={(_, liver) => (
@@ -154,7 +154,7 @@ export default function LiverSelectDialog({
                   全解除
                 </Button>
               </div>
-              <div className="overflow-y-auto md:h-96 h-48 border pl-2">
+              <div className="overflow-y-auto md:h-96 h-[calc(20dvh)] border pl-2">
                 <Virtuoso
                   data={selectedLivers}
                   itemContent={(_, liver) => (
