@@ -190,6 +190,7 @@ function AnimatedPage({
           />
         </div>
         <div className="block md:hidden">
+          {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
           <Button
             fullWidth
             variant="text"
