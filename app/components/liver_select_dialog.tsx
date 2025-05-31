@@ -105,7 +105,7 @@ export default function LiverSelectDialog({
                   全選択
                 </Button>
               </div>
-              <div className="overflow-y-auto md:h-96 h-[calc(20dvh)] border pl-2">
+              <div className="overflow-y-auto md:h-96 h-[calc(15dvh)] border pl-2">
                 <Virtuoso
                   data={filteredLivers}
                   itemContent={(_, liver) => (
@@ -144,7 +144,7 @@ export default function LiverSelectDialog({
             {/* 選択済みのライバー一覧 */}
             <div className="flex-1">
               {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
-              <Typography variant="h5" className="mb-4">
+              <Typography variant="h6" className="mb-4">
                 選択中のライバー
               </Typography>
               {/* 左右で位置を揃えるためのpt */}
@@ -154,7 +154,7 @@ export default function LiverSelectDialog({
                   全解除
                 </Button>
               </div>
-              <div className="overflow-y-auto md:h-96 h-[calc(20dvh)] border pl-2">
+              <div className="overflow-y-auto md:h-96 h-[calc(15dvh)] border pl-2">
                 <Virtuoso
                   data={selectedLivers}
                   itemContent={(_, liver) => (

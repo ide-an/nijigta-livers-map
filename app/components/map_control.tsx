@@ -73,7 +73,7 @@ export default function MapControl({
             value={gtaDay.toString()}
             onChange={(val) => onGtaDayChange(Number(val))}
             size="md"
-            menuProps={{ className: "max-h-48 md:max-h-none" }}
+            menuProps={{ className: "max-h-32 md:max-h-none" }}
           >
             <Option value="1">Day 1(6/15)</Option>
             <Option value="2">Day 2(6/16)</Option>
@@ -161,7 +161,7 @@ export default function MapControl({
         {/* 表示オプション */}
         {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <Switch
-          label="ルートを表示"
+          label="ルート表示"
           checked={showRoute}
           onChange={(ev) => onShowRouteChange(ev.target.checked)}
           color="green"
@@ -169,6 +169,7 @@ export default function MapControl({
         {/* @ts-expect-error: material-tailwind由来の型エラー。 See https://github.com/creativetimofficial/material-tailwind/issues/528 */}
         <Button
           variant="outlined"
+          size="sm"
           className="flex item-center gap-3"
           onClick={copyClipboard}
         >

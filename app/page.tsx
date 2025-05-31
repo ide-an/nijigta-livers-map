@@ -14,9 +14,9 @@ import useSWR from "swr";
 import LiverSelectDialog from "./components/liver_select_dialog";
 import { NavbarDefault } from "./components/navbar";
 import { gtaDayTimestamps } from "./data/gta_day_timestamps";
-import { IconButton } from "@material-tailwind/react";
+import { Button, IconButton } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp, faX } from "@fortawesome/free-solid-svg-icons";
 import { useSearchParams } from "next/navigation";
 
 // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
@@ -110,6 +110,7 @@ function AnimatedPage({
   const [showRoute, setShowRoute] = useState(true);
   const [playSpeedRatio, setPlaySpeedRatio] = useState(1); // 何倍速か
   const [location, setLocation] = useState<Location>();
+  const [openMapControl, setOpenMapControl] = useState(false);
   // GTAの時間を更新する
   useAnimationFrame(
     (deltaTime) => {
@@ -169,7 +170,11 @@ function AnimatedPage({
     console.log("playSpeedRatio", ratio.toString());
   };
   const shareUrl = getShareUrl(location, gtaDay, gtaTime, selectedLivers);
+  const mapControlClass = openMapControl ? "h-80" : "h-48";
 
+  const handleMapControlToggle = () => {
+    setOpenMapControl((prev) => !prev);
+  };
   return (
     <div className="flex flex-col h-dvh">
       <div className="md:h-[63.5px]">
@@ -184,7 +189,24 @@ function AnimatedPage({
             isPlaying={isPlaying}
           />
         </div>
-        <div className="w-full h-80 md:w-128 md:h-full bg-gray-200 text-black overflow-y-hidden">
+        <div className="block md:hidden">
+          <Button
+            fullWidth
+            variant="text"
+            size="sm"
+            className="bg-gray-300 text-black rounded-none"
+            onClick={handleMapControlToggle}
+          >
+            {openMapControl ? (
+              <FontAwesomeIcon icon={faAngleDown} />
+            ) : (
+              <FontAwesomeIcon icon={faAngleUp} />
+            )}
+          </Button>
+        </div>
+        <div
+          className={`w-full ${mapControlClass} md:w-128 md:h-full bg-gray-200 text-black overflow-y-hidden`}
+        >
           <MapControl
             gtaDay={gtaDay}
             gtaTime={gtaTime}
