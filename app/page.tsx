@@ -12,7 +12,6 @@ import {
 import liverProbes from "./data/liver_probes.json";
 import useSWR from "swr";
 import LiverSelectDialog from "./components/liver_select_dialog";
-import { NavbarDefault } from "./components/navbar";
 import { gtaDayTimestamps } from "./data/gta_day_timestamps";
 import { Button, IconButton } from "@material-tailwind/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -176,12 +175,9 @@ function AnimatedPage({
     setOpenMapControl((prev) => !prev);
   };
   return (
-    <div className="flex flex-col h-dvh">
-      <div className="md:h-[63.5px]">
-        <NavbarDefault />
-      </div>
-      <div className="flex flex-col md:flex-row h-full md:h-[calc(100vh-63.5px)] bg-white">
-        <div className="flex-grow">
+    <>
+      <div className="flex flex-col md:flex-row h-full">
+        <div className="flex-grow bg-white">
           <Map
             probes={probes}
             gtaTime={gtaTime}
@@ -227,7 +223,7 @@ function AnimatedPage({
         </div>
       </div>
       {error ? <ErrorAlert /> : ""}
-    </div>
+    </>
   );
 }
 

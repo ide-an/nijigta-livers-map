@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-tailwind/react";
 // See https://docs.fontawesome.com/web/use-with/react/use-with
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { NavbarDefault } from "./components/navbar";
 config.autoAddCss = false;
 
 export default function RootLayout({
@@ -35,7 +36,16 @@ export default function RootLayout({
   return (
     <ThemeProvider value={theme}>
       <html lang="ja">
-        <body className="h-dvh">{children}</body>
+        <body className="h-dvh">
+          <div className="flex flex-col h-dvh">
+            <div className="md:h-[63.5px]">
+              <NavbarDefault />
+            </div>
+            <div className="h-full md:h-[calc(100vh-63.5px)] bg-gray-200 text-black overflow-y-scroll">
+              {children}
+            </div>
+          </div>
+        </body>
       </html>
     </ThemeProvider>
   );
