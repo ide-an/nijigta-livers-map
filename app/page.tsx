@@ -161,12 +161,18 @@ function AnimatedPage({
     console.log("show", show);
   };
   const handleIsPlayingChange = (isPlaying: boolean) => {
+    if(isAtMaxTime()) {
+      setGtaTime(gtaTimeMin);
+    }
     setIsPlaying(isPlaying);
     console.log("isPlaying", isPlaying);
   };
   const handlePlaySpeedRatioChange = (ratio: number) => {
     setPlaySpeedRatio(ratio);
     console.log("playSpeedRatio", ratio.toString());
+  };
+  const isAtMaxTime = () => {
+    return gtaTime === gtaTimeMax
   };
   const shareUrl = getShareUrl(location, gtaDay, gtaTime, selectedLivers);
   const mapControlClass = openMapControl ? "h-80" : "h-48";
